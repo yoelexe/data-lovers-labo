@@ -1,0 +1,78 @@
+:root {
+    --fuenteHeading: "PT Sans", sans-serif;
+    --fuenteParrafos: "Open Sans", sans-serif;
+    --primario: #784d3c;
+    --blanco: #ffff;
+    --negro: #000;
+    --gris: #e1e1e1;
+
+}
+
+
+body {
+    margin: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+}
+
+main {
+    height: 820px;
+}
+
+video {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+
+}
+
+.bosque {
+    background-image: url(../img/bg-bottom.webp);
+    height: 820px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.hechizos__marco {
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 0;
+    overflow: hidden;
+    padding-top: 130.9375%;
+    perspective: 900px;
+    perspective-origin: 50%;
+    position: relative;
+}
+
+.hechizos__imagen {
+    height: auto;
+    left: 10%;
+    position: absolute;
+    top: 15%;
+    transition: transform .5s ease, opacity .3s;
+    transition-delay: .5s;
+    width: 80%;
+}
+
+.footer {
+    margin: 0;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--gris);
+}
