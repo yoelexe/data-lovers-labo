@@ -33,27 +33,9 @@ h1 {
     text-align: center;
 }
 
-
-section.bosque {
-    background-image: url(../img/bg-bottom.webp);
-    background-color: #171e1d;
-    background-position: top;
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 850px;
-    padding: 0 30px 30px;
-    position: relative;
+button {
+    background-color: var(--gris);
 }
-
-
-section.hechizos__imagen {
-    height: auto;
-    left: 25%;
-    position: absolute;
-    top: 25%;
-
-}
-
 
 .grid {
     display: grid;
