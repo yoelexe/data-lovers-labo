@@ -8,7 +8,6 @@
 
 }
 
-
 body {
     margin: 0;
 }
@@ -19,7 +18,7 @@ body {
 }
 
 main {
-    height: 820px;
+    height: 620px;
 }
 
 video {
@@ -27,12 +26,27 @@ video {
     left: 0;
     top: 0;
     z-index: -1;
+}
 
+
+h1 {
+    text-align: center;
 }
 
 .bosque {
+
     background-image: url(../img/bg-bottom.webp);
-    height: 820px;
+    background-color: #171e1d;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 850px;
+    padding: 0 30px 30px;
+    position: relative;
+}
+
+.bosque__imagen{
+    
 }
 
 .grid {
@@ -47,32 +61,13 @@ video {
     }
 }
 
-.hechizos__marco {
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    background-size: contain;
-    height: 0;
-    overflow: hidden;
-    padding-top: 130.9375%;
-    perspective: 900px;
-    perspective-origin: 50%;
-    position: relative;
-}
-
-.hechizos__imagen {
-    height: auto;
-    left: 10%;
-    position: absolute;
-    top: 15%;
-    transition: transform .5s ease, opacity .3s;
-    transition-delay: .5s;
-    width: 80%;
-}
 
 .footer {
+    background: linear-gradient(380deg, rgba(5, 5, 5, 0), #171e1d);
     margin: 0;
     text-align: center;
     font-weight: bold;
     font-size: 1.2rem;
     color: var(--gris);
+
 }
