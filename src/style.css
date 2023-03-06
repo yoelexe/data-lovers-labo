@@ -33,8 +33,8 @@ h1 {
     text-align: center;
 }
 
-.bosque {
 
+section.bosque {
     background-image: url(../img/bg-bottom.webp);
     background-color: #171e1d;
     background-position: top;
@@ -45,9 +45,15 @@ h1 {
     position: relative;
 }
 
-.bosque__imagen{
-    
+
+section.hechizos__imagen {
+    height: auto;
+    left: 25%;
+    position: absolute;
+    top: 25%;
+
 }
+
 
 .grid {
     display: grid;
