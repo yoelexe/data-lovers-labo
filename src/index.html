@@ -7,19 +7,22 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
   </head>
+  	
   <body>
+      <main>
+      <div class="house">
+			<a class="navegacion" href="index.html"><i class="fa-solid fa-house-user"></i> </a> </div>
+            <button type="button" class="boton__hechizos"><i class="fa-solid fa-wand-sparkles"
+					alt="Hechizos">  </i> <span>Hechizos</span></button> 
+			<button type="button" class="boton__libros"><i class="fa-solid fa-book-quran"
+					alt="Libros"></i> <span>Libros</span></button>
+			<button type="button" class="boton__casas"><i class="fa-solid fa-house"
+					alt="Casas"></i><span>Casas</span></button>
+			<button type="button" class="boton__pociones"><i class="fa-solid fa-hat-wizard"alt="Pociones"></i><span>Pociones</span></button>
+			<button type="button" class="boton__datos"><i class="fa-solid fa-dragon"
+					alt="Datos curiosos"></i><span>Curiosidades</span></button>
 
-    <nav class="navegacion">
-        <ul class="navigation">
-            <li class="selected"><a href="#section1">section1</a></li>
-            <li><a href="#section2">section2</a></li>
-            <li><a href="#section3">section3</a></li>
-            <li><a href="#section4">section4</a></li>
-            <li><a href="#section5">section5</a></li>
-        </ul>
-    </nav>
-
-    <main>
+   
         <div class="container">
         <section id="section1" name="primero">
             <div>
@@ -40,6 +43,8 @@
                 <h1 class="title">Hechizos</h1>
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="text" placeholder="search" id="search-wand">
+			
+			
 
                 <select id="wand-filter">
                     <option value="nothing">Seleccionar</option>
@@ -129,4 +134,3 @@
 </body>
 
 </html>
-
