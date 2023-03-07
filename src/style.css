@@ -31,24 +31,24 @@ video {
 
 h1 {
     text-align: center;
+    
 }
+
+
 
 button {
-    background-color: var(--gris);
+    height: 50px;
+    width: 40px;
+    display: block;
+
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+span {
+    color: var(--blanco);
+    font-weight: bold;
+    margin-left: 50px;
+    font-size: 1rem;
 }
-
-@media (min-width: 768px) {
-    .grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
 
 .footer {
     background: linear-gradient(380deg, rgba(5, 5, 5, 0), #171e1d);
@@ -57,5 +57,4 @@ button {
     font-weight: bold;
     font-size: 1.2rem;
     color: var(--gris);
-
 }
