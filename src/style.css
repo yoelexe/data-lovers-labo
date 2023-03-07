@@ -22,11 +22,6 @@ body {
     font-family: 'Courier New', Courier, monospace;
 }
 
-.header {
-    display: flex;
-    justify-content: center;
-}
-
 .navigation{
     margin: 0;
     padding: 0;
@@ -37,6 +32,7 @@ body {
     transform: translate(-50%);
 }
 
+/*
 .navigation li{
     width: 10px;
     height: 10px;
@@ -52,6 +48,7 @@ body {
 .navigation li:hover, .navigation li.selected{
     transform: scale(1.8);
 }
+*/
 
 
 section{
