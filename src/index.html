@@ -2,38 +2,128 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Data Lovers</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
   </head>
   <body>
-    <div id="root"></div>
- 
-       <header class="header">
-        <a href="index.html">
-            <img src="../img/harry-potter-logo-2004-2011-1630321258.png" alt="Imagen logo" >
-        </a>
-    </header>
-    <nav class="navegacion ">
-        <a class= "navegacion__enlace navegacion__enlace--activo " href="index.html ">Tienda</a>
-        <a class= "navegacion__enlace " href="nosotros.html ">Nosotros</a>
-        </nav>
-    <main class="contenedor ">
-        <video src="../img/hero.mp4" autoplay="true" muted="true" loop="true" ></video>
-           <h1>Bienvenidos al mundo de la magía</h1>
-        <div class="grid ">
-            <div class="hechizos"> 
-                <a href=" ">
-                    <img  class="hechizos__imagen" src="../img/hechizos-harry-potter-wizards-unite_6.webp" alt="imagen hechizo ">
-                    <img  class="hechizos__marco" src="../img/marco dorado.jpg" alt="marco dorado">
-                    <div class=" "> 
-                    
-                    </div>  
-                </a>
-            </div> <!--FIN DE IMAGEN-->
-       </main>
-       <div class="bosque">
-            <footer class="footer "> El mundo de Harry Potter</footer>
+
+    <nav class="navegacion">
+        <ul class="navigation">
+            <li class="selected"><a href="#section1">section1</a></li>
+            <li><a href="#section2">section2</a></li>
+            <li><a href="#section3">section3</a></li>
+            <li><a href="#section4">section4</a></li>
+            <li><a href="#section5">section5</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="container">
+        <section id="section1" name="primero">
+            <div>
+                <video src="../img/hero.mp4" autoplay="true" muted="true" loop="true"></video>
             </div>
+            <img src="../img/harry-potter-logo-2004-2011-1630321258.png" alt="harry-logo">
+            <div>
+                <span><i class="fa-solid fa-wand-sparkles"></i></span> <!-- hechizos -->
+                <span><i class="fa-solid fa-chess-rook"></i></span> <!-- casas -->
+                <span><i class="fa-solid fa-book"></i></span> <!-- libros -->
+                <span><i class="fa-solid fa-flask"></i></span> <!-- pociones -->
+                <span><i class="fa-solid fa-lightbulb"></i></span> <!-- datos curiosos -->
+            </div>
+        </section>
+        
+        <section id="section2" name="bosque">
+            <div class="bosque" id="bosque">
+                <h1 class="title">Hechizos</h1>
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="search" id="search-wand">
+
+                <select id="wand-filter">
+                    <option value="nothing">Seleccionar</option>
+                    <option value="Charm">Charm</option>
+                    <option value="Conjuration">Conjuration</option>
+                    <option value="Spell">Spell</option>
+                    <option value="Transfiguration">Transfiguration</option>
+                    <option value="Healing">Healing</option>
+                    <option value="Vanishment">Vanishment</option>
+                    <option value="Hex">Hex</option>
+                    <option value="Jinx">Jinx</option>
+                    <option value="Curse">Curse</option>
+                </select>
+
+                <div class="box-grid" id="box-grid">
+                    <div class="box">
+                        <h3>Nombre del hechizo</h3>
+                        <p>Descripción del hechizo</p>
+                    </div>
+                    <div class="box">
+                        <h3>Nombre del hechizo</h3>
+                        <p>Descripción del hechizo</p>
+                    </div>
+                    <div class="box">
+                        <h3>Nombre del hechizo</h3>
+                        <p>Descripción del hechizo</p>
+                    </div>
+                    <div class="box">
+                        <h3>Nombre del hechizo</h3>
+                        <p>Descripción del hechizo</p>
+                    </div>
+                    <div class="box">
+                        <h3>Nombre del hechizo</h3>
+                        <p>Descripción del hechizo</p>
+                    </div>
+                    <div class="box">
+                        <h3>Nombre del hechizo</h3>
+                        <p>Descripción del hechizo</p>
+                    </div>
+                    <div class="box">
+                        <h3>Nombre del hechizo</h3>
+                        <p>Descripción del hechizo</p>
+                    </div>
+                    <div class="box">
+                        <h3>Nombre del hechizo</h3>
+                        <p>Descripción del hechizo</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="section3">
+            <div>
+                <h1>Hechizos</h1>
+            </div>
+        </section>
+
+        <section id="section4">
+            <div class="all-books">
+                <div class="book">
+                    <div class="front-cover"></div>
+                    <!--
+                        <div class="page"></div>
+                    <div class="page"></div>
+                    <div class="page"></div>
+                    -->
+                    <div class="last-page">
+                        <img src="../img/Harry Potter.jpg" alt="Harry Potter">
+                        <h2>Harry Potter</h2>
+                    </div>
+                    <div class="back-cover"></div>
+                </div>
+
+                
+            </div>
+        </section>
+
+        <section id="section5">
+            <div>
+                <h1>Casas u otro</h1>
+            </div>
+        </section>
+        </div>
+    </main>  
 
    <script src="main.js" type="module"></script>
 </body>
