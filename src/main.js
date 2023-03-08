@@ -19,17 +19,23 @@ search_wand.addEventListener('input', () => {
 
 })
 
-const printData = (data) => {
-  let str = '';
-  data.array.forEach(e => {
-    str +=  `<div class="box">
-    <h3>Nombre: ${e.name}</h3>
-    <p>Descripción: ${e.description}</p>
-    </div>`;
-    return data;
-  });
-  box_grid.innerHTML = str;
-}
+// js con el slider
+const sliderContainer = document.querySelectorAll('.spells-container')
+const right_btn = document.querySelectorAll('.right-btn')
+const left_btn = document.querySelectorAll('.left-btn')
+
+sliderContainer.forEach((item, i) => {
+  let sliderDimention = item.getBoundingClientRect();
+  let sliderWidth = sliderDimention.width;
+
+  left_btn[i].addEventListener('click', () => {
+    item.scrollLeft += sliderWidth;
+  })
+
+  right_btn[i].addEventListener('click', () => {
+    item.scrollLeft -= sliderWidth;
+  })
+})
 
 
 // Mostrar el template del html pero js
@@ -47,11 +53,14 @@ const template = (list) => {
 }
 template(dataHarry);
 
+// navigation with buttons
 const dates = document.querySelector('#dates');
 
 dates.addEventListener('click', () => {
   window.location.href = `http://127.0.0.1:5500/src/index.html#${section2.attributes[0].value}`;
 })
+
+// pruebas en consola
 
 data.spells.map(wind => console.log(wind.name + ' : ' + wind.spell_type))
 console.log(example);
