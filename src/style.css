@@ -26,9 +26,9 @@ body {
     margin: 0;
     padding: 0;
     position: fixed;
-    right: 20px;
+    left: 50px;
     list-style: none;
-    top: 50%;
+    top: 30%;
     transform: translate(-50%);
 }
 
@@ -59,7 +59,7 @@ section{
 }
 
 #section1:before{
-    z-index: 888;
+    z-index: 3; /*888*/
     content: '';
     position: absolute;
     width: 100%;
@@ -121,11 +121,11 @@ video{
     width: 100%; 
     height: 100%;
 }
+
 button {
     height: 50px;
     width: 40px;
     display: block;
-
 }
 
 .bosque .title{
@@ -137,13 +137,20 @@ button {
 }
 
 .bosque .box-grid{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    position: relative;
+    display: flex;
+    max-height: 120px;
+    max-width: 50px;
+    /*grid-template-columns: repeat(4, 1fr);*/ /*auto-fit, minmax(270px, 1fr)*/
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
     gap: 15px;
-    padding: 30px 20px;
+    
+    padding: 60px 90px;
 }
 
-.bosque .box-grid .box{
+.bosque .box-grid .box {
     box-shadow: 0 5px 10px rgba(0,0,0, 0.2);
     border-radius: 5px;
     background: white;
@@ -172,6 +179,42 @@ span {
     margin-left: 50px;
     font-size: 1rem;
 }
+
+/* ---------- ARROW LEFT AND RIGHT  --------------- */
+
+.left-btn,
+.right-btn{
+    border: none;
+    width: 5vw;
+    height: 70%;
+    position: absolute;
+    top: 120%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0% ,#fff 100%);
+    cursor: pointer;
+    z-index: 9;
+}
+
+.left-btn{
+    left: 0;
+}
+
+.right-btn{
+    right: 0;
+}
+
+.left-btn img,
+.right-btn img{
+    opacity: 0.2;
+}
+
+.left-btn:hover img,
+.right-btn:hover img{
+    opacity: 1;
+}
+
 
 /* ---------- BOOKS --------------- */
 
