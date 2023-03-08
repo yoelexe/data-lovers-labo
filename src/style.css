@@ -137,25 +137,27 @@ button {
 }
 
 .bosque .box-grid{
-    position: relative;
+    max-height: 450px;
     display: flex;
-    max-height: 120px;
-    max-width: 50px;
     /*grid-template-columns: repeat(4, 1fr);*/ /*auto-fit, minmax(270px, 1fr)*/
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 15px;
-    
+    gap: 10px;
     padding: 60px 90px;
+    overflow: auto; /*overflow-x: auto*/
+    overscroll-behavior-inline: contain;
 }
 
+
 .bosque .box-grid .box {
+    min-width: 250px;
+    height: 400px;
     box-shadow: 0 5px 10px rgba(0,0,0, 0.2);
     border-radius: 5px;
+    /*line-height: 500px;*/
     background: white;
     text-align: center;
     padding: 30px 20px;
+    margin-right: 2px;
+    
 }
 
 /* ---------- SEARCH --------------- */
@@ -192,7 +194,7 @@ span {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0% ,#fff 100%);
+    /*background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0% ,#fff 100%);*/
     cursor: pointer;
     z-index: 9;
 }
@@ -214,7 +216,6 @@ span {
 .right-btn:hover img{
     opacity: 1;
 }
-
 
 /* ---------- BOOKS --------------- */
 

@@ -25,11 +25,11 @@ sliderContainer.forEach((item, i) => {
   let sliderDimention = item.getBoundingClientRect();
   let sliderWidth = sliderDimention.width;
 
-  left_btn[i].addEventListener('click', () => {
+  right_btn[i].addEventListener('click', () => {
     item.scrollLeft += sliderWidth;
   })
 
-  right_btn[i].addEventListener('click', () => {
+  left_btn[i].addEventListener('click', () => {
     item.scrollLeft -= sliderWidth;
   })
 })
@@ -41,7 +41,7 @@ const template = (list) => {
   list.forEach((dataHarry) => {
     const card = `<div class="box">
     <h3>Nombre: ${dataHarry.name}</h3>
-    <p>Descripción: ${dataHarry.description}</p>
+    
     <p>Tipo: ${dataHarry.spell_type}</p>
     </div>`;
     templateList += card;
