@@ -137,13 +137,20 @@ button {
 }
 
 .bosque .box-grid{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /*auto-fit, minmax(270px, 1fr)*/
+    position: relative;
+    display: flex;
+    max-height: 120px;
+    max-width: 50px;
+    /*grid-template-columns: repeat(4, 1fr);*/ /*auto-fit, minmax(270px, 1fr)*/
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
     gap: 15px;
+    
     padding: 60px 90px;
 }
 
-.bosque .box-grid .box{
+.bosque .box-grid .box {
     box-shadow: 0 5px 10px rgba(0,0,0, 0.2);
     border-radius: 5px;
     background: white;

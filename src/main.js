@@ -12,10 +12,7 @@ const dataHarry = data.spells;
 
 search_wand.addEventListener('input', () => {
   //const name = document.getElementById('search-wand').value;
-  const filtrarDataByName = window.filterData(search_wand);
-  printData(filtrarDataByName)
-  console.log(filterData)
-  
+    
 
 })
 
