@@ -43,10 +43,11 @@
                 
                 <div class="bosque" id="bosque">
                     <h1 class="title">Hechizos</h1>
-                        <button class="left-btn"><img src="../img/chevron-left.png" alt="chevron-left"></button>
+                    <button class="left-btn"><img src="../img/chevron-left.png" alt="chevron-left"></button>
                     <button class="right-btn"><img src="../img/chevron-right.png" alt="chevron-right"></button>
-                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
-                    <input type="text" placeholder="search" id="search-wand">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <!-- <button>&lt;</button> -->
+                    <input type="search" placeholder="search" id="search-wand">
 
 
 
@@ -63,12 +64,14 @@
                         <option value="Curse">Curse</option>
                     </select>
 
-                        <div class="spells-container">
+                        <template data-user-template>
                             <div class="box-grid" id="box-grid">
-                                <!-- Información mostrada en pantalla-->
-                                
+                               <div class="box">
+                                <h3 class="data-title">Hola</h3>
+                                <p></p>
+                               </div>
                             </div>
-                        </div>
+                        </template>
                 </div>
                 
             </section>
@@ -106,7 +109,7 @@
             </section>
         </div>
     </main>
-    <script src="main.js" type="module"></script>
+    <script src="main.js" type="module" defer></script>
 </body>
 
 </html>

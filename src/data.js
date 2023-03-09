@@ -1,5 +1,7 @@
 // estas funciones son de ejemplo
-const harry = window.harry;
+import data from './data/harrypotter/harry.js';
+
+const dataHarry = data.spells;
 
 export const example = () => {
   return 'example';
@@ -13,7 +15,9 @@ export const filterData = (string) => {
   const search = string.charAt(0).toUpperCase()  + string.slice(1);
   const searchResult = [];
 
-  harry.harry.forEach(element => {
+  
+
+  dataHarry.forEach(element => {
     if(element.name.indexOf(search) !== -1){
       searchResult.push(element);
     }

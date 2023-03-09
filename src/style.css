@@ -138,12 +138,12 @@ button {
 
 .bosque .box-grid{
     max-height: 450px;
-    display: flex;
-    /*grid-template-columns: repeat(4, 1fr);*/ /*auto-fit, minmax(270px, 1fr)*/
+    display: grid; /*flex*/
+    grid-template-columns: repeat(4, 1fr); /*auto-fit, minmax(270px, 1fr)*/
     gap: 10px;
     padding: 60px 90px;
-    overflow: auto; /*overflow-x: auto*/
-    overscroll-behavior-inline: contain;
+    /*overflow: hidden; /*overflow-x: auto*/
+    /*overscroll-behavior-inline: contain; */
 }
 
 
@@ -195,6 +195,7 @@ span {
     justify-content: center;
     align-items: center;
     /*background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0% ,#fff 100%);*/
+    background: transparent;
     cursor: pointer;
     z-index: 9;
 }
