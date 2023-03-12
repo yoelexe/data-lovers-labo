@@ -1,4 +1,4 @@
-import { filterData, example } from './data.js';
+import { search, example, searchByHome } from './data.js';
 // import data from './data.js';
 // import data from './data/lol/lol.js';
 import data from './data/harrypotter/harry.js';
@@ -9,43 +9,17 @@ fetch('./data/harrypotter/harry.json')
 .then((response) => response.json())
 .then((json) => console.log(json));
 */
-
-const userCardTemplate = document.querySelector("[data-user-template]")
-fetch('./data/harrypotter/harry.json')
-  .then((response) => response.json())
-  .then(cardjson => {
-    const cardjson = userCardTemplate.textContent.cloneNode(true).children[0]
-    console.log(cardjson) 
-  });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const search_wand = document.querySelector('#search-wand');
 const box = document.querySelectorAll('.spells-container .box-grid .box')
 
 
 const box_grid =document.querySelector('#box-grid');
+const spells_container = document.querySelector('#spells-container')
 const section2 = document.querySelector('#section2');
 
-const dataSpells = data.spells;
+const dataHarry = data.spells;
 const dataCharacter = data.characters;
 
-search_wand.addEventListener('keyup', () => {
-  const name = document.getElementById('search-wand').value.toUpperCase();
-  //console.log(name)
-})
+
 
 const intento = dataCharacter.filter(function(dataCharacter){
   return dataCharacter.house == "Gryffindor";
@@ -54,8 +28,41 @@ const intento = dataCharacter.filter(function(dataCharacter){
 console.log(intento)
 
 
-// js con el slider
+/* Buscando todos los hechizos */
+const search_wand = document.querySelector('#search-wand');
+
+
 /*
+search_wand.addEventListener('input', () => {
+  let inputText = search_wand.value;
+  const results =  dataCharacter.filter(element => {
+    return element.name === inputText;
+  })
+  console.log(results)
+})
+*/
+
+function searchInCharacters() {
+  const searchNameCharacter = document.querySelector('#search-wand').value.toLowerCase();
+  if(searchNameCharacter !== ""){
+    name_chr = data.characters.filter(chr => chr.name.toLocaleLowerCase().includes(searchNameCharacter));
+
+    document.getElementsByClassName("spells-container")[0].innerHTML = "";
+    if(name_chr !== undefined){
+
+    }
+  }
+}
+
+
+search_wand.addEventListener('keypress', function(e){
+  if(e.key === 'Enter'){
+    return searchInCharacters();
+  }
+})
+
+// js con el slider
+
 const sliderContainer = document.querySelectorAll('.spells-container')
 const right_btn = document.querySelectorAll('.right-btn')
 const left_btn = document.querySelectorAll('.left-btn')
@@ -71,25 +78,27 @@ sliderContainer.forEach((item, i) => {
   left_btn[i].addEventListener('click', () => {
     item.scrollLeft -= sliderWidth;
   })
-})*/
+})
 
 
 // Mostrar el template del html pero js
-/*
+
 const template = (list) => {
   let templateList = '';
-  list.forEach((dataSpells) => {
-    const card = `<div class="box" data-title="${dataSpells.name}">
-    <h3 class="data-title">Nombre: ${dataSpells.name}</h3>
-    <p>Description: ${dataSpells.description}</p>
-    <p>Tipo: ${dataSpells.spell_type}</p>
+  list.forEach((dataCharacter) => {
+    const card = `<div class="box">
+    <h3 class="data-title">Nombre: ${dataCharacter.name}</h3>
+    <p>Description: ${dataCharacter.species}</p>
+    <p>Tipo: ${dataCharacter.gender}</p>
+    <p>Tipo: ${dataCharacter.house}</p>
     </div>`;
     templateList += card;
   })
   document.getElementById('box-grid').innerHTML = templateList;
 }
-template(dataSpells);
-*/
+template(dataCharacter);
+
+
 
 // navigation with buttons
 const dates = document.querySelector('#dates');

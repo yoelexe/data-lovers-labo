@@ -1,29 +1,29 @@
 // estas funciones son de ejemplo
 import data from './data/harrypotter/harry.js';
 
-const dataHarry = data.spells;
+let dataSpells= data.spells;
 
 export const example = () => {
   return 'example';
 };
 
 export const anotherExample = () => {
-  return `hola`;
+  return `Investigar slice y push`;
 };
 
-export const filterData = (string) => {
-  const search = string.charAt(0).toUpperCase()  + string.slice(1);
-  const searchResult = [];
+export const searchByHome = (input, data) => {
+  let newData = input.filter((dato) => dato.house === data)
+  return newData
+}
 
-  
-
-  dataHarry.forEach(element => {
-    if(element.name.indexOf(search) !== -1){
-      searchResult.push(element);
+export const search = (data, inputText) => {
+  const result = [];
+  data.forEach((eachSpell) => {
+    const name_ofSpells = eachSpell.name;
+    const lengthText = inputText.length;
+    if(name_ofSpells.slice(0, lengthText) === inputText){
+      result.push(eachSpell)
     }
-  })
-
-  return searchResult;
-
-
-};
+  });
+  return result;
+}
