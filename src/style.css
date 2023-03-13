@@ -1,5 +1,5 @@
 :root {
-    --fuenteHeading: "PT Sans", sans-serif;
+    --fuenteHeading: 'PT Serif', serif;
     --fuenteParrafos: "Open Sans", sans-serif;
     --primario: #784d3c;
     --blanco: #ffff;
@@ -42,6 +42,7 @@ body {
     font-weight: bold;
     font-size: 1rem;
     text-align: center;
+    font-family: var(--fuenteHeading);
 }
 
 span {
@@ -81,7 +82,7 @@ section {
     /* vertical */
 }
 
-#section1:before{
+#section1:before {
     z-index: 888;
     content: '';
     position: absolute;
@@ -147,10 +148,11 @@ video {
 }
 
 button {
-    height: 50px;
+    height: 40px;
     width: 40px;
     display: block;
 }
+
 
 .bosque .title {
     text-align: center;
@@ -160,22 +162,22 @@ button {
     font-size: 40px;
 }
 
-.bosque .box-grid{
+.bosque .box-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
     gap: 15px;
     padding: 30px 20px;
 }
 
-.bosque .box-grid .box{
-    box-shadow: 0 5px 10px rgba(0,0,0, 0.2);
+.bosque .box-grid .box {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     /*line-height: 500px;*/
     background: white;
     text-align: center;
     padding: 30px 20px;
     margin-right: 2px;
-    
+
 }
 
 /* ---------- SEARCH --------------- */

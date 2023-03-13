@@ -10,25 +10,32 @@ fetch('./data/harrypotter/harry.json')
 .then((json) => console.log(json));
 */
 
-const userCardTemplate = document.querySelector("[data-user-template]")
+/*const userCardTemplate = document.querySelector("[data-user-template]")
 fetch('./data/harrypotter/harry.json')
   .then((response) => response.json())
   .then(cardjson => {
     const cardjson = userCardTemplate.textContent.cloneNode(true).children[0]
-    console.log(cardjson) 
+    console.log(cardjson)
+  });*/
+
+
+/* Siguiente sección*/
+let botonSeccion = document.getElementById("hechizos");
+botonSeccion.addEventListener("click", (event) => {
+
+});
+
+let botones = document.querySelectorAll(".navigation button")
+botones.forEach(function (elemento) {
+  elemento.addEventListener('click', (event) => {
+    let seccion = event.target.dataset.section;
+    let secciones = document.getElementsByTagName("section");
+    for (let i = 0; i < secciones.length; i++) {
+      secciones[i].style.display = "none";
+    }
+    document.getElementById(seccion).style.display = "block";
   });
-
-
-
-
-
-
-
-
-
-
-
-
+});
 
 
 
@@ -36,7 +43,7 @@ const search_wand = document.querySelector('#search-wand');
 const box = document.querySelectorAll('.spells-container .box-grid .box')
 
 
-const box_grid =document.querySelector('#box-grid');
+const box_grid = document.querySelector('#box-grid');
 const section2 = document.querySelector('#section2');
 
 const dataSpells = data.spells;
@@ -47,7 +54,7 @@ search_wand.addEventListener('keyup', () => {
   //console.log(name)
 })
 
-const intento = dataCharacter.filter(function(dataCharacter){
+const intento = dataCharacter.filter(function (dataCharacter) {
   return dataCharacter.house == "Gryffindor";
 });
 
@@ -92,11 +99,11 @@ template(dataSpells);
 */
 
 // navigation with buttons
-const dates = document.querySelector('#dates');
+/*const dates = document.querySelector('#dates');
 
 dates.addEventListener('click', () => {
   window.location.href = `http://127.0.0.1:5500/src/index.html#${section2.attributes[0].value}`;
-})
+})*/
 
 // pruebas en consola
 

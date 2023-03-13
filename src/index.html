@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Data Lovers</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet ">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 </head>
 
@@ -13,103 +14,97 @@
 <body>
 
   <div class="navigation">
-    <button type="button" class="boton__hechizos"><i class="fa-solid
-          fa-wand-sparkles"> </i>
-      <span>Hechizos</span></button>
-      <span>Libros</span></button>
-          fa-book-quran"></i>
-    <button type="button" class="boton__libros"><i class="fa-solid
-    <button type="button" class="boton__casas" id="dates"><i class="fa-solid
-          fa-house"></i>
+    <button type="button" class="boton__inicio" id="inicio" data-section="section1"><i
+        class="fa-solid fa-house-user"></i> <span>Inicio</span> </button>
+    <button type="button" class="boton__hechizos" id="hechizos" data-section="section2"><i
+        class="fa-solid fa-wand-sparkles"> </i> <span>Hechizos</span></button>
+    <button type="button" class="boton__libros" id="libros" data-section="section3"><i
+        class="fa-solid fa-book-quran"></i> <span>Libros</span></button>
+    <button type="button" class="boton__casas" id="casas" data-section="section4"><i class="fa-solid fa-house"></i>
       <span>Casas</span></button>
-    <button type="button" class="boton__pociones" id="dates"><i class="fa-solid fa-hat-wizard"></i>
-      <span>Pociones</span></button>
-    <button type="button" class="boton__datos" id="dates"><i class="fa-solid
-          fa-hat-wizard"></i>
-      <span>Pociones</span></button>
+    <button type="button" class="boton__pociones" id="pociones" data-section="section5"><i
+        class="fa-solid fa-hat-wizard"></i> <span>Pociones</span></button>
+    <button type="button" class="boton__datos" id="datos" data-section="section6"><i
+        class="fa-brands fa-searchengin"></i> <span>Curiosidades</span></button>
   </div>
 
   <main>
 
-    <div class="container">
-
-      <section id="section1" name="primero">
-        <div>
-          <video src="../img/hero.mp4" autoplay="true" muted="true" loop="true"></video>
+    <section id="section1" name="primero">
+      <div>
+        <video src="../img/hero.mp4" autoplay="true" muted="true" loop="true"></video>
+      </div>
+      <div>
+        <img class="logo" src="../img/harry-potter-logo-2004-2011-1630321258.png" alt="harry-logo">
+        <div class="frase">“Trabajar duro es importante, pero hay algo aún
+          más importante.
+          <br>
+          Creer en ti mismo.” — Harry Potter —
         </div>
-        <div>
-          <img class="logo" src="../img/harry-potter-logo-2004-2011-1630321258.png" alt="harry-logo">
-          <div class="frase">“Trabajar duro es importante, pero hay algo aún
-            más importante. Creer en ti mismo.” — Harry Potter</div>
-        </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="section2" name="bosque">
-        <div class="bosque" id="bosque">
-          <h1 class="title">Hechizos</h1>
-          <i class="fa-solid fa-magnifying-glass"></i>
-          <input type="text" placeholder="search" id="search-wand">
+    <section id="section2" name="bosque">
+      <div class="bosque" id="bosque">
+        <h1 class="title">Hechizos</h1>
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="search" id="search-wand">
 
-                        <template data-user-template>
-                            <div class="box-grid" id="box-grid">
-                               <div class="box">
-                                <p></p>
-                            </div>
-                        </template>
-                </div>
-                
-                               </div>
-                                <h3 class="data-title">Hola</h3>
-            </section>
-
+        <template data-user-template>
           <div class="box-grid" id="box-grid">
-            <!-- Información mostrada en pantalla-->
-          </div>
-        </div>
-      </section>
+            <div class="box">
+              <p></p>
+            </div>
+        </template>
+      </div>
 
-      <section id="section3">
-        <div>
-          <h1>Hechizos</h1>
-        </div>
-      </section>
+      <!-- <h3 class="data-title">Hola</h3>-->
+    </section>
 
-      <section id="section4">
-        <div class="all-books">
-          <div class="book">
-            <div class="front-cover"></div>
-            <!--
+    <div class="box-grid" id="box-grid">
+      <!-- Información mostrada en pantalla-->
+    </div>
+
+
+    <section id="section3">
+      <div>
+        <h1>Hechizos</h1>
+      </div>
+    </section>
+
+    <section id="section4">
+      <div class="all-books">
+        <div class="book">
+          <div class="front-cover"></div>
+          <!--
                         <div class="page"></div>
-                    <div class="page"></div>
+            <div class="page"></div>
                     <div class="page"></div>
                     -->
-            <div class="last-page">
-              <img src="../img/Harry Potter.jpg" alt="Harry
+          <div class="last-page">
+            <img src="../img/Harry Potter.jpg" alt="Harry
                   Potter">
-              <h2>Harry Potter</h2>
-            </div>
-            <div class="back-cover"></div>
+            <h2>Harry Potter</h2>
           </div>
+          <div class="back-cover"></div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="section5">
-        <div>
-          <h1>Casas u otro</h1>
-        </div>
-      </section>
+    <section id="section5">
+      <div>
+        <h1>Casas u otro</h1>
+      </div>
+    </section>
 
-                </div>
-            </section>
-
-            <section id="section5">
-                <div>
-                </div>
-                    <h1>Casas u otro</h1>
-            </section>
-    </main>
-        </div>
-    <script src="main.js" type="module" defer></script>
+    <section id="section6">
+      <div>
+      </div>
+      <h1>Casas u otro</h1>
+    </section>
+  </main>
+  </div>
+  <script src="main.js" type="module" defer></script>
 </body>
 
 </html>
