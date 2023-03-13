@@ -196,6 +196,10 @@ span {
 
 /* ---------- OTHER INFORMATION  --------------- */
 
+li{
+    color: white;
+}
+
 .info-card{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));

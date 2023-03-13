@@ -30,7 +30,39 @@ console.log(intento)
 
 /* Buscando todos los hechizos */
 const search_wand = document.querySelector('#search-wand');
+const list = document.querySelector('#container-ul');
 
+const $template = document.querySelector('#spells').content;
+
+const $fragment = document.createDocumentFragment();
+
+// utilizando map
+data.spells.map((e) => {
+  $template.querySelector("li").textContent = e.name;
+
+  let clone = document.importNode($template ,true);
+
+  $fragment.appendChild(clone);
+});
+
+list.appendChild($fragment);
+
+// trabajando con el DOM
+search_wand.addEventListener('input', () => {
+  const dataImport = data.spells.filter((e) => {
+    return e.name.toLocaleLowerCase().includes(search_wand.value);
+  });
+  list.innerHTML = "";
+
+  dataImport.map((e) => {
+    $template.querySelector("li").textContent = e.name;
+    let clone = document.importNode($template, true);
+
+    $fragment.appendChild(clone);
+  });
+
+  list.appendChild($fragment);
+})
 
 /*
 search_wand.addEventListener('input', () => {
@@ -41,25 +73,6 @@ search_wand.addEventListener('input', () => {
   console.log(results)
 })
 */
-
-function searchInCharacters() {
-  const searchNameCharacter = document.querySelector('#search-wand').value.toLowerCase();
-  if(searchNameCharacter !== ""){
-    name_chr = data.characters.filter(chr => chr.name.toLocaleLowerCase().includes(searchNameCharacter));
-
-    document.getElementsByClassName("spells-container")[0].innerHTML = "";
-    if(name_chr !== undefined){
-
-    }
-  }
-}
-
-
-search_wand.addEventListener('keypress', function(e){
-  if(e.key === 'Enter'){
-    return searchInCharacters();
-  }
-})
 
 // js con el slider
 
@@ -101,11 +114,13 @@ template(dataCharacter);
 
 
 // navigation with buttons
+/*
 const dates = document.querySelector('#dates');
 
 dates.addEventListener('click', () => {
   window.location.href = `http://127.0.0.1:5500/src/index.html#${section2.attributes[0].value}`;
 })
+*/
 
 // pruebas en consola
 
