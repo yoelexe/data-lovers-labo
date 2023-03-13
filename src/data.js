@@ -12,13 +12,13 @@ export const anotherExample = () => {
 };
 
 export const filterData = (string) => {
-  const search = string.charAt(0).toUpperCase()  + string.slice(1);
+  const search = string.charAt(0).toUpperCase() + string.slice(1);
   const searchResult = [];
 
-  
+
 
   dataHarry.forEach(element => {
-    if(element.name.indexOf(search) !== -1){
+    if (element.name.indexOf(search) !== -1) {
       searchResult.push(element);
     }
   })
@@ -27,3 +27,5 @@ export const filterData = (string) => {
 
 
 };
+
+
