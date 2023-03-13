@@ -28,12 +28,12 @@ botonSeccion.addEventListener("click", (event) => {
 let botones = document.querySelectorAll(".navigation button")
 botones.forEach(function (elemento) {
   elemento.addEventListener('click', (event) => {
-    let seccion = event.target.dataset.section;
+    let seccion = event.currentTarget.dataset.section;
     let secciones = document.getElementsByTagName("section");
     for (let i = 0; i < secciones.length; i++) {
       secciones[i].style.display = "none";
     }
-    document.getElementById(seccion).style.display = "block";
+    document.getElementById(seccion).style.display = "flex";
   });
 });
 
@@ -66,15 +66,15 @@ console.log(intento)
 const sliderContainer = document.querySelectorAll('.spells-container')
 const right_btn = document.querySelectorAll('.right-btn')
 const left_btn = document.querySelectorAll('.left-btn')
-
+ 
 sliderContainer.forEach((item, i) => {
   let sliderDimention = item.getBoundingClientRect();
   let sliderWidth = sliderDimention.width;
-
+ 
   right_btn[i].addEventListener('click', () => {
     item.scrollLeft += sliderWidth;
   })
-
+ 
   left_btn[i].addEventListener('click', () => {
     item.scrollLeft -= sliderWidth;
   })
@@ -100,7 +100,7 @@ template(dataSpells);
 
 // navigation with buttons
 /*const dates = document.querySelector('#dates');
-
+ 
 dates.addEventListener('click', () => {
   window.location.href = `http://127.0.0.1:5500/src/index.html#${section2.attributes[0].value}`;
 })*/
