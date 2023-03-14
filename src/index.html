@@ -50,24 +50,24 @@
         <i class="fa-solid fa-magnifying-glass"></i>
         <input type="text" placeholder="search" id="search-wand">
         <!-- Filtrado de informacion-->
-
-        <select id="informacion">
-          <option value="">Todos </option>
-          <option value="Charm">Charm</option>
-          <option value="Conjuration">Conjuration</option>
-          <option value="Spell">Spell</option>
-          <option value="Transfiguration">Transfiguration</option>
-          <option value="Healing Spell">Healing Spell</option>
-          <option value="oVanishment">Vanishment</option>
-          <option value="Hex">Hex</option>
-          <option value="Jinx">Jinx</option>
-          <option value="Curse">Curse</option>
-          <option value="Transportation">Transportation</option>
-          <option value="Dark Arts">Dark Arts</option>
+        <div id="contenedorspells">
+          <select id="informacion">
+            <option value="">Todos </option>
+            <option value="Charm">Charm</option>
+            <option value="Conjuration">Conjuration</option>
+            <option value="Spell">Spell</option>
+            <option value="Transfiguration">Transfiguration</option>
+            <option value="Healing Spell">Healing Spell</option>
+            <option value="oVanishment">Vanishment</option>
+            <option value="Hex">Hex</option>
+            <option value="Jinx">Jinx</option>
+            <option value="Curse">Curse</option>
+            <option value="Transportation">Transportation</option>
+            <option value="Dark Arts">Dark Arts</option>
+          </select>
+        </div>
       </div>
-      </div>
 
-      <span id='result'>The result is: </span>
       <template data-user-template>
         <div class="box-grid" id="box-grid">
           <div class="box">
@@ -82,7 +82,6 @@
     <div class="box-grid" id="box-grid">
       <!-- Información mostrada en pantalla-->
     </div>
-
 
     <section id="section3">
       <div>
@@ -120,8 +119,9 @@
       </div>
       <h1>Casas u otro</h1>
     </section>
+
   </main>
-  </div>
+
   <script src="main.js" type="module" defer></script>
 </body>
 

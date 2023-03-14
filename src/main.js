@@ -1,28 +1,29 @@
 import { filterData, example } from './data.js';
 // import data from './data.js';
 // import data from './data/lol/lol.js';
-import data from './data/harrypotter/harry.js';
-// import data from './data/rickandmorty/rickandmorty.js';
+/*import data from './data/harrypotter/harry.js';
+// import data from './data/rickandmorty/rickandmorty.js';*/
 
 /* Traer data desde el json para filtrado*/
 function baseDatos() {
-  fetch('./data/harrypotter/harry.js')
+  fetch('./data/harrypotter/harry.json')
     .then(response => response.json())
     .then(data => {
+      let spells = data['spells']
       const filtro = document.getElementById("informacion");
-      filtro.addEventListener('change', () => {
+      filtro.addEventListener("change", () => {
         const valorFiltro = filtro.value;
-        const resultados = data.filter(spells => {
+        const resultados = spells.filter((spell) => {
           if (valorFiltro === "") {
             return true;
           } else {
-            return spells.spell_type === valorFiltro;
+            return spell.spell_type === valorFiltro;
           }
         });
-        const resultadoDatos = resultados.map(spells => {
-          return `<li>${spells.name} - ${spells.description} - ${spells.mention} - ${spells.other_name} </li>`;
+        const resultadoDatos = resultados.map(spell => {
+          return `<li>${spell.name} - ${spell.description} - ${spell.mention} - ${spell.other_name} </li>`;
         }).join("");
-        const totalResultados = document.getElementById("resultados");
+        const totalResultados = document.getElementById("contenedorspells");
         totalResultados.innerHTML = resultadoDatos;
       });
     });
@@ -50,7 +51,7 @@ botones.forEach(function (elemento) {
 
 /**/
 
-const search_wand = document.querySelector('#search-wand');
+/*const search_wand = document.querySelector('#search-wand');
 const box = document.querySelectorAll('.spells-container .box-grid .box')
 
 
@@ -67,8 +68,4 @@ search_wand.addEventListener('keyup', () => {
 
 const intento = dataCharacter.filter(function (dataCharacter) {
   return dataCharacter.house == "Gryffindor";
-});
-
-console.log(intento)
-
-
+})*/
