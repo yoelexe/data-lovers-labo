@@ -194,13 +194,101 @@ button {
     color: white;
 }
 
-.bosque input {
-    padding: 10px;
+.bosque input{
+    padding: 15px;
     outline: none;
     border-radius: 10px;
     width: 30%;
     margin-left: 35%;
     position: absolute;
+    font-size: 14px;
+  }
+  
+span {
+    color: var(--blanco);
+    font-weight: bold;
+    margin-left: 50px;
+    font-size: 1rem;
+}
+
+.search-button{
+    position: relative;
+    background-color: black;
+    cursor: pointer;
+    border-radius: 100%;
+    height: 40px;
+    left: 62%;
+    top: 6%;
+    z-index: 1;
+}
+
+/* ---------- OTHER INFORMATION  --------------- */
+
+li{
+    color: white;
+}
+
+.info-card{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: .25rem;
+    margin-top: 1rem;
+}
+
+.card{
+    border: 1px solid black;
+    padding: .5rem;
+    color: white;
+}
+
+.card > .title-info{
+    margin-bottom: .25rem;
+}
+
+.card > .body-info{
+    font-size: .8rem;
+}
+
+.hide{
+    display: none;
+}
+
+
+
+/* ---------- ARROW LEFT AND RIGHT  --------------- */
+
+.left-btn,
+.right-btn{
+    border: none;
+    width: 5vw;
+    height: 70%;
+    position: absolute;
+    top: 120%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0% ,#fff 100%);*/
+    background: transparent;
+    cursor: pointer;
+    z-index: 9;
+}
+
+.left-btn{
+    left: 0;
+}
+
+.right-btn{
+    right: 0;
+}
+
+.left-btn img,
+.right-btn img{
+    opacity: 0.2;
+}
+
+.left-btn:hover img,
+.right-btn:hover img{
+    opacity: 1;
 }
 
 /* ---------- BOOKS --------------- */

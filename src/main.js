@@ -1,4 +1,4 @@
-import { filterData, example } from './data.js';
+import { search, example, searchByHome } from './data.js';
 // import data from './data.js';
 // import data from './data/lol/lol.js';
 /*import data from './data/harrypotter/harry.js';
