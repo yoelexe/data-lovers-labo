@@ -32,11 +32,6 @@ function baseDatos() {
 baseDatos();
 
 /* Siguiente sección*/
-let botonSeccion = document.getElementById("hechizos");
-botonSeccion.addEventListener("click", (event) => {
-
-});
-
 let botones = document.querySelectorAll(".navigation button")
 botones.forEach(function (elemento) {
   elemento.addEventListener('click', (event) => {
@@ -46,26 +41,9 @@ botones.forEach(function (elemento) {
       secciones[i].style.display = "none";
     }
     document.getElementById(seccion).style.display = "flex";
+    const totalResultados = document.getElementById("contenedorspells");
+    totalResultados.innerHTML = "";
   });
 });
 
-/**/
 
-/*const search_wand = document.querySelector('#search-wand');
-const box = document.querySelectorAll('.spells-container .box-grid .box')
-
-
-const box_grid = document.querySelector('#box-grid');
-const section2 = document.querySelector('#section2');
-
-const dataSpells = data.spells;
-const dataCharacter = data.characters;
-
-search_wand.addEventListener('keyup', () => {
-  const name = document.getElementById('search-wand').value.toUpperCase();
-  //console.log(name)
-})
-
-const intento = dataCharacter.filter(function (dataCharacter) {
-  return dataCharacter.house == "Gryffindor";
-})*/
