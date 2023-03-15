@@ -4,8 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Data Lovers</title>
+    <title>Data Lovers - Harry Potter</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="../img/icon-harry.png"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 </head>
 
@@ -28,6 +29,7 @@
                     <video src="../img/hero.mp4" autoplay="true" muted="true" loop="true"></video>
                 </div>
                 <img src="../img/harry-potter-logo-2004-2011-1630321258.png" alt="harry-logo">
+                
                 <!--
                     <div>
                     <span><i class="fa-solid fa-wand-sparkles"></i></span> 
@@ -65,16 +67,19 @@
                     </select>
 
 
-                    <!-- class="spells-container -->
-                    <ul  id="container-ul">
-
-                    </ul>
-
-                    <template id="spells">
-                        <li>
+                        <div class="box-grid" id="box-grid">
+                        </div>
+                    
+                
+                        <template id="spellsTemplate">
+                        <div  id="box" class="box">
+                            <h3 class="data-title"></h3>
+                            <h4></h4>
+                            <img src="https://i.pinimg.com/236x/db/20/d5/db20d574cfc26139dbd3b968dd1d69fd.jpg"></img>
                             
-                        </li>
+                        </div>
                     </template>
+                    
                 </div>
                 
             </section>

@@ -1,4 +1,4 @@
-import { search, example, searchByHome } from './data.js';
+import { search, example, searchByName } from './data.js';
 // import data from './data.js';
 // import data from './data/lol/lol.js';
 import data from './data/harrypotter/harry.js';
@@ -9,10 +9,9 @@ fetch('./data/harrypotter/harry.json')
 .then((response) => response.json())
 .then((json) => console.log(json));
 */
-const box = document.querySelectorAll('.spells-container .box-grid .box')
 
 
-const box_grid =document.querySelector('#box-grid');
+
 const spells_container = document.querySelector('#spells-container')
 const section2 = document.querySelector('#section2');
 
@@ -30,49 +29,40 @@ console.log(intento)
 
 /* Buscando todos los hechizos */
 const search_wand = document.querySelector('#search-wand');
-const list = document.querySelector('#container-ul');
+const box_grid =document.querySelector('#box-grid');
 
-const $template = document.querySelector('#spells').content;
+const $template = document.querySelector('#spellsTemplate').content;
 
 const $fragment = document.createDocumentFragment();
 
 // utilizando map
 data.spells.map((e) => {
-  $template.querySelector("li").textContent = e.name;
-
+  $template.querySelector("h3").textContent = e.name;
+  $template.querySelector("h4").textContent = e.spell_type;
   let clone = document.importNode($template ,true);
 
   $fragment.appendChild(clone);
 });
 
-list.appendChild($fragment);
+box_grid.appendChild($fragment);
 
 // trabajando con el DOM
 search_wand.addEventListener('input', () => {
   const dataImport = data.spells.filter((e) => {
     return e.name.toLocaleLowerCase().includes(search_wand.value);
   });
-  list.innerHTML = "";
+  box_grid.innerHTML = "";
 
   dataImport.map((e) => {
-    $template.querySelector("li").textContent = e.name;
+    $template.querySelector("h3").textContent = e.name;
     let clone = document.importNode($template, true);
 
     $fragment.appendChild(clone);
   });
 
-  list.appendChild($fragment);
+  box_grid.appendChild($fragment);
 })
 
-/*
-search_wand.addEventListener('input', () => {
-  let inputText = search_wand.value;
-  const results =  dataCharacter.filter(element => {
-    return element.name === inputText;
-  })
-  console.log(results)
-})
-*/
 
 // js con el slider
 
@@ -96,31 +86,20 @@ sliderContainer.forEach((item, i) => {
 
 // Mostrar el template del html pero js
 
+
+/*
 const template = (list) => {
   let templateList = '';
-  list.forEach((dataCharacter) => {
+  list.forEach((dataHarry) => {
     const card = `<div class="box">
-    <h3 class="data-title">Nombre: ${dataCharacter.name}</h3>
-    <p>Description: ${dataCharacter.species}</p>
-    <p>Tipo: ${dataCharacter.gender}</p>
-    <p>Tipo: ${dataCharacter.house}</p>
+    <h3 class="data-title">Nombre: ${dataHarry.name}</h3>
+    <p>Description: ${dataHarry.spells_type}</p>
     </div>`;
     templateList += card;
   })
   document.getElementById('box-grid').innerHTML = templateList;
 }
-template(dataCharacter);
-
-
-
-// navigation with buttons
-/*
-const dates = document.querySelector('#dates');
-
-dates.addEventListener('click', () => {
-  window.location.href = `http://127.0.0.1:5500/src/index.html#${section2.attributes[0].value}`;
-})
-*/
+template(dataHarry);*/
 
 // pruebas en consola
 

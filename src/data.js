@@ -11,18 +11,25 @@ export const anotherExample = () => {
   return `Investigar slice y push`;
 };
 
-export const searchByHome = (input, data) => {
-  let newData = input.filter((dato) => dato.house === data)
-  return newData
+export const searchByName = (input, data) => {
+  const texto = input.toLowerCase();
+
+  if(input === "" || input === 0 || input === null || data === 0){
+    throw new TypeError("ingresar valores")
+
+  }
+
+  let nombreTitle = data.filter((name) => name.title.toLowerCase().indexOf(texto) !== -1)
+  return nombreTitle;
 }
 
 export const search = (data, inputText) => {
   const result = [];
-  data.forEach((eachSpell) => {
-    const name_ofSpells = eachSpell.name;
+  data.forEach((e) => {
+    const name_ofSpells = e.name;
     const lengthText = inputText.length;
     if(name_ofSpells.slice(0, lengthText) === inputText){
-      result.push(eachSpell)
+      result.push(e)
     }
   });
   return result;
