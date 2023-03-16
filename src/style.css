@@ -293,19 +293,40 @@ li{
 
 /* ---------- BOOKS --------------- */
 
-.book{
+.all-books{
+    width: 100%;
+    height: 100%;
+    
+    display: grid; /*flex*/
+    grid-template-columns: repeat(4, 1fr); /*auto-fit, minmax(270px, 1fr)*/
+    gap: 10px;
+    padding: 60px 90px;
+    background: #000;
+
+}
+
+.all-books > .book, 
+.all-books > .book-2,
+.all-books > .book-3,
+.all-books > .book-4,
+.all-books > .book-5 {
     display: flex;
     align-items: center;
     cursor: pointer;
     perspective: 1000px;
-    background-color: #7bb993;
+    background-color: #b97ba9;
 }
 
-.book:hover .front-cover{
+.all-books > .book:hover .front-cover,
+.all-books > .book-2:hover .front-cover,
+.all-books > .book-3:hover .front-cover,
+.all-books > .book-4:hover .front-cover,
+.all-books > .book-5:hover .front-cover{
     transform: rotateX(10deg) rotateY(-180deg);
 }
 
-.book:hover .page{
+.all-books > .book:hover .page,
+.all-books > .book-2:hover  .page{
     transform: rotateX(10deg) rotateY(-180deg);
     z-index: 2;
 }

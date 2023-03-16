@@ -17,6 +17,7 @@ const section2 = document.querySelector('#section2');
 
 const dataHarry = data.spells;
 const dataCharacter = data.characters;
+const dataBooks = data.books;
 
 
 
@@ -87,19 +88,16 @@ sliderContainer.forEach((item, i) => {
 // Mostrar el template del html pero js
 
 
-/*
+
 const template = (list) => {
   let templateList = '';
-  list.forEach((dataHarry) => {
-    const card = `<div class="box">
-    <h3 class="data-title">Nombre: ${dataHarry.name}</h3>
-    <p>Description: ${dataHarry.spells_type}</p>
-    </div>`;
+  list.forEach((dataBooks) => {
+    const card = `<h2>Nombre: ${dataBooks.title}</h2>`;
     templateList += card;
   })
-  document.getElementById('box-grid').innerHTML = templateList;
+  document.getElementById('last-page').innerHTML = templateList;
 }
-template(dataHarry);*/
+template(dataBooks);
 
 // pruebas en consola
 
