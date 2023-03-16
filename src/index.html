@@ -13,7 +13,7 @@
 
 <body>
 
-  <div class="navigation">
+  <div class="navigation" id="botones">
     <button type="button" class="boton__inicio" id="inicio" data-section="section1"><i
         class="fa-solid fa-house-user"></i> <span>Inicio</span> </button>
     <button type="button" class="boton__hechizos" id="hechizos" data-section="section2"><i
@@ -47,11 +47,11 @@
     <section id="section2" name="bosque">
       <div class="bosque" id="bosque">
         <h1 class="title">Hechizos</h1>
-        <button class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <!--<button class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>-->
         <input type="search" placeholder="search" id="busquedaSpell1">
 
         <!-- Filtrado de informacion-->
-        <select id="informacion">
+        <select class="menu" id="informacion">
           <option value="">Todos </option>
           <option value="Charm">Charm</option>
           <option value="Conjuration">Conjuration</option>
@@ -108,10 +108,11 @@
     </div>
 
   </main>
-  <footer>
-    <span>Diseñado por </span>
+  <footer class="final">
+    <span class="link">Diseñado por </span>
     <a href="https://www.linkedin.com/in/martihuaman/" target="_blank" rel="noopener noreferrer">
       Karen Huamán</a> y <a href="https://www.linkedin.com/in/adriana-armijos-721385185/">Adriana Armijos</a>
+    <img src="../img/Harry.jpg" alt="logoHp" class="imgHp">
   </footer>
 
   <script src="main.js" type="module" defer></script>

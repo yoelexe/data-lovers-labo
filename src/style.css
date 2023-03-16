@@ -26,11 +26,38 @@ body {
     margin: 0;
     padding: 0;
     position: fixed;
-    left: 20px;
+    left: 44px;
     list-style: none;
-    top: 30%;
+    top: 34%;
     transform: translate(-50%);
+
 }
+
+.navigation #inicio,
+#hechizos,
+#libros,
+#pociones,
+#casas,
+#datos {
+    color: var(--negro);
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    height: 40px;
+    padding-top: 12px;
+    border-radius: 80px;
+    border-style: none;
+}
+
+
+.seccion1 #botones {
+    opacity: 0;
+}
+
+.seccion1:hover #botones {
+    opacity: 1;
+}
+
 
 .logo {
     display: block;
@@ -70,6 +97,7 @@ section {
 #section5,
 #section6 {
     display: none;
+    background: linear-gradient(transparent, #1D2625);
 }
 
 #section1:before {
@@ -141,6 +169,7 @@ button {
     height: 40px;
     width: 40px;
     display: block;
+    margin-top: 11px;
 }
 
 
@@ -150,6 +179,10 @@ button {
     color: white;
     /* text-shadow: 0 5px 10px rgba(0,0,0, 2);*/
     font-size: 40px;
+}
+
+.menu {
+    margin-left: 60px;
 }
 
 .contenedor {
@@ -178,6 +211,8 @@ button {
 
 }
 
+
+
 /* ---------- SEARCH --------------- */
 
 .bosque i {
@@ -185,11 +220,11 @@ button {
 }
 
 .bosque input {
-    padding: 15px;
+    padding: 10px;
     outline: none;
-    border-radius: 10px;
-    width: 30%;
-    margin-left: 35%;
+    border-radius: 13px;
+    width: 18%;
+    margin-left: 77%;
     position: absolute;
     font-size: 14px;
 }
@@ -206,10 +241,11 @@ span {
     background-color: black;
     cursor: pointer;
     border-radius: 100%;
-    height: 40px;
-    left: 62%;
+    height: 55px;
+    left: 93%;
     top: 6%;
     z-index: 1;
+    margin-top: -30px
 }
 
 /* ---------- OTHER INFORMATION  --------------- */
@@ -288,7 +324,7 @@ li {
     align-items: center;
     cursor: pointer;
     perspective: 1000px;
-    background-color: #7bb993;
+    background: linear-gradient(transparent, #1D2625);
 }
 
 .book:hover .front-cover {
@@ -360,4 +396,25 @@ li {
 .last-page h2 {
     text-align: center;
     font-size: 30px;
+}
+
+/* ---------- FOOTER --------------- */
+.imgHp {
+    height: 24px;
+    width: 50px;
+    margin: 0;
+    display: inline-block;
+    opacity: 0.5;
+
+}
+
+.final,
+.link,
+a {
+    color: var(--blanco);
+    font-weight: bold;
+    font-size: 1rem;
+    text-align: center;
+    font-family: var(--fuenteHeading);
+    background: linear-gradient(transparent, #1D2625);
 }

@@ -49,7 +49,11 @@ export const baseDatos = () => {
           <strong>Other Name:</strong> ${spell.other_name} </div>`;
         }).join("");
         const finalSpell = document.getElementById("contenedorspells");
-        finalSpell.innerHTML = hallazgoFinal;
+        if (hallazgoFinal === "") {
+          finalSpell.innerHTML = `<div class="final">No se encontró información</div>`;
+        } else {
+          finalSpell.innerHTML = hallazgoFinal;
+        }
       });
     })
 }
