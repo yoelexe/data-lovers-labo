@@ -17,6 +17,7 @@ botones.forEach(function (elemento) {
     const totalResultados = document.getElementById("contenedorspells");
     totalResultados.innerHTML = "";
     document.getElementById("informacion").value = "";
+    document.getElementById("busquedaSpell1").value = "";
   });
 });
 
