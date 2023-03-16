@@ -17,7 +17,12 @@ export const baseDatos = () => {
           }
         });
         const resultadoDatos = resultados.map(spell => {
-          return `<div class = "spellitem"> Name: ${spell.name} <br> Description: ${spell.description} <br> Mention: ${spell.mention} <br> Other Name: ${spell.other_name} </div>`;
+          return `<div class = "spellitem"> 
+          <strong>Name:</strong> ${spell.name} <br>
+          <strong>Spell type:</strong> ${spell.spell_type} <br>
+          <strong>Description:</strong> ${spell.description} <br>
+          <strong>Mention:</strong> ${spell.mention} <br>
+          <strong>Other Name:</strong> ${spell.other_name} </div>`;
         }).join("");
         const totalResultados = document.getElementById("contenedorspells");
         totalResultados.innerHTML = resultadoDatos;
@@ -27,16 +32,21 @@ export const baseDatos = () => {
 
       const busquedaHechizo = document.getElementById("busquedaSpell1");
       busquedaHechizo.addEventListener("input", () => {
-        const busqueda = busquedaHechizo.value.trim().toLowerCase().replace(/-/g, ' ');
+        const busqueda = busquedaHechizo.value;
         const hallazgo = spells.filter((spell) => {
           if (busqueda === "") {
             return true;
           } else {
-            return spell.name.toLowerCase().replace(/-/g, ' ').indexOf(busqueda) !== -1;
+            return spell.name.toLowerCase() === busqueda.toLowerCase();
           }
         });
         const hallazgoFinal = hallazgo.map(spell => {
-          return `<div class = "spellitem"> Name: ${spell.name} <br> Spell type:${spell.spell_type} <br> Description: ${spell.description} <br> Mention: ${spell.mention} <br> Other Name: ${spell.other_name} </div>`;
+          return `<div class = "spellitem"> 
+          <strong>Name:</strong> ${spell.name} <br>
+          <strong>Spell type:</strong> ${spell.spell_type} <br>
+          <strong>Description:</strong> ${spell.description} <br>
+          <strong>Mention:</strong> ${spell.mention} <br>
+          <strong>Other Name:</strong> ${spell.other_name} </div>`;
         }).join("");
         const finalSpell = document.getElementById("contenedorspells");
         finalSpell.innerHTML = hallazgoFinal;

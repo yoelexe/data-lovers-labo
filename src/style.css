@@ -54,24 +54,6 @@ span {
 
 }
 
-/*
-.navigation li{
-    width: 10px;
-    height: 10px;
-    background: #ccc;
-    border: 2px solid black;
-    border-radius: 50%;
-    margin-top: 15px;
-    cursor: pointer;
-    transition: all 0.3s;
-    list-style: none;
-}
-
-.navigation li:hover, .navigation li.selected{
-    transform: scale(1.8);
-}
-*/
-
 
 section {
     height: 100vh;
@@ -170,21 +152,29 @@ button {
     font-size: 40px;
 }
 
-.bosque .box-grid {
+.contenedor {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
     gap: 15px;
     padding: 30px 20px;
 }
 
-.bosque .box-grid .box {
+.spellitem {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
-    /*line-height: 500px;*/
+    line-height: 25px;
     background: white;
-    text-align: center;
+    text-align: left;
     padding: 30px 20px;
-    margin-right: 2px;
+    margin-left: 2px;
+    margin-top: 30px;
+
+
+}
+
+.spellitem strong {
+    font-weight: bold;
+    margin-bottom: 10px;
 
 }
 
@@ -194,7 +184,7 @@ button {
     color: white;
 }
 
-.bosque input{
+.bosque input {
     padding: 15px;
     outline: none;
     border-radius: 10px;
@@ -202,8 +192,8 @@ button {
     margin-left: 35%;
     position: absolute;
     font-size: 14px;
-  }
-  
+}
+
 span {
     color: var(--blanco);
     font-weight: bold;
@@ -211,7 +201,7 @@ span {
     font-size: 1rem;
 }
 
-.search-button{
+.search-button {
     position: relative;
     background-color: black;
     cursor: pointer;
@@ -224,32 +214,32 @@ span {
 
 /* ---------- OTHER INFORMATION  --------------- */
 
-li{
+li {
     color: white;
 }
 
-.info-card{
+.info-card {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: .25rem;
     margin-top: 1rem;
 }
 
-.card{
+.card {
     border: 1px solid black;
     padding: .5rem;
     color: white;
 }
 
-.card > .title-info{
+.card>.title-info {
     margin-bottom: .25rem;
 }
 
-.card > .body-info{
+.card>.body-info {
     font-size: .8rem;
 }
 
-.hide{
+.hide {
     display: none;
 }
 
@@ -258,7 +248,7 @@ li{
 /* ---------- ARROW LEFT AND RIGHT  --------------- */
 
 .left-btn,
-.right-btn{
+.right-btn {
     border: none;
     width: 5vw;
     height: 70%;
@@ -273,21 +263,21 @@ li{
     z-index: 9;
 }
 
-.left-btn{
+.left-btn {
     left: 0;
 }
 
-.right-btn{
+.right-btn {
     right: 0;
 }
 
 .left-btn img,
-.right-btn img{
+.right-btn img {
     opacity: 0.2;
 }
 
 .left-btn:hover img,
-.right-btn:hover img{
+.right-btn:hover img {
     opacity: 1;
 }
 
