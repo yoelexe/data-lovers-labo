@@ -10,6 +10,18 @@ botones.forEach(function (elemento) {
   elemento.addEventListener('click', (event) => {
     let seccion = event.currentTarget.dataset.section;
     let secciones = document.getElementsByTagName("section");
+
+    if (seccion != 'section1') {
+      // Ocultar texto de los botones
+      document.querySelectorAll("button span").forEach((span) => {
+        span.style.display = 'none'
+      })
+    } else {
+      document.querySelectorAll("button span").forEach((span) => {
+        span.style.display = 'inline'
+      })
+    }
+
     for (let i = 0; i < secciones.length; i++) {
       secciones[i].style.display = "none";
     }
@@ -23,3 +35,4 @@ botones.forEach(function (elemento) {
 
 /* Llamor la funcion desde data js*/
 baseDatos()
+
