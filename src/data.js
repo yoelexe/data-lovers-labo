@@ -6,6 +6,7 @@ export const baseDatos = () => {
     .then(response => response.json())
     .then(data => {
       let spells = data['spells']
+      /*Presentacion de la informacion */
 
       const datosIniciales = spells.map(spell => {
         return `<div class = "spellitem"> 
@@ -17,6 +18,8 @@ export const baseDatos = () => {
       }).join("");
       const contenedorspells = document.getElementById("contenedorspells");
       contenedorspells.innerHTML = datosIniciales;
+
+      /*Filtro por tipos */
 
       const filtro = document.getElementById("informacion");
       filtro.addEventListener("change", () => {
@@ -49,7 +52,7 @@ export const baseDatos = () => {
           if (busqueda === "") {
             return true;
           } else {
-            return spell.name.toLowerCase() === busqueda.toLowerCase();
+            return spell.name.toLowerCase().includes(busqueda.toLowerCase()); /* Agregar opciones del buscador*/
           }
         });
         const hallazgoFinal = hallazgo.map(spell => {
