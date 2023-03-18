@@ -11,6 +11,11 @@ botones.forEach(function (elemento) {
     let seccion = event.currentTarget.dataset.section;
     let secciones = document.getElementsByTagName("section");
 
+    if (seccion == 'section2') {
+      /* Llamor la funcion desde data js*/
+      baseDatos()
+    }
+
     if (seccion != 'section1') {
       // Ocultar texto de los botones
       document.querySelectorAll("button span").forEach((span) => {
@@ -33,6 +38,5 @@ botones.forEach(function (elemento) {
   });
 });
 
-/* Llamor la funcion desde data js*/
-baseDatos()
+
 

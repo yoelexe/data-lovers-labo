@@ -1,10 +1,22 @@
 /* Traer data desde el json para filtrado*/
 
 export const baseDatos = () => {
+  console.log("base de datos");
   fetch('./data/harrypotter/harry.json')
     .then(response => response.json())
     .then(data => {
       let spells = data['spells']
+
+      const datosIniciales = spells.map(spell => {
+        return `<div class = "spellitem"> 
+        <strong>Name:</strong> ${spell.name} <br>
+        <strong>Spell type:</strong> ${spell.spell_type} <br>
+        <strong>Description:</strong> ${spell.description} <br>
+        <strong>Mention:</strong> ${spell.mention} <br>
+        <strong>Other Name:</strong> ${spell.other_name} </div>`;
+      }).join("");
+      const contenedorspells = document.getElementById("contenedorspells");
+      contenedorspells.innerHTML = datosIniciales;
 
       const filtro = document.getElementById("informacion");
       filtro.addEventListener("change", () => {
