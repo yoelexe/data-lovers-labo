@@ -82,7 +82,7 @@ span {
 
 
 section {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     /* horizontal */
@@ -158,14 +158,14 @@ video {
 /* ---------- HECHIZOS --------------- */
 
 .bosque {
-    height: 300px;
+
     background-image: linear-gradient(rgba(29, 38, 37, 0.5),
             rgba(29, 38, 37, 0.5)), url(../img/bg-bottom.webp);
     /*pasar hexadecimal a rgba*/
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    height: 100%;
+    height: auto;
 }
 
 button {
