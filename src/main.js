@@ -28,7 +28,9 @@ const intento = dataCharacter.filter(function(dataCharacter){
 console.log(intento)
 
 
+
 /* Buscando todos los hechizos */
+/*
 const search_wand = document.querySelector('#search-wand');
 const box_grid =document.querySelector('#box-grid');
 
@@ -63,6 +65,7 @@ search_wand.addEventListener('input', () => {
 
   box_grid.appendChild($fragment);
 })
+*/
 
 
 // js con el slider
@@ -92,10 +95,15 @@ sliderContainer.forEach((item, i) => {
 const template = (list) => {
   let templateList = '';
   list.forEach((dataBooks) => {
-    const card = `<h2>Nombre: ${dataBooks.title}</h2>`;
+    const card = `<div class="book">
+    <img src="${dataBooks.img}">
+    <label class="data-title">Nombre: ${dataBooks.title}</label>
+    
+    <p>Description: ${dataBooks.author}</p>
+    </div>`;
     templateList += card;
   })
-  document.getElementById('last-page').innerHTML = templateList;
+  document.getElementById('all-books').innerHTML = templateList;
 }
 template(dataBooks);
 
