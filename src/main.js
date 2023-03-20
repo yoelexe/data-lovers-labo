@@ -1,4 +1,4 @@
-import { filterData, baseDatos } from './data.js';
+import {  baseDatos } from './data.js';
 // import data from './data.js';
 // import data from './data/lol/lol.js';
 import data from './data/harrypotter/harry.js';
@@ -10,6 +10,7 @@ const box_grid =document.querySelector('#box-grid');
 
 const dataHarry = data.spells;
 
+/*
 search_wand.addEventListener('input', () => {
   //const name = document.getElementById('search-wand').value;
   const filtrarDataByName = window.filterData(search_wand);
@@ -18,9 +19,11 @@ search_wand.addEventListener('input', () => {
   
 
 })
+*/
 
 
 // Mostrar el template del html pero js
+/*
 const template = (list) => {
   let templateList = '';
   list.forEach((dataHarry) => {
@@ -33,13 +36,12 @@ const template = (list) => {
   document.getElementById('box-grid').innerHTML = templateList;
 }
 template(dataHarry);
+*/
 
 data.spells.map(wind => console.log(wind.name + ' : ' + wind.spell_type))
-console.log(example);
 console.log(data.spells.filter(spells => spells.name === 'Accio').map(wind => wind.name + ' : ' + wind.spell_type))
 
 /*import { search, example, searchByHome } from './data.js';*/
-import { baseDatos } from './data.js';
 
 
 
@@ -52,6 +54,16 @@ botones.forEach(function (elemento) {
     let secciones = document.getElementsByTagName("section");
 
     if (seccion == 'section2') {
+      /* Llamor la funcion desde data js*/
+      baseDatos()
+    }
+
+    if (seccion == 'section6') {
+      /* Llamor la funcion desde data js*/
+      baseDatos()
+    }
+
+    if (seccion == 'section3') {
       /* Llamor la funcion desde data js*/
       baseDatos()
     }
