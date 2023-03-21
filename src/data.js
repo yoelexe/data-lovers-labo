@@ -8,6 +8,7 @@ export const baseDatos = () => {
 
       let spells = data['spells']
       let potions = data['potions']
+      let characters = data['characters']
 
       /*Presentacion de la informacion hechizos */
       const datosInicialesSpells = spells.map(spell => {
@@ -20,6 +21,19 @@ export const baseDatos = () => {
       }).join("");
       const contenedorspells = document.getElementById("contenedorspells");
       contenedorspells.innerHTML = datosInicialesSpells;
+
+      /*Presentacion de la informacion casas de Hogwarts */
+      const datosInicialesHouses = characters.map(character => {
+        return `<div class = "characterItem"> 
+          <strong>Name:</strong> ${character.name} <br>    
+          <strong>Birth:</strong> ${character.birth} <br>
+          <strong>House:</strong> ${character.house} <br>
+          <strong>Associated Groups:</strong> ${character.associated_groups} <br>
+          <strong>Books featured in:</strong> ${character.books_featured_in} <br>
+           </div>`;
+      }).join("");
+      const contenedorhouse = document.getElementById("contenedorhouse");
+      contenedorhouse.innerHTML = datosInicialesHouses;
 
       /*Presentacion de la informacion pociones */
       const datosInicialesPotions = potions.map(potion => {
@@ -81,6 +95,62 @@ export const baseDatos = () => {
           finalSpell.innerHTML = `<div class="final">No se encontró información</div>`;
         } else {
           finalSpell.innerHTML = hallazgoFinal;
+        }
+      });
+
+
+      /*Filtro por tipos de casas de Hogwarts */
+
+      const casasH = document.getElementById("ordencasas");
+      casasH.addEventListener("change", () => {
+        const valorcasasH = casasH.value;
+        const resultadosHogwarts = characters.filter((character) => {
+          if (valorcasasH === "") {
+            return true;
+          } else {
+            return character.house === valorcasasH;
+          }
+        });
+        const resultadoDatos = resultadosHogwarts.map(character => {
+          return `<div class = "characterItem"> 
+          <strong>Name:</strong> ${character.name} <br>    
+          <strong>Birth:</strong> ${character.birth} <br>
+          <strong>House:</strong> ${character.house} <br>
+          <strong>Associated Groups:</strong> ${character.associated_groups} <br>
+          <strong>Books featured in:</strong> ${character.books_featured_in} <br>
+           </div>`;
+        }).join("");
+        const totalResultadosCasas = document.getElementById("contenedorhouse");
+        totalResultadosCasas.innerHTML = resultadoDatos;
+      });
+
+      /*Buscador casas de Hogwarts*/
+
+      const busquedaCasasHogwarts = document.getElementById("busquedaHouse");
+      busquedaCasasHogwarts.addEventListener("input", () => {
+        const CasasHogwarts = busquedaCasasHogwarts.value;
+        const hallazgoHogwarts = characters.filter((character) => {
+          characters
+          if (CasasHogwarts === "") {
+            return true;
+          } else {
+            return character.name.toLowerCase().includes(CasasHogwarts.toLowerCase()); /* Agregar opciones del buscador*/
+          }
+        });
+        const hallazgoFinalHogwarts = hallazgoHogwarts.map(character => {
+          return `<div class = "characterItem"> 
+          <strong>Name:</strong> ${character.name} <br>    
+          <strong>Birth:</strong> ${character.birth} <br>
+          <strong>House:</strong> ${character.house} <br>
+          <strong>Associated Groups:</strong> ${character.associated_groups} <br>
+          <strong>Books featured in:</strong> ${character.books_featured_in} <br>
+           </div>`;
+        }).join("");
+        const finalcharacter = document.getElementById("contenedorhouse");
+        if (hallazgoFinalHogwarts === "") {
+          finalcharacter.innerHTML = `<div class="final">No se encontró información</div>`;
+        } else {
+          finalcharacter.innerHTML = hallazgoFinalHogwarts;
         }
       });
 

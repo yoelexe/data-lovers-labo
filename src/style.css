@@ -199,7 +199,10 @@ button {
 }
 
 
+
+
 .spellitem,
+.characterItem,
 .potionItem {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
@@ -209,11 +212,10 @@ button {
     padding: 30px 20px;
     margin-left: 2px;
     margin-top: 30px;
-
-
 }
 
-.spellitem,
+.spellitem strong,
+.characterItem strong,
 .potionItem strong {
     font-weight: bold;
     margin-bottom: 10px;
