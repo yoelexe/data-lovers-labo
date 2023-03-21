@@ -11,7 +11,7 @@ botones.forEach(function (elemento) {
     let seccion = event.currentTarget.dataset.section;
     let secciones = document.getElementsByTagName("section");
 
-    if (seccion == 'section2') {
+    if (seccion === 'section2' || seccion === 'section5') {
       /* Llamor la funcion desde data js*/
       baseDatos()
     }
@@ -31,10 +31,17 @@ botones.forEach(function (elemento) {
       secciones[i].style.display = "none";
     }
     document.getElementById(seccion).style.display = "flex";
+    /* Hechizos*/
     const totalResultados = document.getElementById("contenedorspells");
     totalResultados.innerHTML = "";
     document.getElementById("informacion").value = "";
     document.getElementById("busquedaSpell1").value = "";
+    /*Pociones*/
+    const totalPociones = document.getElementById("contenedorpotions");
+    totalPociones.innerHTML = "";
+    document.getElementById("descripcion").value = "";
+    document.getElementById("busquedaPotions").value = "";
+
   });
 });
 
