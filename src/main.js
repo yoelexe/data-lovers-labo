@@ -39,7 +39,7 @@ botones.forEach(function (elemento) {
     /*Pociones*/
     const totalPociones = document.getElementById("contenedorpotions");
     totalPociones.innerHTML = "";
-    document.getElementById("descripcion").value = "";
+    document.getElementById("ordenselector").value = "";
     document.getElementById("busquedaPotions").value = "";
 
   });

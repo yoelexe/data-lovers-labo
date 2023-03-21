@@ -22,10 +22,10 @@ export const baseDatos = () => {
       contenedorspells.innerHTML = datosInicialesSpells;
 
       /*Presentacion de la informacion pociones */
-      const datosInicialesPotions = potions.map(spell => {
+      const datosInicialesPotions = potions.map(potion => {
         return `<div class = "potionItem"> 
-        <strong>Name:</strong> ${potions.name} <br>    
-        <strong>Description:</strong> ${potions.description} <br>
+        <strong>Name:</strong> ${potion.name} <br>    
+        <strong>Description:</strong> ${potion.description} <br>
          </div>`;
       }).join("");
       const contenedorPotions = document.getElementById("contenedorpotions");
@@ -84,29 +84,30 @@ export const baseDatos = () => {
         }
       });
 
-      /*Filtro por tipos de Pociones */
-      const orden = document.getElementById("descripcion");
+      /*Ordenado de pociones ascendente y descendente */
+      const orden = document.getElementById("ordenselector");
       orden.addEventListener("change", () => {
         const valorOrden = orden.value;
-        const finalOrden = potions.sort((a, b) => {
-          if (a.name > b.name) {
-            return valorOrden === "Ascendente" ? 1 : -1; // si el orden es ascendente, se retorna 1, de lo contrario, se retorna -1
-          } else if (a.name < b.name) {
-            return valorOrden === "Descendente" ? -1 : 1; // si el orden es ascendente, se retorna -1, de lo contrario, se retorna 1
-          } else {
-            // Si los nombres son iguales, se utiliza el índice para continuar ordenando
-            return potions.indexOf(a) - potions.indexOf(b);
-          }
-        });
+        let pocionesOrdenadas = JSON.parse(JSON.stringify(potions)); /*Copia profunda de data json*/
+        if (valorOrden != '') {
+          pocionesOrdenadas = pocionesOrdenadas.sort((a, b) => {           /*Ascendente*/ /*Sort modifica el arreglo sobre el que actua*/
+            return a.name.localeCompare(b.name)
+          });
 
-        const resultadOrden = finalOrden.map(potion => {
+          if (valorOrden === 'Descendente') {
+            pocionesOrdenadas = pocionesOrdenadas.reverse()           /*Descendente*/
+          }
+        }
+
+        const resultadosOrdenados = pocionesOrdenadas.map(potion => {
           return `<div class = "potionItem"> 
           <strong>Name:</strong> ${potion.name} <br>    
           <strong>Description:</strong> ${potion.description} <br>
            </div>`;
         }).join("");
         const totalfinalOrden = document.getElementById("contenedorpotions");
-        totalfinalOrden.innerHTML = resultadOrden;
+        totalfinalOrden.innerHTML = resultadosOrdenados;
+
       });
       /* Buscador Pociones*/
 
