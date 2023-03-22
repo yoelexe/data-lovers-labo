@@ -1,118 +1,149 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Data Lovers</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    />
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Data Lovers</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-</head>
-
-
-<body>
-
-  <div class="navigation" id="botones">
-    <button type="button" class="boton__inicio" id="inicio" data-section="section1">
-      <i class="fa-solid fa-house-user"></i>
-      <span>Inicio</span>
-    </button>
-    <button type="button" class="boton__hechizos" id="hechizos" data-section="section2">
-      <i class="fa-solid fa-wand-sparkles"> </i>
-      <span>Hechizos</span>
-    </button>
-    <button type="button" class="boton__libros" id="libros" data-section="section3">
-      <i class="fa-solid fa-book-quran"></i>
-      <span>Libros</span>
-    </button>
-    <button type="button" class="boton__casas" id="casas" data-section="section4">
-      <i class="fa-solid fa-house"></i>
-      <span>Casas</span>
-    </button>
-    <button type="button" class="boton__pociones" id="pociones" data-section="section5">
-      <i class="fa-solid fa-hat-wizard"></i>
-      <span>Pociones</span>
-    </button>
-    <button type="button" class="boton__datos" id="datos" data-section="section6">
-      <i class="fa-brands fa-searchengin"></i>
-      <span>Curiosidades</span>
-    </button>
-  </div>
-
-  <main>
-
-    <section id="section1" name="primero">
-      <div>
-        <video src="../img/hero.mp4" autoplay="true" muted="true" loop="true"></video>
-      </div>
-      <div>
-        <img class="logo" src="../img/harry-potter-logo-2004-2011-1630321258.png" alt="harry-logo">
-        <div class="frase">“Trabajar duro es importante, pero hay algo aún
-          más importante.
-          <br>
-          Creer en ti mismo.” — Harry Potter —
-        </div>
-      </div>
-    </section>
-
-    <section id="section2" name="bosque">
-      <div class="bosque" id="bosque">
-        <h1 class="title">Hechizos</h1>
-        <!--<button class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>-->
-        <input class="sugerencias" type="search" placeholder="search" id="busquedaSpell1">
-
-        <!-- Filtrado de informacion-->
-        <select class="menu" id="informacion">
-          <option value="">Todos </option>
-          <option value="Charm">Charm</option>
-          <option value="Conjuration">Conjuration</option>
-          <option value="Spell">Spell</option>
-          <option value="Transfiguration">Transfiguration</option>
-          <option value="Healing Spell">Healing Spell</option>
-          <option value="oVanishment">Vanishment</option>
-          <option value="Hex">Hex</option>
-          <option value="Jinx">Jinx</option>
-          <option value="Curse">Curse</option>
-          <option value="Transportation">Transportation</option>
-          <option value="Dark Arts">Dark Arts</option>
-        </select>
-        <div class="contenedor" id="contenedorspells">
-
-        </div>
-    </section>
-
-    <section id="section3">
-      <div class="all-books" id="all-books">
-      
-      </div>
-    </section>
-
-    <section id="section4">
-      <div>
-        <h1>Casas</h1>
-      </div>
-    </section>
-
-    <section id="section5">
-      <div>
-        
-        <h1>Pociones</h1>
-      </div>
-    </section>
-
-    <section id="section6">
-
-      <div class="all-funfacts" id="all-funfacts">
-        
-      </div>
-    </section>
-
+  <body>
+    <div class="navigation" id="botones">
+      <button
+        type="button"
+        class="boton__inicio"
+        id="inicio"
+        data-section="section1"
+      >
+        <i class="fa-solid fa-house-user"></i>
+        <span>Inicio</span>
+      </button>
+      <button
+        type="button"
+        class="boton__hechizos"
+        id="hechizos"
+        data-section="section2"
+      >
+        <i class="fa-solid fa-wand-sparkles"> </i>
+        <span>Hechizos</span>
+      </button>
+      <button
+        type="button"
+        class="boton__libros"
+        id="libros"
+        data-section="section3"
+      >
+        <i class="fa-solid fa-book-quran"></i>
+        <span>Libros</span>
+      </button>
+      <button
+        type="button"
+        class="boton__casas"
+        id="casas"
+        data-section="section4"
+      >
+        <i class="fa-solid fa-house"></i>
+        <span>Casas</span>
+      </button>
+      <button
+        type="button"
+        class="boton__pociones"
+        id="pociones"
+        data-section="section5"
+      >
+        <i class="fa-solid fa-hat-wizard"></i>
+        <span>Pociones</span>
+      </button>
+      <button
+        type="button"
+        class="boton__datos"
+        id="datos"
+        data-section="section6"
+      >
+        <i class="fa-brands fa-searchengin"></i>
+        <span>Curiosidades</span>
+      </button>
     </div>
 
-  </main>
-  
+    <main>
+      <section id="section1" name="primero">
+        <div>
+          <video
+            src="../img/hero.mp4"
+            autoplay="true"
+            muted="true"
+            loop="true"
+          ></video>
+        </div>
+        <div>
+          <img
+            class="logo"
+            src="../img/harry-potter-logo-2004-2011-1630321258.png"
+            alt="harry-logo"
+          />
+          <div class="frase">
+            “Trabajar duro es importante, pero hay algo aún más importante.
+            <br />
+            Creer en ti mismo.” — Harry Potter —
+          </div>
+        </div>
+      </section>
 
-  <script src="main.js" type="module" defer></script>
-</body>
+      <section id="section2" name="bosque">
+        <div class="bosque" id="bosque">
+          <h1 class="title">Hechizos</h1>
+          <!--<button class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>-->
+          <input
+            class="sugerencias"
+            type="search"
+            placeholder="search"
+            id="busquedaSpell1"
+          />
 
+          <!-- Filtrado de informacion-->
+          <select class="menu" id="informacion">
+            <option value="">Todos</option>
+            <option value="Charm">Charm</option>
+            <option value="Conjuration">Conjuration</option>
+            <option value="Spell">Spell</option>
+            <option value="Transfiguration">Transfiguration</option>
+            <option value="Healing Spell">Healing Spell</option>
+            <option value="oVanishment">Vanishment</option>
+            <option value="Hex">Hex</option>
+            <option value="Jinx">Jinx</option>
+            <option value="Curse">Curse</option>
+            <option value="Transportation">Transportation</option>
+            <option value="Dark Arts">Dark Arts</option>
+          </select>
+          <div class="contenedor" id="contenedorspells"></div>
+        </div>
+      </section>
+
+      <section id="section3">
+        <div class="all-books" id="all-books"></div>
+      </section>
+
+      <section id="section4">
+        <div>
+          <h1>Casas</h1>
+        </div>
+      </section>
+
+      <section id="section5">
+        <div>
+          <h1>Pociones</h1>
+        </div>
+      </section>
+
+      <section id="section6">
+        <div class="all-funfacts" id="all-funfacts"></div>
+      </section>
+    </main>
+
+    <script src="main.js" type="module" defer></script>
+  </body>
 </html>

@@ -109,3 +109,16 @@ export const baseDatos = () => {
       });
     })
 }
+
+
+export const filtroHechizo=(spells, busqueda)=>{
+  if(spells===undefined || busqueda=== undefined) return undefined
+  const hallazgo = spells.filter((spell) => {
+    if (busqueda === "") {
+      return true;
+    } else {
+      return spell.name.toLocaleLowerCase().includes(busqueda) === busqueda.toLocaleLowerCase().includes(busqueda);
+    }
+  });
+  return hallazgo
+}

@@ -5,11 +5,6 @@ import data from './data/harrypotter/harry.js';
 // import data from './data/rickandmorty/rickandmorty.js';
 /*import { search, example, searchByHome } from './data.js';*/
 
-const search_wand = document.querySelector('#search-wand');
-const box_grid =document.querySelector('#box-grid');
-
-const dataHarry = data.spells;
-
 /*
 search_wand.addEventListener('input', () => {
   //const name = document.getElementById('search-wand').value;
