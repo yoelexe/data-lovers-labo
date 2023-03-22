@@ -31,11 +31,13 @@ botones.forEach(function (elemento) {
       secciones[i].style.display = "none";
     }
     document.getElementById(seccion).style.display = "flex";
+
     /* Hechizos*/
     const totalResultados = document.getElementById("contenedorspells");
     totalResultados.innerHTML = "";
     document.getElementById("informacion").value = "";
     document.getElementById("busquedaSpell1").value = "";
+
     /*Casas de Hogwarts*/
     const totalResultadosCasas = document.getElementById("contenedorhouse");
     totalResultadosCasas.innerHTML = "";
