@@ -53,7 +53,7 @@ botones.forEach(function (elemento) {
     let seccion = event.currentTarget.dataset.section;
     let secciones = document.getElementsByTagName("section");
 
-    if (seccion == 'section2') {
+    if (seccion === 'section2' || seccion === 'section3' || seccion === 'section4' || seccion === 'section5') {
       /* Llamor la funcion desde data js*/
       baseDatos()
     }
@@ -83,9 +83,24 @@ botones.forEach(function (elemento) {
       secciones[i].style.display = "none";
     }
     document.getElementById(seccion).style.display = "flex";
+
+    /* Hechizos*/
     const totalResultados = document.getElementById("contenedorspells");
     totalResultados.innerHTML = "";
     document.getElementById("informacion").value = "";
     document.getElementById("busquedaSpell1").value = "";
+
+    /*Casas de Hogwarts*/
+    const totalResultadosCasas = document.getElementById("contenedorhouse");
+    totalResultadosCasas.innerHTML = "";
+    document.getElementById("ordencasas").value = "";
+    document.getElementById("busquedaHouse").value = "";
+
+    /*Pociones*/
+    const totalPociones = document.getElementById("contenedorpotions");
+    totalPociones.innerHTML = "";
+    document.getElementById("ordenselector").value = "";
+    document.getElementById("busquedaPotions").value = "";
+
   });
 });
