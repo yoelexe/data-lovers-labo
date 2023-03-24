@@ -1,77 +1,136 @@
-import {  baseDatos } from './data.js';
-// import data from './data.js';
-// import data from './data/lol/lol.js';
-import data from './data/harrypotter/harry.js';
-// import data from './data/rickandmorty/rickandmorty.js';
-/*import { search, example, searchByHome } from './data.js';*/
+import { filtroHechizo } from "./data.js";
+import data from "./data/harrypotter/harry.js";
 
-/*
-search_wand.addEventListener('input', () => {
-  //const name = document.getElementById('search-wand').value;
-  const filtrarDataByName = window.filterData(search_wand);
-  printData(filtrarDataByName)
-  console.log(filterData)
-  
+const dataSpells = data.spells;
 
-})
-*/
+export const baseDatos = () => {
+  console.log("base de datos");
+  fetch("./data/harrypotter/harry.json")
+    .then((response) => response.json())
+    .then((data) => {
+      // traer la información de spells
+      let spells = data["spells"];
+      const datosIniciales = spells
+        .map((spell) => {
+          return `<div class = "spellitem"> 
+        <strong>Name:</strong> ${spell.name} <br>
+        <strong>Spell type:</strong> ${spell.spell_type} <br>
+        
+        <strong>Mention:</strong> ${spell.mention} <br>
+        <strong>Other Name:</strong> ${spell.other_name} </div>`;
+        })
+        .join("");
+      const contenedorspells = document.getElementById("contenedorspells");
+      contenedorspells.innerHTML = datosIniciales;
 
+      // traer la información de fun-facts
+      let funfacts = data["funFacts"];
+      const mostrarfunFacts = funfacts
+        .map((funfact) => {
+          return `<div class="funfacts" id="funfacts">
+        <div class="card-funfact" id="card-funfact">
+        <h2>${funfact.type}</h2>
+        <p>${funfact.content}</p>
+        </div>
+        </div>`;
+        })
+        .join("");
+      const card_funfact = document.getElementById("all-funfacts");
+      card_funfact.innerHTML = mostrarfunFacts;
 
-// Mostrar el template del html pero js
-/*
-const template = (list) => {
-  let templateList = '';
-  list.forEach((dataHarry) => {
-    const card = `<div class="box">
-    <h3>Nombre: ${dataHarry.name}</h3>
-    <p>Descripción: ${dataHarry.description}</p>
-    </div>`;
-    templateList += card;
-  })
-  document.getElementById('box-grid').innerHTML = templateList;
-}
-template(dataHarry);
-*/
+      // traer la información de books
+      let books = data["books"];
+      const mostrarbooks = books
+        .map((book) => {
+          return `
+        <div class="book-card">
+          <div class="book-card__cover">
+            <div class="book-card__book">
+            <div class="book-card__book-front">
+              <img src="${book.images}" alt="" class=".book-card__img">
+              </div>
+            <div class="book-card__book-back"></div>
+              <div class="book-card__book-side"></div>
+              </div>
+              <div class="book-card__title">
+                ${book.title}
+              </div>
+              <div class="book-card__author">
+                <p>${book.description}</p>
+              </div>
+            </div>
+          </div>`;
+        })
+        .join("");
+      const all_books = document.getElementById("all-books");
+      all_books.innerHTML = mostrarbooks;
 
-data.spells.map(wind => console.log(wind.name + ' : ' + wind.spell_type))
-console.log(data.spells.filter(spells => spells.name === 'Accio').map(wind => wind.name + ' : ' + wind.spell_type))
+      const filtro = document.getElementById("informacion");
+      filtro.addEventListener("change", () => {
+        const valorFiltro = filtro.value;
+        const resultados = spells.filter((spell) => {
+          if (valorFiltro === "") {
+            return true;
+          } else {
+            return spell.spell_type === valorFiltro;
+          }
+        });
+        const resultadoDatos = resultados
+          .map((spell) => {
+            return `<div class = "spellitem"> 
+          <strong>Name:</strong> ${spell.name} <br>
+          <strong>Spell type:</strong> ${spell.spell_type} <br>
+          
+          <strong>Mention:</strong> ${spell.mention} <br>
+          <strong>Other Name:</strong> ${spell.other_name} </div>`;
+          })
+          .join("");
+        const totalResultados = document.getElementById("contenedorspells");
+        totalResultados.innerHTML = resultadoDatos;
+      });
 
-/*import { search, example, searchByHome } from './data.js';*/
+      /*Buscador*/
+      const busquedaHechizo = document.getElementById("busquedaSpell1");
+      busquedaHechizo.addEventListener("input", () => {
+        const busqueda = busquedaHechizo.value.toLowerCase();
 
+        const hallazgo = filtroHechizo(dataSpells, busqueda);
+        return hallazgo;
+      });
+    });
+};
 
-
-/* Siguiente sección*/
-
-let botones = document.querySelectorAll(".navigation button")
+const botones = document.querySelectorAll(".navigation button");
 botones.forEach(function (elemento) {
-  elemento.addEventListener('click', (event) => {
+  elemento.addEventListener("click", (event) => {
     let seccion = event.currentTarget.dataset.section;
     let secciones = document.getElementsByTagName("section");
 
-    if (seccion == 'section2') {
+    if (seccion == "section2") {
       /* Llamor la funcion desde data js*/
-      baseDatos()
+      baseDatos();
+      console.log("trear la función");
     }
 
-    if (seccion == 'section6') {
+    if (seccion == "section6") {
       /* Llamor la funcion desde data js*/
-      baseDatos()
+      baseDatos();
     }
 
-    if (seccion == 'section3') {
+    if (seccion == "section3") {
       /* Llamor la funcion desde data js*/
-      baseDatos()
+      baseDatos();
     }
 
-    if (seccion != 'section1') {
+    if (seccion != "section1") {
       // Ocultar texto de los botones
       document.querySelectorAll("button span").forEach((span) => {
-        span.style.display = 'none'
-      })
+        span.style.display = "none";
+      });
     } else {
       document.querySelectorAll("button span").forEach((span) => {
-        span.style.display = 'inline'
-      })
+        span.style.display = "inline";
+      });
     }
 
     for (let i = 0; i < secciones.length; i++) {
