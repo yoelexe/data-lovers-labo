@@ -8,7 +8,6 @@ export const filtroHechizo = (spells, busqueda) => {
       busqueda.toLocaleLowerCase().includes(busqueda)
     );
   });
-
   return hallazgo;
 };
 
