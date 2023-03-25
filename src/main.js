@@ -1,4 +1,4 @@
-import { filtroHechizo } from "./data.js";
+import { filtroHechizo, changeInfo } from "./data.js";
 import data from "./data/harrypotter/harry.js";
 
 const dataSpells = data.spells;
@@ -68,19 +68,12 @@ export const baseDatos = () => {
       const filtro = document.getElementById("informacion");
       filtro.addEventListener("change", () => {
         const valorFiltro = filtro.value;
-        const resultados = spells.filter((spell) => {
-          if (valorFiltro === "") {
-            return true;
-          } else {
-            return spell.spell_type === valorFiltro;
-          }
-        });
+        const resultados = changeInfo(dataSpells, valorFiltro);
         const resultadoDatos = resultados
           .map((spell) => {
             return `<div class = "spellitem"> 
           <strong>Name:</strong> ${spell.name} <br>
           <strong>Spell type:</strong> ${spell.spell_type} <br>
-          
           <strong>Mention:</strong> ${spell.mention} <br>
           <strong>Other Name:</strong> ${spell.other_name} </div>`;
           })
@@ -95,6 +88,22 @@ export const baseDatos = () => {
         const busqueda = busquedaHechizo.value.toLowerCase();
 
         const hallazgo = filtroHechizo(dataSpells, busqueda);
+        const hallazgoFinal = hallazgo
+          .map((spell) => {
+            return `<div class = "spellitem"> 
+            <strong>Name:</strong> ${spell.name} <br>
+            <strong>Spell type:</strong> ${spell.spell_type} <br>
+            <strong>Mention:</strong> ${spell.mention} <br>
+            <strong>Other Name:</strong> ${spell.other_name} </div>`;
+          })
+          .join("");
+
+        const finalSpell = document.getElementById("contenedorspells");
+        if (hallazgoFinal === "") {
+          finalSpell.innerHTML = `<div class="final">No se encontró información</div>`;
+        } else {
+          finalSpell.innerHTML = hallazgoFinal;
+        }
         return hallazgo;
       });
     });

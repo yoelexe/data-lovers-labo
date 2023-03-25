@@ -1,32 +1,59 @@
-import { baseDatos, filtroHechizo, getSpells} from '../src/data.js';
+import { filtroHechizo, changeInfo } from "../src/data.js";
 
-describe('search from spells', () => {
-  it('Deberia ser una función', () => {
-    expect(typeof getSpells).toBe('function')
-  })
-})
-
-describe('buscador de hechizos', () => {
-  it('Deberia de devolver un arreglo', () => {
-    expect(typeof baseDatos).toBe('function');
+describe("Colección de test sobre busqueda Hechizo -> function", () => {
+  it("return function", () => {
+    expect(typeof filtroHechizo).toBe("function");
   });
 });
 
-describe('Colecion de test sobre filtro',()=>{
-  it('return undefined',()=>{
-    expect(filtroHechizo()).toBe(undefined)
-  })
-})
+describe("Colección de test sobre busqueda Hechizo -> undefined", () => {
+  it("return undefined", () => {
+    expect(filtroHechizo()).toBe(undefined);
+  });
+});
 
-const potions = [
-  { name: "Amortentia", description: "love potion" },
-  { name: "Polyjuice Potion", description: "allows the drinker to assume the form of someone else" }
-  ];
-  describe("Buscador de pociones", () => {
-    it('Deberia retornar el filtrado por nombres -> spells', () => {
-      const resultpotions = [
-        { name: "Amortentia", description: "love potion" }
-        ];
-        expect(getSpells(potions, 'Amortentia')).toEqual(resultpotions)
-  })})
-  
+describe("Colección de test sobre filtro por Tipo de Hechizo -> function", () => {
+  it("return function", () => {
+    expect(typeof changeInfo).toBe("function");
+  });
+});
+
+describe("Colección de test sobre filtro por Tipo de Hechizo -> undefined", () => {
+  it("return undefined", () => {
+    expect(changeInfo()).toBe(undefined);
+  });
+});
+
+const dataspell = [
+  {
+    name: "Aberto",
+    spell_type: "Charm",
+  },
+  {
+    name: "Accio",
+    spell_type: "Charm",
+  },
+  {
+    name: "Age Line",
+    spell_type: "Charm",
+  },
+];
+describe("Buscador de pociones", () => {
+  it("Deberia retornar el filtrado por nombres -> spells", () => {
+    const resultspell = [
+      {
+        name: "Aberto",
+        spell_type: "Charm",
+      },
+      {
+        name: "Accio",
+        spell_type: "Charm",
+      },
+      {
+        name: "Age Line",
+        spell_type: "Charm",
+      },
+    ];
+    expect(filtroHechizo(dataspell, "Accio")).toEqual(resultspell);
+  });
+});
