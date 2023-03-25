@@ -181,8 +181,8 @@ video{
 /* ---------- HECHIZOS --------------- */
 
 .bosque {
-    background-image: linear-gradient(rgba(29, 38, 37, 0.5),
-            rgba(29, 38, 37, 0.5)), url(../img/bg-bottom.webp);
+    background-image: linear-gradient(rgba(29, 38, 37, 0.2),
+            rgba(29, 38, 37, 0.2)), url(../img/bg-bottom.webp);
     /*pasar hexadecimal a rgba*/
     background-repeat: no-repeat;
     background-size: cover;
@@ -195,6 +195,13 @@ button {
     width: 40px;
     display: block;
     margin-top: 11px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
+    background-color: #1D2625;
+}
+
+.navigation i{
+    color: white;
+    margin-bottom: 10px;
 }
 
 
@@ -300,11 +307,11 @@ span {
 
 .all-books{
     display: flex;
+    justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
     height: 100%;
-    padding-left: 120px;
 }
 
 .book-card {
@@ -359,16 +366,17 @@ span {
     width: 20px;
     height: 20px;
     background-size: contain;
-    background: #9b1c1c;
+    
 }
 .book-card .book-card__title {
     font-size: 14px;
     margin-top: 3px;
+    font-weight: bold;
 }
 .book-card .book-card__author p{
     text-align: justify;
     position: absolute;
-    left: 110%;
+    left: 100%;
     bottom: 30%;
     top: 0%;
     padding: 10px;
@@ -408,21 +416,28 @@ a {
 }
 
 /* ---------- DATOS CURIORIOSOS --------------- */
+#section6 > h1{
+    position: absolute;
+    left: 45%;
+    bottom: 90%;
+    color: white;
+    
+}
 .all-funfacts{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
     height: 100%;
-    padding-left: 70px;
+    padding: 70px  0px 0px 70px;
     
 }
 .funfacts{
     margin: 20px;
     width: 250px;
-    height: 350px;
+    height: 330px;
     border-radius: 5px;
-    background-image: url(https://i.pinimg.com/236x/bc/0e/f9/bc0ef9b2e361319a3e904f086262b14d.jpg);
+    background-image: url(https://i.pinimg.com/236x/ea/c8/ea/eac8ea2365b9bd83d9b36b5bc91fded3.jpg);
     background-size: cover;
     box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.8);
 }

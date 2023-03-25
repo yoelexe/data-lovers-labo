@@ -1,82 +1,150 @@
-import {  baseDatos } from './data.js';
-// import data from './data.js';
-// import data from './data/lol/lol.js';
-import data from './data/harrypotter/harry.js';
-// import data from './data/rickandmorty/rickandmorty.js';
-/*import { search, example, searchByHome } from './data.js';*/
+import { filtroHechizo, changeInfo } from "./data.js";
+import data from "./data/harrypotter/harry.js";
 
-const search_wand = document.querySelector('#search-wand');
-const box_grid =document.querySelector('#box-grid');
+const dataSpells = data.spells;
 
-const dataHarry = data.spells;
+export const baseDatos = () => {
+  console.log("base de datos");
+  fetch("./data/harrypotter/harry.json")
+    .then((response) => response.json())
+    .then((data) => {
+      // traer la información de spells
+      let spells = data["spells"];
+      const datosIniciales = spells
+        .map((spell) => {
+          return `<div class = "spellitem"> 
+        <strong>Name:</strong> ${spell.name} <br>
+        <strong>Spell type:</strong> ${spell.spell_type} <br>
+        
+        <strong>Mention:</strong> ${spell.mention} <br>
+        <strong>Other Name:</strong> ${spell.other_name} </div>`;
+        })
+        .join("");
+      const contenedorspells = document.getElementById("contenedorspells");
+      contenedorspells.innerHTML = datosIniciales;
 
-/*
-search_wand.addEventListener('input', () => {
-  //const name = document.getElementById('search-wand').value;
-  const filtrarDataByName = window.filterData(search_wand);
-  printData(filtrarDataByName)
-  console.log(filterData)
-  
+      // traer la información de fun-facts
+      let funfacts = data["funFacts"];
+      const mostrarfunFacts = funfacts
+        .map((funfact) => {
+          return `<div class="funfacts" id="funfacts">
+        <div class="card-funfact" id="card-funfact">
+        <h2>${funfact.type}</h2>
+        <p>${funfact.content}</p>
+        </div>
+        </div>`;
+        })
+        .join("");
+      const card_funfact = document.getElementById("all-funfacts");
+      card_funfact.innerHTML = mostrarfunFacts;
 
-})
-*/
+      // traer la información de books
+      let books = data["books"];
+      const mostrarbooks = books
+        .map((book) => {
+          return `
+        <div class="book-card">
+          <div class="book-card__cover">
+            <div class="book-card__book">
+            <div class="book-card__book-front">
+              <img src="${book.images}" alt="" class=".book-card__img">
+              </div>
+            <div class="book-card__book-back"></div>
+              <div class="book-card__book-side"></div>
+              </div>
+              <div class="book-card__title">
+                ${book.title}
+              </div>
+              <div class="book-card__author">
+                <p>${book.description}</p>
+              </div>
+            </div>
+          </div>`;
+        })
+        .join("");
+      const all_books = document.getElementById("all-books");
+      all_books.innerHTML = mostrarbooks;
 
+      const filtro = document.getElementById("informacion");
+      filtro.addEventListener("change", () => {
+        const valorFiltro = filtro.value;
+        const resultados = changeInfo(dataSpells, valorFiltro);
+        const resultadoDatos = resultados
+          .map((spell) => {
+            return `<div class = "spellitem"> 
+          <strong>Name:</strong> ${spell.name} <br>
+          <strong>Spell type:</strong> ${spell.spell_type} <br>
+          <strong>Mention:</strong> ${spell.mention} <br>
+          <strong>Other Name:</strong> ${spell.other_name} </div>`;
+          })
+          .join("");
+        const totalResultados = document.getElementById("contenedorspells");
+        totalResultados.innerHTML = resultadoDatos;
+      });
 
-// Mostrar el template del html pero js
-/*
-const template = (list) => {
-  let templateList = '';
-  list.forEach((dataHarry) => {
-    const card = `<div class="box">
-    <h3>Nombre: ${dataHarry.name}</h3>
-    <p>Descripción: ${dataHarry.description}</p>
-    </div>`;
-    templateList += card;
-  })
-  document.getElementById('box-grid').innerHTML = templateList;
-}
-template(dataHarry);
-*/
+      /*Buscador*/
+      const busquedaHechizo = document.getElementById("busquedaSpell1");
+      busquedaHechizo.addEventListener("input", () => {
+        const busqueda = busquedaHechizo.value.toLowerCase();
 
-data.spells.map(wind => console.log(wind.name + ' : ' + wind.spell_type))
-console.log(data.spells.filter(spells => spells.name === 'Accio').map(wind => wind.name + ' : ' + wind.spell_type))
+        const hallazgo = filtroHechizo(dataSpells, busqueda);
+        const hallazgoFinal = hallazgo
+          .map((spell) => {
+            return `<div class = "spellitem"> 
+            <strong>Name:</strong> ${spell.name} <br>
+            <strong>Spell type:</strong> ${spell.spell_type} <br>
+            <strong>Mention:</strong> ${spell.mention} <br>
+            <strong>Other Name:</strong> ${spell.other_name} </div>`;
+          })
+          .join("");
 
-/*import { search, example, searchByHome } from './data.js';*/
+        const finalSpell = document.getElementById("contenedorspells");
+        if (hallazgoFinal === "") {
+          finalSpell.innerHTML = `<div class="final">No se encontró información</div>`;
+        } else {
+          finalSpell.innerHTML = hallazgoFinal;
+        }
+        return hallazgo;
+      });
+    });
+};
 
-
-
-/* Siguiente sección*/
-
-let botones = document.querySelectorAll(".navigation button")
+const botones = document.querySelectorAll(".navigation button");
 botones.forEach(function (elemento) {
-  elemento.addEventListener('click', (event) => {
+  elemento.addEventListener("click", (event) => {
     let seccion = event.currentTarget.dataset.section;
     let secciones = document.getElementsByTagName("section");
 
-    if (seccion === 'section2' || seccion === 'section3' || seccion === 'section4' || seccion === 'section5') {
+    if (
+      seccion === "section2" ||
+      seccion === "section3" ||
+      seccion === "section4" ||
+      seccion === "section5"
+    ) {
       /* Llamor la funcion desde data js*/
-      baseDatos()
+      baseDatos();
+      console.log("trear la función");
     }
 
-    if (seccion == 'section6') {
+    if (seccion == "section6") {
       /* Llamor la funcion desde data js*/
-      baseDatos()
+      baseDatos();
     }
 
-    if (seccion == 'section3') {
+    if (seccion == "section3") {
       /* Llamor la funcion desde data js*/
-      baseDatos()
+      baseDatos();
     }
 
-    if (seccion != 'section1') {
+    if (seccion != "section1") {
       // Ocultar texto de los botones
       document.querySelectorAll("button span").forEach((span) => {
-        span.style.display = 'none'
-      })
+        span.style.display = "none";
+      });
     } else {
       document.querySelectorAll("button span").forEach((span) => {
-        span.style.display = 'inline'
-      })
+        span.style.display = "inline";
+      });
     }
 
     for (let i = 0; i < secciones.length; i++) {
@@ -101,6 +169,5 @@ botones.forEach(function (elemento) {
     totalPociones.innerHTML = "";
     document.getElementById("ordenselector").value = "";
     document.getElementById("busquedaPotions").value = "";
-
   });
 });
