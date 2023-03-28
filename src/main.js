@@ -40,15 +40,18 @@ export const baseDatos = () => {
       //! traer la información de fun-facts
       const mostrarfunFacts = funfacts
         .map((funfact) => {
-          return `<div class="funfacts" id="funfacts">
-        <div class="card-funfact" id="card-funfact">
-        <h2>${funfact.type}</h2>
-        <p>${funfact.content}</p>
-        </div>
-        </div>`;
+          return `
+          <div class="etiqueta">${funfact.type}</div>
+          <div class="contenido">${funfact.content}</div>
+          <hr />`;
         })
         .join("");
-      const card_funfact = document.getElementById("all-funfacts");
+      const card_funfact = document.getElementById("cont-acordeon");
+      for (let i = 1; i < card_funfact.length; i++) {
+        card_funfact[i].addEventListener("click", function () {
+          this.classList.toggle("activa");
+        });
+      }
       card_funfact.innerHTML = mostrarfunFacts;
 
       //! traer la información de books
@@ -102,6 +105,7 @@ export const baseDatos = () => {
         })
         .join("");
       const contenedorPotions = document.getElementById("contenedorpotions");
+
       contenedorPotions.innerHTML = datosInicialesPotions;
 
       //* Filtrado por tipo de Hechizo -> Section 02
@@ -281,11 +285,3 @@ botones.forEach(function (elemento) {
     document.getElementById("busquedaPotions").value = "";
   });
 });
-
-const acordeon = document.getElementsByClassName("cont-acordeon");
-
-for (let i = 0; i < acordeon.length; i++) {
-  acordeon[i].addEventListener("click", function () {
-    this.classList.toggle("activa");
-  });
-}
