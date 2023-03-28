@@ -10,9 +10,7 @@
 
 }
 
-html{
-    scroll-behavior: smooth;
-}
+
 
 * {
     margin: 0;
@@ -62,24 +60,27 @@ body {
 
 
 .logo {
-    display: block;
-    margin: 0 auto;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
 }
+
 
 .frase {
     color: var(--negro);
     font-size: 1rem;
     text-align: center;
-    
+
 }
+
 
 span {
     color: var(--blanco);
     font-weight: bold;
     margin-left: 50px;
     font-size: 1rem;
-
-
 }
 
 
@@ -98,7 +99,7 @@ section {
 #section5,
 #section6 {
     display: none;
-    
+
 }
 
 #section1:before {
@@ -116,25 +117,9 @@ section {
     display: none;
 }
 
-section:nth-child(3) {
-    background: #3F5259;
 
-}
 
-section:nth-child(4) {
-    background: #857bb9;
-
-}
-
-section:nth-child(5) {
-    background: #7bb993;
-}
-
-section:nth-child(6) {
-    background: #a3b97b;
-}
-
-.navigation li{
+.navigation li {
     width: 10px;
     height: 10px;
     background: #ccc;
@@ -146,12 +131,8 @@ section:nth-child(6) {
     list-style: none;
 }
 
-.navigation li:hover, .navigation li.selected{
-    transform: scale(1.8);
-}
 
-
-video{
+video {
     position: absolute;
     left: 0;
     bottom: 0;
@@ -165,6 +146,7 @@ video{
         height: auto;
     }
 }
+
 @media(max-aspect-ratio: 16/9) {
     video {
         width: auto;
@@ -181,8 +163,7 @@ video{
 /* ---------- HECHIZOS --------------- */
 
 .bosque {
-    background-image: linear-gradient(rgba(29, 38, 37, 0.2),
-            rgba(29, 38, 37, 0.2)), url(../img/bg-bottom.webp);
+    background-image: url(../img/bg-bottom.webp);
     /*pasar hexadecimal a rgba*/
     background-repeat: no-repeat;
     background-size: cover;
@@ -196,10 +177,10 @@ button {
     display: block;
     margin-top: 11px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
-    background-color: #1D2625;
+    background-color: #3F5259;
 }
 
-.navigation i{
+.navigation i {
     color: white;
     margin-bottom: 10px;
 }
@@ -226,9 +207,6 @@ button {
     margin-right: 30px;
 
 }
-
-
-
 
 .spellitem,
 .characterItem,
@@ -269,12 +247,7 @@ button {
     font-size: 14px;
 }
 
-span {
-    color: var(--blanco);
-    font-weight: bold;
-    margin-left: 50px;
-    font-size: 1rem;
-}
+
 
 .search-button {
     position: relative;
@@ -290,9 +263,67 @@ span {
 
 /* ---------- OTHER INFORMATION  --------------- */
 
-
 /* ---------- ARROW LEFT AND RIGHT  --------------- */
+.acordeon {
+    width: 800px;
+    margin: 90px 20px;
+    color: var(--blanco);
+    background-image: url(../img/bg-bottom.webp);
+    padding: 45px 45px;
+}
 
+.acordeon .cont-acordeon {
+    position: relative;
+    margin: 10px 10px;
+}
+
+.cont-acordeon .contenido {
+    color: var(--blanco);
+}
+
+.acordeon .etiqueta {
+    position: relative;
+    padding: 10px 0;
+    font-size: 30px;
+    color: var(--blanco);
+    cursor: pointer;
+}
+
+.acordeon .etiqueta::before {
+    content: '+';
+    color: black;
+    position: absolute;
+    top: 50%;
+    right: -5px;
+    font-size: 30px;
+    transform: translateY(-50%);
+}
+
+.acordeon .contenido {
+    position: relative;
+    background: white;
+    height: 0;
+    font-size: 20px;
+    text-align: justify;
+    width: 700px;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.acordeon hr {
+    width: 100;
+    margin-left: 0;
+    border: 1px solid grey;
+}
+
+.acordeon .cont-acordeon.activa .contenido {
+    height: 150px;
+}
+
+.acordeon .cont-acordeon.activa .etiqueta::before {
+    content: '-';
+    font-size: 30px;
+}
 
 
 /* ---------- POCIONES --------------- */
@@ -305,11 +336,12 @@ span {
 
 /* ---------- BOOKS --------------- */
 
-.all-books{
+.all-books {
     display: flex;
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
+    padding-top: 50px;
     width: 100%;
     height: 100%;
 }
@@ -320,11 +352,12 @@ span {
     grid-gap: 10px;
     width: 580px;
     padding: 16px;
-    margin: 10px;
+    margin: 20px;
     border-radius: 5px;
     background-color: #fff;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
+
 .book-card .book-card__cover {
     position: relative;
     width: 200px;
@@ -332,17 +365,19 @@ span {
     margin: 0 auto 8px auto;
     perspective: 1000px;
 }
+
 .book-card .book-card__book {
-    height: 80%;
+    height: 90%;
     transform-style: preserve-3d;
     transition: all 250ms ease;
 }
-.book-card .book-card__book-front {
+
+.book-card .book-card__book-front img {
     position: absolute;
     height: 100%;
     width: 100%;
-    background: #9b1c1c;
 }
+
 .book-card .book-card__book-back {
     position: absolute;
     top: 0;
@@ -350,6 +385,7 @@ span {
     width: 100%;
     transform: translateZ(-40px);
 }
+
 .book-card .book-card__book-side {
     position: absolute;
     top: 5px;
@@ -362,18 +398,21 @@ span {
     opacity: 0;
     transform: rotate3d(0, 1, 0, 90deg);
 }
+
 .book-card .book-card__img {
     width: 20px;
     height: 20px;
     background-size: contain;
-    
+
 }
+
 .book-card .book-card__title {
     font-size: 14px;
     margin-top: 3px;
     font-weight: bold;
 }
-.book-card .book-card__author p{
+
+.book-card .book-card__author p {
     text-align: justify;
     position: absolute;
     left: 100%;
@@ -384,12 +423,15 @@ span {
     font-size: 13px;
     width: 300px;
 }
+
 .book-card:hover .book-card__book {
     transform: rotate3d(0, -1, 0, 30deg) translate(-15px, -30px);
 }
+
 .book-card:hover .book-card__book-back {
     box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.35);
 }
+
 .book-card:hover .book-card__book-side {
     opacity: 1;
 }
@@ -416,23 +458,28 @@ a {
 }
 
 /* ---------- DATOS CURIORIOSOS --------------- */
-#section6 > h1{
+#section6>h1 {
     position: absolute;
     left: 45%;
     bottom: 90%;
-    color: white;
-    
 }
-.all-funfacts{
+
+.all-funfacts {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
     height: 100%;
-    padding: 70px  0px 0px 70px;
-    
+    padding: 70px 0px 0px 70px;
+    background-image: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwallpapercave.com%2Fhogwarts-legacy-wallpapers&psig=AOvVaw00WmQ98o_H9qO0GB6jEfS7&ust=1679970652889000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCPjTh8KI-_0CFQAAAAAdAAAAABAE);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+
 }
-.funfacts{
+
+.funfacts {
     margin: 20px;
     width: 250px;
     height: 330px;
@@ -441,7 +488,8 @@ a {
     background-size: cover;
     box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.8);
 }
-.card-funfact{
+
+.card-funfact {
     width: 100%;
     height: 100%;
     display: flex;
@@ -453,12 +501,13 @@ a {
     transition: .5s;
 }
 
-.card-funfact h2, p{
+.card-funfact h2,
+p {
     color: white;
     margin: 10px;
     font-size: 16px;
 }
 
-.funfacts:hover .card-funfact{
+.funfacts:hover .card-funfact {
     opacity: 1;
 }
