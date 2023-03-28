@@ -40,7 +40,8 @@ export const orderByValue = (valorOrden, pocionesOrdenadas) => {
   const orderValue = valorOrden.sort((a, b) => {
     if (pocionesOrdenadas === "Descendente") {
       return b.name.localeCompare(a.name);
-    } else {
+    }
+    if (pocionesOrdenadas === "Ascendente") {
       return a.name.localeCompare(b.name);
     }
   });

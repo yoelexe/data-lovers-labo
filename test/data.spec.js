@@ -131,9 +131,45 @@ describe("Buscador de personajes", () => {
   });
 });
 
+const dataPotions = [
+  {
+    id: 3,
+    name: "Amortentia",
+  },
+  {
+    id: 31,
+    name: "Cough Potion",
+  },
+  {
+    id: 35,
+    name: "Death potion",
+  },
+];
+
 //TODO: Quinto testeo
 describe("Ordenar pociones ascendente y descendente", () => {
   it("Deberia retornar que es una función -> orderByValue", () => {
     expect(typeof orderByValue).toBe("function");
+  });
+
+  it("Deberia retornar un arreglo de forma descendente -> orderByValue", () => {
+    expect(orderByValue(dataPotions, "Descendente")).toEqual([
+      {
+        id: 35,
+        name: "Death potion",
+      },
+      {
+        id: 31,
+        name: "Cough Potion",
+      },
+      {
+        id: 3,
+        name: "Amortentia",
+      },
+    ]);
+  });
+
+  it("Deberia retornar un arreglo de forma ascendente -> orderByValue", () => {
+    expect(orderByValue(dataPotions, "Ascendente")).toEqual(dataPotions);
   });
 });
