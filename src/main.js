@@ -104,6 +104,43 @@ export const baseDatos = () => {
       const contenedorPotions = document.getElementById("contenedorpotions");
       contenedorPotions.innerHTML = datosInicialesPotions;
 
+
+      /*Presentacion de datos hechizos*/
+
+      const cantidadHechizos = spells.reduce(function (counts, spell) {
+        if (spell.spell_type !== null) {
+          counts[spell.spell_type] = (counts[spell.spell_type] || 0) + 1;
+        }
+        return counts;
+      }, {});
+      console.log(cantidadHechizos)
+
+      /*Presentacion de datos Casas de Hogwarts*/
+
+      const cantidadcharacters = characters.reduce(function (counts, character) {
+        if (character.house !== null) {
+          counts[character.house] = (counts[character.house] || 0) + 1;
+        }
+        return counts;
+      }, {});
+      console.log(cantidadcharacters)
+
+      const cantidadspecies = characters.reduce(function (counts, character) {
+        if (character.species !== null) {
+          counts[character.species] = (counts[character.species] || 0) + 1;
+        }
+        return counts;
+      }, {});
+      console.log(cantidadspecies)
+
+      const cantidadshaircolor = characters.reduce(function (counts, character) {
+        if (character.hair_color !== null) {
+          counts[character.hair_color] = (counts[character.hair_color] || 0) + 1;
+        }
+        return counts;
+      }, {});
+      console.log(cantidadshaircolor)
+
       //* Filtrado por tipo de Hechizo -> Section 02
       const filtro = document.getElementById("informacion");
       filtro.addEventListener("change", () => {
@@ -234,27 +271,28 @@ export const baseDatos = () => {
       //? termina todo
     });
 };
+/* Siguiente sección*/
 
-const botones = document.querySelectorAll(".navigation button");
+let botones = document.querySelectorAll(".navigation button")
 botones.forEach(function (elemento) {
-  elemento.addEventListener("click", (event) => {
+  elemento.addEventListener('click', (event) => {
     let seccion = event.currentTarget.dataset.section;
     let secciones = document.getElementsByTagName("section");
 
-    if (
-      seccion === "section1" ||
-      seccion === "section2" ||
-      seccion === "section3" ||
-      seccion === "section4" ||
-      seccion === "section5"
-    ) {
+    if (seccion === 'section2' || seccion === 'section3' || seccion === 'section4' || seccion === 'section5' || seccion === 'section6') {
       /* Llamor la funcion desde data js*/
-      baseDatos();
+      baseDatos()
     }
 
-    if (seccion == "section6") {
-      /* Llamor la funcion desde data js*/
-      baseDatos();
+    if (seccion != 'section1') {
+      // Ocultar texto de los botones
+      document.querySelectorAll("button span").forEach((span) => {
+        span.style.display = 'none'
+      })
+    } else {
+      document.querySelectorAll("button span").forEach((span) => {
+        span.style.display = 'inline'
+      })
     }
 
     for (let i = 0; i < secciones.length; i++) {
@@ -279,6 +317,7 @@ botones.forEach(function (elemento) {
     totalPociones.innerHTML = "";
     document.getElementById("ordenselector").value = "";
     document.getElementById("busquedaPotions").value = "";
+
   });
 });
 
