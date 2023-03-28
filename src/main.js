@@ -268,7 +268,7 @@ export const baseDatos = () => {
         }
       });
 
-      //? termina todo
+
     });
 };
 /* Siguiente sección*/

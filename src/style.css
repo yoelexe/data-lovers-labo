@@ -61,16 +61,20 @@ body {
 
 .logo {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
+
 }
 
+
 .frase {
+    color: var(--negro);
     font-size: 1rem;
     text-align: center;
 
 }
+
 
 span {
     color: var(--blanco);
@@ -81,7 +85,8 @@ span {
 
 
 section {
-    display: flexbox;
+    min-height: 100vh;
+    display: flex;
     justify-content: center;
     /* horizontal */
     align-items: center;
@@ -203,9 +208,6 @@ button {
 
 }
 
-
-
-
 .spellitem,
 .characterItem,
 .potionItem {
@@ -245,12 +247,7 @@ button {
     font-size: 14px;
 }
 
-span {
-    color: var(--blanco);
-    font-weight: bold;
-    margin-left: 50px;
-    font-size: 1rem;
-}
+
 
 .search-button {
     position: relative;
@@ -270,8 +267,8 @@ span {
 .acordeon {
     width: 800px;
     margin: 90px 20px;
-    color: black;
-    background-color: white;
+    color: var(--blanco);
+    background-image: url(../img/bg-bottom.webp);
     padding: 45px 45px;
 }
 
@@ -281,14 +278,14 @@ span {
 }
 
 .cont-acordeon .contenido {
-    color: black;
+    color: var(--blanco);
 }
 
 .acordeon .etiqueta {
     position: relative;
     padding: 10px 0;
     font-size: 30px;
-    color: black;
+    color: var(--blanco);
     cursor: pointer;
 }
 
@@ -465,8 +462,6 @@ a {
     position: absolute;
     left: 45%;
     bottom: 90%;
-    color: white;
-
 }
 
 .all-funfacts {
