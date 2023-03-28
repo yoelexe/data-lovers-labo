@@ -26,7 +26,7 @@ const dataspell = [
 
 //TODO: Primer testeo
 describe("Buscador de pociones", () => {
-  it("Deberia retornar que es una función -> filtroHechizo", () => {
+  it("Deberia retornar que es una función -> filterByName", () => {
     expect(typeof filterByName).toBe("function");
   });
 
@@ -69,10 +69,48 @@ describe("Filtrar por tipo de hechizo", () => {
   });
 });
 
+const dataCharacter = [
+  {
+    id: 50,
+    name: "Sirius Black",
+    house: "Gryffindor",
+  },
+  {
+    id: 117,
+    name: "Cedric Diggory",
+    house: "Hufflepuff",
+  },
+  {
+    id: 242,
+    name: "Lestrange",
+    house: "Slytherin",
+  },
+  {
+    id: 367,
+    name: "Newton Scamander",
+    house: "Hufflepuff",
+  },
+  {
+    id: 625,
+    name: "Luna Lovegood",
+    house: "Ravenclaw",
+  },
+];
+
 //TODO: Tercer testeo
 describe("Filtrar los personajes por casas", () => {
   it("Deberia retornar que es una función -> changeHouse", () => {
     expect(typeof changeHouse).toBe("function");
+  });
+
+  it("Deberia retornar el arreglo por cada tipo de casa", () => {
+    expect(changeHouse(dataCharacter, "Slytherin")).toEqual([
+      {
+        id: 242,
+        name: "Lestrange",
+        house: "Slytherin",
+      },
+    ]);
   });
 });
 
@@ -80,6 +118,16 @@ describe("Filtrar los personajes por casas", () => {
 describe("Buscador de personajes", () => {
   it("Deberia retornar que es una función -> getHouse", () => {
     expect(typeof getHouse).toBe("function");
+  });
+
+  it("Deberia retornar el arreglo por cada tipo de casa", () => {
+    expect(getHouse(dataCharacter, "Luna Lovegood")).toEqual([
+      {
+        id: 625,
+        name: "Luna Lovegood",
+        house: "Ravenclaw",
+      },
+    ]);
   });
 });
 
