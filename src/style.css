@@ -10,9 +10,7 @@
 
 }
 
-html{
-    scroll-behavior: smooth;
-}
+
 
 * {
     margin: 0;
@@ -62,15 +60,16 @@ body {
 
 
 .logo {
-    display: block;
-    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .frase {
-    color: var(--negro);
     font-size: 1rem;
     text-align: center;
-    
+        
 }
 
 span {
@@ -78,18 +77,13 @@ span {
     font-weight: bold;
     margin-left: 50px;
     font-size: 1rem;
-
-
 }
 
 
 section {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    /* horizontal */
-    align-items: center;
-    /* vertical */
+    display: flexbox;
+    justify-content: center;/* horizontal */
+    align-items: center;/* vertical */
 }
 
 #section2,
@@ -117,7 +111,7 @@ section {
 }
 
 section:nth-child(3) {
-    background: #3F5259;
+    background: #261E1C;
 
 }
 
@@ -131,7 +125,7 @@ section:nth-child(5) {
 }
 
 section:nth-child(6) {
-    background: #a3b97b;
+    background: #592C41;
 }
 
 .navigation li{
@@ -146,11 +140,11 @@ section:nth-child(6) {
     list-style: none;
 }
 
+/*
 .navigation li:hover, .navigation li.selected{
     transform: scale(1.8);
 }
-
-
+*/
 video{
     position: absolute;
     left: 0;
@@ -181,8 +175,7 @@ video{
 /* ---------- HECHIZOS --------------- */
 
 .bosque {
-    background-image: linear-gradient(rgba(29, 38, 37, 0.2),
-            rgba(29, 38, 37, 0.2)), url(../img/bg-bottom.webp);
+    background-image:  url(../img/bg-bottom.webp);
     /*pasar hexadecimal a rgba*/
     background-repeat: no-repeat;
     background-size: cover;
@@ -196,7 +189,7 @@ button {
     display: block;
     margin-top: 11px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
-    background-color: #1D2625;
+    background-color: #3F5259;
 }
 
 .navigation i{
@@ -290,8 +283,67 @@ span {
 
 /* ---------- OTHER INFORMATION  --------------- */
 
-
 /* ---------- ARROW LEFT AND RIGHT  --------------- */
+.acordeon{
+    width: 800px;
+    margin: 90px 20px;
+    color: black;
+    background-color: white;
+    padding: 45px 45px;
+}
+
+.acordeon .cont-acordeon{
+    position: relative;
+    margin: 10px 10px;
+}
+
+.cont-acordeon .contenido{
+    color: black;
+}
+
+.acordeon .etiqueta{
+    position: relative;
+    padding: 10px 0;
+    font-size: 30px;
+    color: black;
+    cursor: pointer;
+}
+
+.acordeon .etiqueta::before{
+    content: '+';
+    color: black;
+    position: absolute;
+    top: 50%;
+    right: -5px;
+    font-size: 30px;
+    transform: translateY(-50%);
+}
+
+.acordeon .contenido{
+    position: relative;
+    background: white;
+    height: 0;
+    font-size: 20px;
+    text-align: justify;
+    width: 700px;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.acordeon hr{
+    width: 100;
+    margin-left: 0;
+    border: 1px solid grey;
+}
+
+.acordeon .cont-acordeon.activa .contenido{
+    height: 150px;
+}
+
+.acordeon .cont-acordeon.activa .etiqueta::before{
+    content: '-';
+    font-size: 30px;
+}
 
 
 
@@ -310,6 +362,7 @@ span {
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
+    padding-top: 50px;
     width: 100%;
     height: 100%;
 }
@@ -320,7 +373,7 @@ span {
     grid-gap: 10px;
     width: 580px;
     padding: 16px;
-    margin: 10px;
+    margin: 20px;
     border-radius: 5px;
     background-color: #fff;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -333,15 +386,14 @@ span {
     perspective: 1000px;
 }
 .book-card .book-card__book {
-    height: 80%;
+    height: 90%;
     transform-style: preserve-3d;
     transition: all 250ms ease;
 }
-.book-card .book-card__book-front {
+.book-card .book-card__book-front img{
     position: absolute;
     height: 100%;
     width: 100%;
-    background: #9b1c1c;
 }
 .book-card .book-card__book-back {
     position: absolute;
@@ -373,6 +425,7 @@ span {
     margin-top: 3px;
     font-weight: bold;
 }
+
 .book-card .book-card__author p{
     text-align: justify;
     position: absolute;
@@ -430,6 +483,12 @@ a {
     width: 100%;
     height: 100%;
     padding: 70px  0px 0px 70px;
+
+    background-image: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwallpapercave.com%2Fhogwarts-legacy-wallpapers&psig=AOvVaw00WmQ98o_H9qO0GB6jEfS7&ust=1679970652889000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCPjTh8KI-_0CFQAAAAAdAAAAABAE);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
     
 }
 .funfacts{

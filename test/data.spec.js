@@ -1,59 +1,91 @@
-import { filtroHechizo, changeInfo } from "../src/data.js";
-
-describe("Colección de test sobre busqueda Hechizo -> function", () => {
-  it("return function", () => {
-    expect(typeof filtroHechizo).toBe("function");
-  });
-});
-
-describe("Colección de test sobre busqueda Hechizo -> undefined", () => {
-  it("return undefined", () => {
-    expect(filtroHechizo()).toBe(undefined);
-  });
-});
-
-describe("Colección de test sobre filtro por Tipo de Hechizo -> function", () => {
-  it("return function", () => {
-    expect(typeof changeInfo).toBe("function");
-  });
-});
-
-describe("Colección de test sobre filtro por Tipo de Hechizo -> undefined", () => {
-  it("return undefined", () => {
-    expect(changeInfo()).toBe(undefined);
-  });
-});
+import {
+  filterByName,
+  changeInfo,
+  changeHouse,
+  getHouse,
+  orderByValue,
+} from "../src/data.js";
 
 const dataspell = [
   {
-    name: "Aberto",
+    id: 7,
+    name: "Alohomora",
     spell_type: "Charm",
   },
   {
-    name: "Accio",
+    id: 59,
+    name: "Confundo",
     spell_type: "Charm",
   },
   {
-    name: "Age Line",
-    spell_type: "Charm",
+    id: 23,
+    name: "Avada Kedavra",
+    spell_type: "Curse",
   },
 ];
+
+//TODO: Primer testeo
 describe("Buscador de pociones", () => {
+  it("Deberia retornar que es una función -> filtroHechizo", () => {
+    expect(typeof filterByName).toBe("function");
+  });
+
+  it("return undefined", () => {
+    expect(filterByName()).toBe(undefined);
+  });
+
   it("Deberia retornar el filtrado por nombres -> spells", () => {
     const resultspell = [
       {
-        name: "Aberto",
-        spell_type: "Charm",
-      },
-      {
-        name: "Accio",
-        spell_type: "Charm",
-      },
-      {
-        name: "Age Line",
+        id: 7,
+        name: "Alohomora",
         spell_type: "Charm",
       },
     ];
-    expect(filtroHechizo(dataspell, "Accio")).toEqual(resultspell);
+    expect(filterByName(dataspell, "Alohomora".toLowerCase())).toEqual(
+      resultspell
+    );
+  });
+});
+
+//TODO: Segundo testeo
+describe("Filtrar por tipo de hechizo", () => {
+  it("Deberia retornar que es una función -> changeInfo", () => {
+    expect(typeof changeInfo).toBe("function");
+  });
+
+  it("return undefined", () => {
+    expect(changeInfo()).toBe(undefined);
+  });
+
+  it("Deberia retornar el arreglo que tenga como tipo Curse", () => {
+    expect(changeInfo(dataspell, "Curse")).toEqual([
+      {
+        id: 23,
+        name: "Avada Kedavra",
+        spell_type: "Curse",
+      },
+    ]);
+  });
+});
+
+//TODO: Tercer testeo
+describe("Filtrar los personajes por casas", () => {
+  it("Deberia retornar que es una función -> changeHouse", () => {
+    expect(typeof changeHouse).toBe("function");
+  });
+});
+
+//TODO: Cuarto testeo
+describe("Buscador de personajes", () => {
+  it("Deberia retornar que es una función -> getHouse", () => {
+    expect(typeof getHouse).toBe("function");
+  });
+});
+
+//TODO: Quinto testeo
+describe("Ordenar pociones ascendente y descendente", () => {
+  it("Deberia retornar que es una función -> orderByValue", () => {
+    expect(typeof orderByValue).toBe("function");
   });
 });
