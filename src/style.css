@@ -1,8 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
-
 :root {
-    --fuenteHeading: 'PT Serif', serif;
-    --fuenteParrafos: "Open Sans", sans-serif;
+    --fuenteHeading: "Poppins", sans-serif;
+    --fuenteParrafos: "Poppins", sans-serif;
     --primario: #784d3c;
     --blanco: #ffff;
     --negro: #000;
@@ -10,17 +8,15 @@
 
 }
 
-
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', serif;
+
 }
 
 body {
-    font-family: 'Poppins', serif;
+    font-family: var(--fuenteHeading);
 }
 
 .navigation {
@@ -61,20 +57,26 @@ body {
 
 .logo {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
+
 }
 
+
 .frase {
+    color: var(--negro);
     font-size: 1rem;
     position: absolute;
     top: 65%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-        
+    font-family: var(--fuenteParrafos);
+    line-height: 25px;
+
 }
+
 
 span {
     color: var(--blanco);
@@ -85,9 +87,12 @@ span {
 
 
 section {
-    display: flexbox;
-    justify-content: center;/* horizontal */
-    align-items: center;/* vertical */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    /* horizontal */
+    align-items: center;
+    /* vertical */
 }
 
 #section2,
@@ -96,7 +101,7 @@ section {
 #section5,
 #section6 {
     display: none;
-    
+
 }
 
 #section1:before {
@@ -114,25 +119,9 @@ section {
     display: none;
 }
 
-section:nth-child(3) {
-    background: #261E1C;
 
-}
 
-section:nth-child(4) {
-    background: #857bb9;
-
-}
-
-section:nth-child(5) {
-    background: #7bb993;
-}
-
-section:nth-child(6) {
-    background: #592C41;
-}
-
-.navigation li{
+.navigation li {
     width: 10px;
     height: 10px;
     background: #ccc;
@@ -144,12 +133,8 @@ section:nth-child(6) {
     list-style: none;
 }
 
-/*
-.navigation li:hover, .navigation li.selected{
-    transform: scale(1.8);
-}
-*/
-video{
+
+video {
     position: absolute;
     left: 0;
     bottom: 0;
@@ -163,6 +148,7 @@ video{
         height: auto;
     }
 }
+
 @media(max-aspect-ratio: 16/9) {
     video {
         width: auto;
@@ -179,7 +165,7 @@ video{
 /* ---------- HECHIZOS --------------- */
 
 .bosque {
-    background-image:  url(../img/bg-bottom.webp);
+    background-image: url(../img/bg-bottom.webp);
     /*pasar hexadecimal a rgba*/
     background-repeat: no-repeat;
     background-size: cover;
@@ -196,7 +182,7 @@ button {
     background-color: #3F5259;
 }
 
-.navigation i{
+.navigation i {
     color: white;
     margin-bottom: 10px;
 }
@@ -219,9 +205,6 @@ button {
     margin-right: 30px;
 
 }
-
-
-
 
 .spellitem,
 .characterItem,
@@ -281,6 +264,7 @@ span {
     margin-left: 50px;
     font-size: 1rem;
 }
+
 
 /* ---------- OTHER INFORMATION  --------------- */
 
@@ -345,32 +329,32 @@ span {
 }
 
 /* ---------- ARROW LEFT AND RIGHT  --------------- */
-.acordeon{
+.acordeon {
     width: 800px;
     margin: 90px 20px;
-    color: black;
-    background-color: white;
+    color: var(--blanco);
+    background-image: url(../img/bg-bottom.webp);
     padding: 45px 45px;
 }
 
-.acordeon .cont-acordeon{
+.acordeon .cont-acordeon {
     position: relative;
     margin: 10px 10px;
 }
 
-.cont-acordeon .contenido{
-    color: black;
+.cont-acordeon .contenido {
+    color: var(--blanco);
 }
 
-.acordeon .etiqueta{
+.acordeon .etiqueta {
     position: relative;
     padding: 10px 0;
     font-size: 30px;
-    color: black;
+    color: var(--blanco);
     cursor: pointer;
 }
 
-.acordeon .etiqueta::before{
+.acordeon .etiqueta::before {
     content: '+';
     color: black;
     position: absolute;
@@ -380,7 +364,7 @@ span {
     transform: translateY(-50%);
 }
 
-.acordeon .contenido{
+.acordeon .contenido {
     position: relative;
     background: white;
     height: 0;
@@ -391,21 +375,20 @@ span {
     transition: 0.5s;
 }
 
-.acordeon hr{
+.acordeon hr {
     width: 100;
     margin-left: 0;
     border: 1px solid grey;
 }
 
-.acordeon .cont-acordeon.activa .contenido{
+.acordeon .cont-acordeon.activa .contenido {
     height: 150px;
 }
 
-.acordeon .cont-acordeon.activa .etiqueta::before{
+.acordeon .cont-acordeon.activa .etiqueta::before {
     content: '-';
     font-size: 30px;
 }
-
 
 
 /* ---------- POCIONES --------------- */
@@ -418,7 +401,7 @@ span {
 
 /* ---------- BOOKS --------------- */
 
-.all-books{
+.all-books {
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -433,12 +416,13 @@ span {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 10px;
     width: 580px;
-    padding: 16px;
-    margin: 20px;
+    padding: 30px;
+    margin: 5px;
     border-radius: 5px;
     background-color: #fff;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
+
 .book-card .book-card__cover {
     position: relative;
     width: 200px;
@@ -446,16 +430,19 @@ span {
     margin: 0 auto 8px auto;
     perspective: 1000px;
 }
+
 .book-card .book-card__book {
     height: 90%;
     transform-style: preserve-3d;
     transition: all 250ms ease;
 }
-.book-card .book-card__book-front img{
+
+.book-card .book-card__book-front img {
     position: absolute;
     height: 100%;
     width: 100%;
 }
+
 .book-card .book-card__book-back {
     position: absolute;
     top: 0;
@@ -463,6 +450,7 @@ span {
     width: 100%;
     transform: translateZ(-40px);
 }
+
 .book-card .book-card__book-side {
     position: absolute;
     top: 5px;
@@ -475,84 +463,71 @@ span {
     opacity: 0;
     transform: rotate3d(0, 1, 0, 90deg);
 }
+
 .book-card .book-card__img {
     width: 20px;
     height: 20px;
     background-size: contain;
-    
+
 }
+
 .book-card .book-card__title {
     font-size: 14px;
     margin-top: 3px;
     font-weight: bold;
+    text-align: center;
+    font-family: var(--fuenteHeading);
 }
 
-.book-card .book-card__author p{
+.book-card .book-card__author p {
     text-align: justify;
     position: absolute;
     left: 100%;
     bottom: 30%;
     top: 0%;
-    padding: 10px;
+    padding: 6px;
     color: #000000;
-    font-size: 13px;
+    font-size: 14px;
     width: 300px;
+    font-family: var(--fuenteHeading);
+    line-height: 25px;
 }
+
 .book-card:hover .book-card__book {
     transform: rotate3d(0, -1, 0, 30deg) translate(-15px, -30px);
 }
+
 .book-card:hover .book-card__book-back {
     box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.35);
 }
+
 .book-card:hover .book-card__book-side {
     opacity: 1;
 }
 
-/* ---------- FOOTER --------------- */
-.imgHp {
-    height: 24px;
-    width: 50px;
-    margin: 0;
-    display: inline-block;
-    opacity: 0.5;
-
-}
-
-.final,
-.link,
-a {
-    color: var(--blanco);
-    font-weight: bold;
-    font-size: 1rem;
-    text-align: center;
-    font-family: var(--fuenteHeading);
-    background: linear-gradient(transparent, #1D2625);
-}
-
 /* ---------- DATOS CURIORIOSOS --------------- */
-#section6 > h1{
+#section6>h1 {
     position: absolute;
     left: 45%;
     bottom: 90%;
-    color: white;
-    
 }
-.all-funfacts{
+
+.all-funfacts {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
     height: 100%;
-    padding: 70px  0px 0px 70px;
-
+    padding: 70px 0px 0px 70px;
     background-image: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwallpapercave.com%2Fhogwarts-legacy-wallpapers&psig=AOvVaw00WmQ98o_H9qO0GB6jEfS7&ust=1679970652889000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCPjTh8KI-_0CFQAAAAAdAAAAABAE);
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
     min-height: 100vh;
-    
+
 }
-.funfacts{
+
+.funfacts {
     margin: 20px;
     width: 250px;
     height: 330px;
@@ -561,7 +536,8 @@ a {
     background-size: cover;
     box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.8);
 }
-.card-funfact{
+
+.card-funfact {
     width: 100%;
     height: 100%;
     display: flex;
@@ -573,12 +549,23 @@ a {
     transition: .5s;
 }
 
-.card-funfact h2, p{
+.card-funfact h2,
+p {
     color: white;
     margin: 10px;
     font-size: 16px;
 }
 
-.funfacts:hover .card-funfact{
+.funfacts:hover .card-funfact {
     opacity: 1;
+}
+
+.final {
+    color: var(--blanco);
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+    font-family: var(--fuenteHeading);
+    background: linear-gradient(transparent, #d3d4d1);
+    padding: 5px;
 }

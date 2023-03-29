@@ -173,3 +173,29 @@ describe("Ordenar pociones ascendente y descendente", () => {
     expect(orderByValue(dataPotions, "Ascendente")).toEqual(dataPotions);
   });
 });
+
+//TODO: Sexto testeo
+describe('changeHouse', () => {
+  const characters = [
+    { name: 'Harry Potter', house: 'Gryffindor' },
+    { name: 'Draco Malfoy', house: 'Slytherin' },
+    { name: 'Luna Lovegood', house: 'Ravenclaw' },
+    { name: 'Cedric Diggory', house: 'Hufflepuff' },
+  ];
+
+  test('devuelve todos los personajes si no se especifica una casa', () => {
+    const valorcasas = '';
+    const resultados = changeHouse(characters, valorcasas);
+    expect(resultados).toEqual(characters);
+  });
+
+  test('devuelve solo los personajes de la casa especificada', () => {
+    const valorcasas = 'Gryffindor';
+    const resultados = changeHouse(characters, valorcasas);
+    const personajesEsperados = [
+      { name: 'Harry Potter', house: 'Gryffindor' },
+    ];
+    expect(resultados).toEqual(personajesEsperados);
+  });
+
+});
