@@ -47,3 +47,5 @@ export const orderByValue = (valorOrden, pocionesOrdenadas) => {
   });
   return orderValue;
 };
+
+// TODO: Calcular

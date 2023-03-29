@@ -40,18 +40,15 @@ export const baseDatos = () => {
       //! traer la información de fun-facts
       const mostrarfunFacts = funfacts
         .map((funfact) => {
-          return `
-          <div class="etiqueta">${funfact.type}</div>
-          <div class="contenido">${funfact.content}</div>
-          <hr />`;
+          return `<div class="funfacts" id="funfacts">
+        <div class="card-funfact" id="card-funfact">
+        <h2>${funfact.type}</h2>
+        <p>${funfact.content}</p>
+        </div>
+        </div>`;
         })
         .join("");
-      const card_funfact = document.getElementById("cont-acordeon");
-      for (let i = 1; i < card_funfact.length; i++) {
-        card_funfact[i].addEventListener("click", function () {
-          this.classList.toggle("activa");
-        });
-      }
+      const card_funfact = document.getElementById("all-funfacts");
       card_funfact.innerHTML = mostrarfunFacts;
 
       //! traer la información de books
@@ -105,8 +102,39 @@ export const baseDatos = () => {
         })
         .join("");
       const contenedorPotions = document.getElementById("contenedorpotions");
-
       contenedorPotions.innerHTML = datosInicialesPotions;
+
+      //? Separador para probar la función
+
+      let result = dataCharacter.filter((miembro) => miembro.gender == "Male");
+      let result02 = dataCharacter.filter(
+        (miembro) => miembro.gender == "Female"
+      );
+
+      const cantidad01 = result.reduce(function (counts, character) {
+        if (character.gender !== null) {
+          counts[character.gender] = (counts[character.gender] || 0) + 1;
+        }
+        return counts;
+      }, {});
+
+      const cantidadr02 = result02.reduce(function (counts, character) {
+        if (character.gender !== null) {
+          counts[character.gender] = (counts[character.gender] || 0) + 1;
+        }
+        return counts;
+      }, {});
+
+      const totalResult01 = Object.values(cantidad01);
+      const totalResult02 = Object.values(cantidadr02);
+
+      /*filter*/
+      console.log("Personajes femeninos", totalResult01);
+      const infoMostrar = document.getElementById("textValue01");
+      infoMostrar.textContent = `Personajes femeninos: ${totalResult01}`;
+
+      const infoMostrar02 = document.getElementById("textValue02");
+      infoMostrar02.textContent = `Personajes masculinos: ${totalResult02}`;
 
       //* Filtrado por tipo de Hechizo -> Section 02
       const filtro = document.getElementById("informacion");
@@ -236,6 +264,45 @@ export const baseDatos = () => {
       });
 
       //? termina todo
+      let circularProgress = document.querySelector(".circular-progress"),
+        progressValue = document.querySelector(".progress-value");
+
+      let progressStartValue = 0,
+        progressEndValue = Math.round((totalResult01 * 100) / 756),
+        speed = 100;
+
+      let progress = setInterval(() => {
+        progressStartValue++;
+
+        progressValue.textContent = `${progressStartValue}%`;
+        circularProgress.style.background = `conic-gradient(#7d2ae8 ${
+          progressStartValue * 3.6
+        }deg, #ededed 0deg)`;
+
+        if (progressStartValue == progressEndValue) {
+          clearInterval(progress);
+        }
+      }, speed);
+      //? termina todo
+      let circularProgress02 = document.querySelector(".circular-progress02"),
+        progressValue02 = document.querySelector(".progress-value02");
+
+      let progressStartValue02 = 0,
+        progressEndValue02 = Math.round((totalResult02 * 100) / 756),
+        speed02 = 100;
+
+      let progress02 = setInterval(() => {
+        progressStartValue02++;
+
+        progressValue02.textContent = `${progressStartValue02}%`;
+        circularProgress02.style.background = `conic-gradient(#7d2ae8 ${
+          progressStartValue02 * 3.6
+        }deg, #ededed 0deg)`;
+
+        if (progressStartValue02 == progressEndValue02) {
+          clearInterval(progress02);
+        }
+      }, speed02);
     });
 };
 

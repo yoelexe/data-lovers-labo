@@ -68,6 +68,10 @@ body {
 
 .frase {
     font-size: 1rem;
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
         
 }
@@ -198,16 +202,12 @@ button {
 }
 
 
-.bosque .title {
+.title {
     text-align: center;
     padding-top: 50px;
     color: white;
     /* text-shadow: 0 5px 10px rgba(0,0,0, 2);*/
     font-size: 40px;
-}
-
-.menu {
-    margin-left: 60px;
 }
 
 .contenedor {
@@ -239,7 +239,6 @@ button {
 .spellitem strong,
 .characterItem strong,
 .potionItem strong {
-    font-weight: bold;
     margin-bottom: 10px;
 
 }
@@ -248,18 +247,32 @@ button {
 
 /* ---------- SEARCH --------------- */
 
-.bosque i {
+.container-bosque{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bosque label{
     color: white;
+    padding: 4px 85px;
 }
 
 .bosque input {
     padding: 10px;
     outline: none;
     border-radius: 13px;
-    width: 18%;
-    margin-left: 77%;
-    position: absolute;
+    width: 20%;
+    margin-left: 80px;
     font-size: 14px;
+}
+
+@media (max-width: 800px) {
+    .bosque input {
+      width: 250px;
+      margin-left: 23%;
+      margin-top: 20px;
+    }
 }
 
 span {
@@ -269,19 +282,67 @@ span {
     font-size: 1rem;
 }
 
-.search-button {
-    position: relative;
-    background-color: black;
-    cursor: pointer;
-    border-radius: 100%;
-    height: 40px;
-    left: 93%;
-    top: 6%;
-    z-index: 1;
-    margin-top: -30px
+/* ---------- OTHER INFORMATION  --------------- */
+
+.container-grid{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
 }
 
-/* ---------- OTHER INFORMATION  --------------- */
+@media (max-width: 800px) {
+    .container-orden {
+      flex-direction: column;
+    }
+}
+.circular-container{
+    display: flex;
+    width: 420px;
+    padding: 50px 0;
+    border-radius: 8px;
+    background: white;
+    row-gap: 30px;
+    flex-direction: column;
+    align-items: center;
+    margin: 100px;
+}
+
+.circular-progress,
+.circular-progress02{
+    position: relative;
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    background: conic-gradient(#6e647c 3.6deg, #ededed 0deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circular-progress::before,
+.circular-progress02::before{
+    content: "";
+    position: absolute;
+    height: 210px;
+    width: 210px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.progress-value,
+.progress-value02{
+    position: relative;
+    font-size: 40px;
+    font-weight: 600;
+    color: #91889c;
+}
+
+.text{
+    font-size: 30px;
+    font-weight: 500;
+    color: #606060;
+}
 
 /* ---------- ARROW LEFT AND RIGHT  --------------- */
 .acordeon{

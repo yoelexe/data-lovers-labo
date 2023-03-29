@@ -89,7 +89,10 @@
 
       <section id="section2" name="bosque">
         <div class="bosque" id="bosque">
-          <h1 class="title">Hechizos</h1>
+          <div class="container-bosque">
+            <h1 class="title">Hechizos</h1>
+            <label>Buscador por nombre de hechizo:</label>
+          </div>
           <input
             class="sugerencias"
             type="search"
@@ -105,7 +108,7 @@
             <option value="Spell">Spell</option>
             <option value="Transfiguration">Transfiguration</option>
             <option value="Healing Spell">Healing Spell</option>
-            <option value="oVanishment">Vanishment</option>
+            <option value="Vanishment">Vanishment</option>
             <option value="Hex">Hex</option>
             <option value="Jinx">Jinx</option>
             <option value="Curse">Curse</option>
@@ -117,18 +120,25 @@
       </section>
 
       <section id="section3">
-        <div class="all-books" id="all-books"></div>
+        <div>
+          <h1 class="title">Libros Harry Potter</h1>
+          <div class="all-books" id="all-books"></div>
+        </div>
       </section>
 
       <section id="section4">
         <div class="bosque" id="rutacasas">
-          <h1 class="title">Casas de Hogwarts</h1>
+          <div class="container-bosque">
+            <h1 class="title">Casas de Hogwarts</h1>
+            <label>Buscador por nombre de personaje:</label>
+          </div>
           <input
             class="sugerencias"
             type="search"
             placeholder="search"
             id="busquedaHouse"
           />
+
           <!-- Filtrado de informacion-->
           <select class="menu" id="ordencasas">
             <option value="">Todos</option>
@@ -161,11 +171,27 @@
       </section>
 
       <section id="section6">
-        <h1>Datos curiosos</h1>
-        <div class="acordeon">
-          <div class="cont-acordeon" id="cont-acordeon">Hola</div>
+        <div class="container-orden">
+          <h1 class="title">Datos curiosos</h1>
+
+          <div class="container-grid">
+            <div class="circular-container">
+              <div class="circular-progress">
+                <span class="progress-value">0%</span>
+              </div>
+              <span class="text" id="textValue01">Hola</span>
+            </div>
+
+            <div class="circular-container">
+              <div class="circular-progress02">
+                <span class="progress-value02">0%</span>
+              </div>
+              <span class="text" id="textValue02">Hola</span>
+            </div>
+          </div>
+
+          <div class="all-funfacts" id="all-funfacts"></div>
         </div>
-        <div class="all-funfacts" id="all-funfacts"></div>
       </section>
 
       <script src="main.js" type="module" defer></script>
