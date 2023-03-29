@@ -1,8 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
-
 :root {
-    --fuenteHeading: 'PT Serif', serif;
-    --fuenteParrafos: "Open Sans", sans-serif;
+    --fuenteHeading: "Poppins", sans-serif;
+    --fuenteParrafos: "Poppins", sans-serif;
     --primario: #784d3c;
     --blanco: #ffff;
     --negro: #000;
@@ -10,17 +8,15 @@
 
 }
 
-
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', serif;
+
 }
 
 body {
-    font-family: 'Poppins', serif;
+    font-family: var(--fuenteHeading);
 }
 
 .navigation {
@@ -72,6 +68,8 @@ body {
     color: var(--negro);
     font-size: 1rem;
     text-align: center;
+    font-family: var(--fuenteParrafos);
+    line-height: 25px;
 
 }
 
@@ -195,7 +193,7 @@ button {
 }
 
 .menu {
-    margin-left: 60px;
+    margin-left: 80px;
 }
 
 .contenedor {
@@ -242,7 +240,7 @@ button {
     outline: none;
     border-radius: 13px;
     width: 18%;
-    margin-left: 77%;
+    margin-left: 80%;
     position: absolute;
     font-size: 14px;
 }
@@ -261,7 +259,7 @@ button {
     margin-top: -30px
 }
 
-/* ---------- OTHER INFORMATION  --------------- */
+
 
 /* ---------- ARROW LEFT AND RIGHT  --------------- */
 .acordeon {
@@ -351,8 +349,8 @@ button {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 10px;
     width: 580px;
-    padding: 16px;
-    margin: 20px;
+    padding: 30px;
+    margin: 5px;
     border-radius: 5px;
     background-color: #fff;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -410,6 +408,8 @@ button {
     font-size: 14px;
     margin-top: 3px;
     font-weight: bold;
+    text-align: center;
+    font-family: var(--fuenteHeading);
 }
 
 .book-card .book-card__author p {
@@ -418,10 +418,12 @@ button {
     left: 100%;
     bottom: 30%;
     top: 0%;
-    padding: 10px;
+    padding: 6px;
     color: #000000;
-    font-size: 13px;
+    font-size: 14px;
     width: 300px;
+    font-family: var(--fuenteHeading);
+    line-height: 25px;
 }
 
 .book-card:hover .book-card__book {
@@ -434,27 +436,6 @@ button {
 
 .book-card:hover .book-card__book-side {
     opacity: 1;
-}
-
-/* ---------- FOOTER --------------- */
-.imgHp {
-    height: 24px;
-    width: 50px;
-    margin: 0;
-    display: inline-block;
-    opacity: 0.5;
-
-}
-
-.final,
-.link,
-a {
-    color: var(--blanco);
-    font-weight: bold;
-    font-size: 1rem;
-    text-align: center;
-    font-family: var(--fuenteHeading);
-    background: linear-gradient(transparent, #1D2625);
 }
 
 /* ---------- DATOS CURIORIOSOS --------------- */
@@ -510,4 +491,14 @@ p {
 
 .funfacts:hover .card-funfact {
     opacity: 1;
+}
+
+.final {
+    color: var(--blanco);
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+    font-family: var(--fuenteHeading);
+    background: linear-gradient(transparent, #d3d4d1);
+    padding: 5px;
 }

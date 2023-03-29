@@ -22,19 +22,20 @@ export const baseDatos = () => {
       let characters = data["characters"];
       let funfacts = data["funFacts"];
       let books = data["books"];
-
+      /*--------------------------------------------------------------------------------------------------------*/
       //! traer la información de spells
       const datosIniciales = spells
         .map((spell) => {
-          return `<div class = "spellitem"> 
-        <strong>Name:</strong> ${spell.name} <br>
-        <strong>Spell type:</strong> ${spell.spell_type} <br>
-        
-        <strong>Mention:</strong> ${spell.mention} <br>
-        <strong>Other Name:</strong> ${spell.other_name} </div>`;
+          let html = '<div class="spellitem">';
+          html += `<strong>Name:</strong> ${spell.name !== null ? spell.name : 'No existe información'}<br>`;
+          html += `<strong>Spell type:</strong> ${spell.spell_type !== null ? spell.spell_type : 'No existe información'}<br>`;
+          html += `<strong>Mention:</strong> ${spell.mention !== null ? spell.mention : 'No existe información'}<br>`;
+          html += `<strong>Other Name:</strong> ${spell.other_name !== null ? spell.other_name : 'No existe información'}`;
+          html += '</div>';
+          return html;
         })
-        .join("");
-      const contenedorspells = document.getElementById("contenedorspells");
+        .join('');
+      const contenedorspells = document.getElementById('contenedorspells');
       contenedorspells.innerHTML = datosIniciales;
 
       //! traer la información de fun-facts
@@ -65,7 +66,7 @@ export const baseDatos = () => {
               <div class="book-card__book-side"></div>
               </div>
               <div class="book-card__title">
-                ${book.title}
+                ${book.title} <br>${book.releaseDay}              
               </div>
               <div class="book-card__author">
                 <p>${book.description}</p>
@@ -80,31 +81,33 @@ export const baseDatos = () => {
       //! Traer información de los personajes
       const datosInicialesHouses = characters
         .map((character) => {
-          return `<div class = "characterItem">
-          <strong>Name:</strong> ${character.name} <br>
-          <strong>Birth:</strong> ${character.birth} <br>
-          <strong>House:</strong> ${character.house} <br>
-          <strong>Associated Groups:</strong> ${character.associated_groups} <br>
-          <strong>Books featured in:</strong> ${character.books_featured_in} <br>
-           </div>`;
+          let html = '<div class="characterItem">';
+          html += `<strong>Name:</strong> ${character.name !== null ? character.name : 'No existe información'}<br>`;
+          html += `<strong>Birth:</strong> ${character.birth !== null ? character.birth : 'No existe información'}<br>`;
+          html += `<strong>House:</strong> ${character.house !== null ? character.house : 'No existe información'}<br>`;
+          html += `<strong>Associated Groups:</strong> ${character.associated_groups !== null ? character.associated_groups : 'No existe información'}<br>`;
+          html += `<strong>Books featured in:</strong> ${character.books_featured_in !== null ? character.books_featured_in : 'No existe información'}<br>`;
+          html += '</div>';
+          return html;
         })
-        .join("");
-      const contenedorhouse = document.getElementById("contenedorhouse");
+        .join('');
+      const contenedorhouse = document.getElementById('contenedorhouse');
       contenedorhouse.innerHTML = datosInicialesHouses;
 
       //! Presentacion de la informacion pociones
       const datosInicialesPotions = potions
         .map((potion) => {
-          return `<div class = "potionItem">
-        <strong>Name:</strong> ${potion.name} <br>
-        <strong>Description:</strong> ${potion.description} <br>
-         </div>`;
+          return `<div class="potionItem">
+          <strong>Name:</strong> ${potion.name !== null ? potion.name : 'no existe información'}<br>
+          <strong>Description:</strong> ${potion.description !== null ? potion.description : 'no existe información'}<br>
+        </div>`;
         })
-        .join("");
+        .join('');
+
       const contenedorPotions = document.getElementById("contenedorpotions");
       contenedorPotions.innerHTML = datosInicialesPotions;
 
-
+      /*--------------------------------------------------------------------------------------------------------*/
       /*Presentacion de datos hechizos*/
 
       const cantidadHechizos = spells.reduce(function (counts, spell) {
@@ -140,6 +143,7 @@ export const baseDatos = () => {
         return counts;
       }, {});
       console.log(cantidadshaircolor)
+      /*--------------------------------------------------------------------------------------------------------*/
 
       //* Filtrado por tipo de Hechizo -> Section 02
       const filtro = document.getElementById("informacion");
@@ -204,7 +208,7 @@ export const baseDatos = () => {
         totalResultadosCasas.innerHTML = resultadoDatos;
       });
 
-      //* Buscador de personahes -> Section 04
+      //* Buscador de personajes -> Section 04
       const busquedaCasasHogwarts = document.getElementById("busquedaHouse");
       busquedaCasasHogwarts.addEventListener("input", () => {
         const CasasHogwarts = busquedaCasasHogwarts.value;
@@ -267,10 +271,10 @@ export const baseDatos = () => {
           finalPotion.innerHTML = encuentroFinal;
         }
       });
-
-
     });
 };
+/*--------------------------------------------------------------------------------------------------------*/
+
 /* Siguiente sección*/
 
 let botones = document.querySelectorAll(".navigation button")
@@ -283,7 +287,6 @@ botones.forEach(function (elemento) {
       /* Llamor la funcion desde data js*/
       baseDatos()
     }
-
     if (seccion != 'section1') {
       // Ocultar texto de los botones
       document.querySelectorAll("button span").forEach((span) => {
@@ -294,7 +297,6 @@ botones.forEach(function (elemento) {
         span.style.display = 'inline'
       })
     }
-
     for (let i = 0; i < secciones.length; i++) {
       secciones[i].style.display = "none";
     }
