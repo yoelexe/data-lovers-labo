@@ -45,24 +45,12 @@ body {
     border-style: none;
 }
 
-
-.seccion1 #botones {
-    opacity: 0;
-}
-
-.seccion1:hover #botones {
-    opacity: 1;
-}
-
-
 .logo {
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
 }
-
 
 .frase {
     color: var(--negro);
@@ -73,10 +61,22 @@ body {
     transform: translate(-50%, -50%);
     text-align: center;
     font-family: var(--fuenteParrafos);
-    line-height: 25px;
-
 }
 
+
+@media (max-width: 800px) {
+    .logo {
+        top: 15%;
+        left: 55%;
+    }
+
+    .frase {
+        top: 30%;
+        left: 55%;
+        width: 75%;
+        font-weight: bold;
+    }
+}
 
 span {
     color: var(--blanco);
@@ -87,7 +87,7 @@ span {
 
 
 section {
-    min-height: 100vh;
+    
     display: flex;
     justify-content: center;
     /* horizontal */
@@ -117,6 +117,10 @@ section {
 
 #section2 {
     display: none;
+}
+
+section:nth-child(6) {
+    background: #592C41;
 }
 
 
@@ -188,13 +192,7 @@ button {
 }
 
 
-.title {
-    text-align: center;
-    padding-top: 50px;
-    color: white;
-    /* text-shadow: 0 5px 10px rgba(0,0,0, 2);*/
-    font-size: 40px;
-}
+
 
 .contenedor {
     display: grid;
@@ -231,30 +229,55 @@ button {
 /* ---------- SEARCH --------------- */
 
 .container-bosque{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    align-items: center;
+    grid-template-rows: 100px;
+    gap: 10px;
+}
+
+.title {
+    text-align: center;
+    padding-top: 50px;
+    color: white;
+    font-size: 40px;
+}
+
+.menu{
+    padding: 10px;
+    outline: none;
+    border-radius: 13px;
+    width: 50%;
+    font-size: 14px;
 }
 
 .bosque label{
     color: white;
-    padding: 4px 85px;
+    width: 250px;
+    margin-left: 40%;
 }
 
 .bosque input {
     padding: 10px;
     outline: none;
     border-radius: 13px;
-    width: 20%;
-    margin-left: 80px;
+    width: 70%;
     font-size: 14px;
 }
 
 @media (max-width: 800px) {
-    .bosque input {
-      width: 250px;
-      margin-left: 23%;
-      margin-top: 20px;
+    .bosque input, .menu{
+      margin-left: 25%;
+    }
+
+    .bosque input{
+        position: absolute;
+        top: 23%;
+        width: 50%;
+    }
+
+    .bosque label{
+        margin-left: 25%;
     }
 }
 

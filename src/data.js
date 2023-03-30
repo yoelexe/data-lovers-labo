@@ -14,7 +14,11 @@ export const filterByName = (spells, busqueda) => {
 export const changeInfo = (valores, resultado) => {
   if (valores === undefined || resultado === undefined) return undefined;
   const resultados = valores.filter((spellType) => {
-    return spellType.spell_type === resultado;
+    if (resultado === "") {
+      return true;
+    } else {
+      return spellType.spell_type === resultado;
+    }
   });
   return resultados;
 };
