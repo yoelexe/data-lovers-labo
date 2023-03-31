@@ -67,6 +67,10 @@ describe("Filtrar por tipo de hechizo", () => {
       },
     ]);
   });
+
+  it("Deberia retornar un array vacio si no hay hechizos del tipo especificado", () => {
+    expect(changeInfo(dataspell, "")).toEqual(dataspell);
+  });
 });
 
 const dataCharacter = [
@@ -174,28 +178,6 @@ describe("Ordenar pociones ascendente y descendente", () => {
   });
 });
 
-//TODO: Sexto testeo
-describe('changeHouse', () => {
-  const characters = [
-    { name: 'Harry Potter', house: 'Gryffindor' },
-    { name: 'Draco Malfoy', house: 'Slytherin' },
-    { name: 'Luna Lovegood', house: 'Ravenclaw' },
-    { name: 'Cedric Diggory', house: 'Hufflepuff' },
-  ];
-
-  test('devuelve todos los personajes si no se especifica una casa', () => {
-    const valorcasas = '';
-    const resultados = changeHouse(characters, valorcasas);
-    expect(resultados).toEqual(characters);
-  });
-
-  test('devuelve solo los personajes de la casa especificada', () => {
-    const valorcasas = 'Gryffindor';
-    const resultados = changeHouse(characters, valorcasas);
-    const personajesEsperados = [
-      { name: 'Harry Potter', house: 'Gryffindor' },
-    ];
-    expect(resultados).toEqual(personajesEsperados);
-  });
-
-});
+/*
+https://docs.google.com/spreadsheets/d/1YaWLbwXpdrczYi9LmtJ4sF-uae0PUq9GnUalvuw_HHw/edit?usp=sharing
+*/

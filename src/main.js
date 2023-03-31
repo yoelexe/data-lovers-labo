@@ -27,15 +27,27 @@ export const baseDatos = () => {
       const datosIniciales = spells
         .map((spell) => {
           let html = '<div class="spellitem">';
-          html += `<strong>Name:</strong> ${spell.name !== null ? spell.name : 'No existe información'}<br>`;
-          html += `<strong>Spell type:</strong> ${spell.spell_type !== null ? spell.spell_type : 'No existe información'}<br>`;
-          html += `<strong>Mention:</strong> ${spell.mention !== null ? spell.mention : 'No existe información'}<br>`;
-          html += `<strong>Other Name:</strong> ${spell.other_name !== null ? spell.other_name : 'No existe información'}`;
-          html += '</div>';
+          html += `<strong>Name:</strong> ${
+            spell.name !== null ? spell.name : "No existe información"
+          }<br>`;
+          html += `<strong>Spell type:</strong> ${
+            spell.spell_type !== null
+              ? spell.spell_type
+              : "No existe información"
+          }<br>`;
+          html += `<strong>Mention:</strong> ${
+            spell.mention !== null ? spell.mention : "No existe información"
+          }<br>`;
+          html += `<strong>Other Name:</strong> ${
+            spell.other_name !== null
+              ? spell.other_name
+              : "No existe información"
+          }`;
+          html += "</div>";
           return html;
         })
-        .join('');
-      const contenedorspells = document.getElementById('contenedorspells');
+        .join("");
+      const contenedorspells = document.getElementById("contenedorspells");
       contenedorspells.innerHTML = datosIniciales;
 
       //! traer la información de fun-facts
@@ -82,68 +94,82 @@ export const baseDatos = () => {
       const datosInicialesHouses = characters
         .map((character) => {
           let html = '<div class="characterItem">';
-          html += `<strong>Name:</strong> ${character.name !== null ? character.name : 'No existe información'}<br>`;
-          html += `<strong>Birth:</strong> ${character.birth !== null ? character.birth : 'No existe información'}<br>`;
-          html += `<strong>House:</strong> ${character.house !== null ? character.house : 'No existe información'}<br>`;
-          html += `<strong>Associated Groups:</strong> ${character.associated_groups !== null ? character.associated_groups : 'No existe información'}<br>`;
-          html += `<strong>Books featured in:</strong> ${character.books_featured_in !== null ? character.books_featured_in : 'No existe información'}<br>`;
-          html += '</div>';
+          html += `<strong>Name:</strong> ${
+            character.name !== null ? character.name : "No existe información"
+          }<br>`;
+          html += `<strong>Birth:</strong> ${
+            character.birth !== null ? character.birth : "No existe información"
+          }<br>`;
+          html += `<strong>House:</strong> ${
+            character.house !== null ? character.house : "No existe información"
+          }<br>`;
+          html += `<strong>Associated Groups:</strong> ${
+            character.associated_groups !== null
+              ? character.associated_groups
+              : "No existe información"
+          }<br>`;
+          html += `<strong>Books featured in:</strong> ${
+            character.books_featured_in !== null
+              ? character.books_featured_in
+              : "No existe información"
+          }<br>`;
+          html += "</div>";
           return html;
         })
-        .join('');
-      const contenedorhouse = document.getElementById('contenedorhouse');
+        .join("");
+      const contenedorhouse = document.getElementById("contenedorhouse");
       contenedorhouse.innerHTML = datosInicialesHouses;
 
       //! Presentacion de la informacion pociones
       const datosInicialesPotions = potions
         .map((potion) => {
           return `<div class="potionItem">
-          <strong>Name:</strong> ${potion.name !== null ? potion.name : 'no existe información'}<br>
-          <strong>Description:</strong> ${potion.description !== null ? potion.description : 'no existe información'}<br>
+          <strong>Name:</strong> ${
+            potion.name !== null ? potion.name : "no existe información"
+          }<br>
+          <strong>Description:</strong> ${
+            potion.description !== null
+              ? potion.description
+              : "no existe información"
+          }<br>
         </div>`;
         })
-        .join('');
+        .join("");
 
       const contenedorPotions = document.getElementById("contenedorpotions");
       contenedorPotions.innerHTML = datosInicialesPotions;
 
-      /*--------------------------------------------------------------------------------------------------------*/
-      /*Presentacion de datos hechizos*/
+      //? Separador para probar la función
 
-      const cantidadHechizos = spells.reduce(function (counts, spell) {
-        if (spell.spell_type !== null) {
-          counts[spell.spell_type] = (counts[spell.spell_type] || 0) + 1;
+      let result = dataCharacter.filter((miembro) => miembro.gender == "Male");
+      let result02 = dataCharacter.filter(
+        (miembro) => miembro.gender == "Female"
+      );
+
+      const cantidad01 = result.reduce(function (counts, character) {
+        if (character.gender !== null) {
+          counts[character.gender] = (counts[character.gender] || 0) + 1;
         }
         return counts;
       }, {});
-      console.log(cantidadHechizos)
 
-      /*Presentacion de datos Casas de Hogwarts*/
-
-      const cantidadcharacters = characters.reduce(function (counts, character) {
-        if (character.house !== null) {
-          counts[character.house] = (counts[character.house] || 0) + 1;
+      const cantidadr02 = result02.reduce(function (counts, character) {
+        if (character.gender !== null) {
+          counts[character.gender] = (counts[character.gender] || 0) + 1;
         }
         return counts;
       }, {});
-      console.log(cantidadcharacters)
 
-      const cantidadspecies = characters.reduce(function (counts, character) {
-        if (character.species !== null) {
-          counts[character.species] = (counts[character.species] || 0) + 1;
-        }
-        return counts;
-      }, {});
-      console.log(cantidadspecies)
+      const totalResult01 = Object.values(cantidad01);
+      const totalResult02 = Object.values(cantidadr02);
 
-      const cantidadshaircolor = characters.reduce(function (counts, character) {
-        if (character.hair_color !== null) {
-          counts[character.hair_color] = (counts[character.hair_color] || 0) + 1;
-        }
-        return counts;
-      }, {});
-      console.log(cantidadshaircolor)
-      /*--------------------------------------------------------------------------------------------------------*/
+      /*filter*/
+      console.log("Personajes femeninos", totalResult01);
+      const infoMostrar = document.getElementById("textValue01");
+      infoMostrar.textContent = `Personajes femeninos: ${totalResult01}`;
+
+      const infoMostrar02 = document.getElementById("textValue02");
+      infoMostrar02.textContent = `Personajes masculinos: ${totalResult02}`;
 
       //* Filtrado por tipo de Hechizo -> Section 02
       const filtro = document.getElementById("informacion");
@@ -271,31 +297,78 @@ export const baseDatos = () => {
           finalPotion.innerHTML = encuentroFinal;
         }
       });
+
+      //? termina todo
+      let circularProgress = document.querySelector(".circular-progress"),
+        progressValue = document.querySelector(".progress-value");
+
+      let progressStartValue = 0,
+        progressEndValue = Math.round((totalResult01 * 100) / 756),
+        speed = 100;
+
+      let progress = setInterval(() => {
+        progressStartValue++;
+
+        progressValue.textContent = `${progressStartValue}%`;
+        circularProgress.style.background = `conic-gradient(#7d2ae8 ${
+          progressStartValue * 3.6
+        }deg, #ededed 0deg)`;
+
+        if (progressStartValue == progressEndValue) {
+          clearInterval(progress);
+        }
+      }, speed);
+      //? termina todo
+      let circularProgress02 = document.querySelector(".circular-progress02"),
+        progressValue02 = document.querySelector(".progress-value02");
+
+      let progressStartValue02 = 0,
+        progressEndValue02 = Math.round((totalResult02 * 100) / 756),
+        speed02 = 100;
+
+      let progress02 = setInterval(() => {
+        progressStartValue02++;
+
+        progressValue02.textContent = `${progressStartValue02}%`;
+        circularProgress02.style.background = `conic-gradient(#7d2ae8 ${
+          progressStartValue02 * 3.6
+        }deg, #ededed 0deg)`;
+
+        if (progressStartValue02 == progressEndValue02) {
+          clearInterval(progress02);
+        }
+      }, speed02);
     });
 };
 /*--------------------------------------------------------------------------------------------------------*/
 
 /* Siguiente sección*/
 
-let botones = document.querySelectorAll(".navigation button")
+let botones = document.querySelectorAll(".navigation button");
 botones.forEach(function (elemento) {
-  elemento.addEventListener('click', (event) => {
+  elemento.addEventListener("click", (event) => {
     let seccion = event.currentTarget.dataset.section;
     let secciones = document.getElementsByTagName("section");
 
-    if (seccion === 'section2' || seccion === 'section3' || seccion === 'section4' || seccion === 'section5' || seccion === 'section6') {
+    if (
+      seccion === "section2" ||
+      seccion === "section3" ||
+      seccion === "section4" ||
+      seccion === "section5" ||
+      seccion === "section6"
+    ) {
       /* Llamor la funcion desde data js*/
-      baseDatos()
+      baseDatos();
     }
-    if (seccion != 'section1') {
+    if (seccion != "section1") {
       // Ocultar texto de los botones
       document.querySelectorAll("button span").forEach((span) => {
-        span.style.display = 'none'
-      })
+        span.style.display = "none";
+      });
     } else {
       document.querySelectorAll("button span").forEach((span) => {
-        span.style.display = 'inline'
-      })
+        span.style.display = "inline";
+      });
     }
     for (let i = 0; i < secciones.length; i++) {
       secciones[i].style.display = "none";
@@ -319,14 +392,5 @@ botones.forEach(function (elemento) {
     totalPociones.innerHTML = "";
     document.getElementById("ordenselector").value = "";
     document.getElementById("busquedaPotions").value = "";
-
   });
 });
-
-const acordeon = document.getElementsByClassName("cont-acordeon");
-
-for (let i = 0; i < acordeon.length; i++) {
-  acordeon[i].addEventListener("click", function () {
-    this.classList.toggle("activa");
-  });
-}

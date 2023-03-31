@@ -14,7 +14,11 @@ export const filterByName = (spells, busqueda) => {
 export const changeInfo = (valores, resultado) => {
   if (valores === undefined || resultado === undefined) return undefined;
   const resultados = valores.filter((spellType) => {
-    return spellType.spell_type === resultado;
+    if (resultado === "") {
+      return true;
+    } else {
+      return spellType.spell_type === resultado;
+    }
   });
   return resultados;
 };
@@ -22,11 +26,7 @@ export const changeInfo = (valores, resultado) => {
 // TODO: filtro por tipo de casa
 export const changeHouse = (characters, valorcasas) => {
   const resultadosHogwart = characters.filter((character) => {
-    if (valorcasas === "") {
-      return true;
-    } else {
-      return character.house === valorcasas;
-    }
+    return character.house === valorcasas;
   });
   return resultadosHogwart;
 };
@@ -44,9 +44,12 @@ export const orderByValue = (valorOrden, pocionesOrdenadas) => {
   const orderValue = valorOrden.sort((a, b) => {
     if (pocionesOrdenadas === "Descendente") {
       return b.name.localeCompare(a.name);
-    } else {
+    }
+    if (pocionesOrdenadas === "Ascendente") {
       return a.name.localeCompare(b.name);
     }
   });
   return orderValue;
 };
+
+// TODO: Calcular

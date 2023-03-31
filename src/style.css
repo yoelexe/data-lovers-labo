@@ -45,45 +45,44 @@ body {
     border-style: none;
 }
 
-
-.seccion1 #botones {
-    opacity: 0;
-}
-
-.seccion1:hover #botones {
-    opacity: 1;
-}
-
-
 .logo {
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
 }
-
 
 .frase {
     color: var(--negro);
     font-size: 1rem;
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
     font-family: var(--fuenteParrafos);
-    line-height: 25px;
-
 }
 
 
-span {
-    color: var(--blanco);
-    font-weight: bold;
-    margin-left: 50px;
-    font-size: 1rem;
+@media (max-width: 800px) {
+    .logo {
+        top: 15%;
+        left: 55%;
+    }
+
+    .frase {
+        top: 30%;
+        left: 55%;
+        width: 75%;
+        font-weight: bold;
+    }
 }
+
+
 
 
 section {
-    min-height: 100vh;
+    
     display: flex;
     justify-content: center;
     /* horizontal */
@@ -115,13 +114,16 @@ section {
     display: none;
 }
 
+section:nth-child(6) {
+    background: #592C41;
+}
+
 
 
 .navigation li {
     width: 10px;
     height: 10px;
     background: #ccc;
-    border: 2px solid black;
     border-radius: 50%;
     margin-top: 15px;
     cursor: pointer;
@@ -152,12 +154,6 @@ video {
     }
 }
 
-@media (min-width: 768px) {
-    .grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
 /* ---------- HECHIZOS --------------- */
 
 .bosque {
@@ -184,17 +180,7 @@ button {
 }
 
 
-.bosque .title {
-    text-align: center;
-    padding-top: 50px;
-    color: white;
-    /* text-shadow: 0 5px 10px rgba(0,0,0, 2);*/
-    font-size: 40px;
-}
 
-.menu {
-    margin-left: 80px;
-}
 
 .contenedor {
     display: grid;
@@ -222,7 +208,6 @@ button {
 .spellitem strong,
 .characterItem strong,
 .potionItem strong {
-    font-weight: bold;
     margin-bottom: 10px;
 
 }
@@ -231,96 +216,153 @@ button {
 
 /* ---------- SEARCH --------------- */
 
-.bosque i {
+.container-bosque{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    align-items: center;
+    grid-template-rows: 100px;
+    gap: 10px;
+}
+
+.title {
+    text-align: center;
+    padding-top: 50px;
     color: white;
+    font-size: 40px;
+}
+
+.menu{
+    padding: 10px;
+    outline: none;
+    border-radius: 13px;
+    width: 50%;
+    font-size: 14px;
+}
+
+.bosque label{
+    color: white;
+    width: 250px;
+    margin-left: 40%;
 }
 
 .bosque input {
     padding: 10px;
     outline: none;
     border-radius: 13px;
-    width: 18%;
-    margin-left: 80%;
-    position: absolute;
+    width: 70%;
     font-size: 14px;
 }
 
+@media (max-width: 800px) {
+    .bosque input, .menu,
+    .bosque label{
+      margin-left: 25%;
+      width: 50%;
+    }
 
+    .container-bosque{
+        grid-template-rows: 25px;
 
-.search-button {
-    position: relative;
-    background-color: black;
-    cursor: pointer;
-    border-radius: 100%;
-    height: 40px;
-    left: 93%;
-    top: 6%;
-    z-index: 1;
-    margin-top: -30px
+    }
 }
 
-
-
-/* ---------- ARROW LEFT AND RIGHT  --------------- */
-.acordeon {
-    width: 800px;
-    margin: 90px 20px;
+span {
     color: var(--blanco);
-    background-image: url(../img/bg-bottom.webp);
-    padding: 45px 45px;
+    font-weight: bold;
+    margin-left: 50px;
+    font-size: 1rem;
 }
 
-.acordeon .cont-acordeon {
-    position: relative;
-    margin: 10px 10px;
+
+/* ---------- OTHER INFORMATION  --------------- */
+
+.container-grid{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    
 }
 
-.cont-acordeon .contenido {
-    color: var(--blanco);
-}
 
-.acordeon .etiqueta {
-    position: relative;
-    padding: 10px 0;
-    font-size: 30px;
-    color: var(--blanco);
-    cursor: pointer;
-}
-
-.acordeon .etiqueta::before {
-    content: '+';
-    color: black;
-    position: absolute;
-    top: 50%;
-    right: -5px;
-    font-size: 30px;
-    transform: translateY(-50%);
-}
-
-.acordeon .contenido {
-    position: relative;
+.circular-container{
+    display: flex;
+    width: 420px;
+    padding: 50px 0;
+    border-radius: 8px;
     background: white;
-    height: 0;
-    font-size: 20px;
-    text-align: justify;
-    width: 700px;
-    overflow: hidden;
-    transition: 0.5s;
+    row-gap: 30px;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 80px;
+    margin-top: 20px;
 }
 
-.acordeon hr {
-    width: 100;
-    margin-left: 0;
-    border: 1px solid grey;
+.circular-progress,
+.circular-progress02{
+    position: relative;
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    background: conic-gradient(#6e647c 3.6deg, #ededed 0deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.acordeon .cont-acordeon.activa .contenido {
-    height: 150px;
+.circular-progress::before,
+.circular-progress02::before{
+    content: "";
+    position: absolute;
+    height: 210px;
+    width: 210px;
+    border-radius: 50%;
+    background-color: white;
 }
 
-.acordeon .cont-acordeon.activa .etiqueta::before {
-    content: '-';
+.progress-value,
+.progress-value02{
+    position: relative;
+    font-size: 40px;
+    font-weight: 600;
+    color: #91889c;
+}
+
+.text{
     font-size: 30px;
+    font-weight: 500;
+    color: #606060;
+}
+@media (max-width: 800px) {
+    .circular-container {
+        width: 280px;
+        margin-top: 0%;
+        margin-bottom: 5%;
+        margin-left: 60px;
+    }
+
+    .circular-progress,
+.circular-progress02{
+    height: 120px;
+    width: 120px;
+}
+
+.circular-progress::before,
+.circular-progress02::before{
+    height: 100px;
+    width: 100px;
+}
+
+.progress-value,
+.progress-value02{
+    font-size: 30px;
+    margin-right: 25%;
+}
+
+.text{
+    font-size: 16px;
+    margin-right: 10%;
+}
 }
 
 
@@ -492,7 +534,11 @@ p {
 .funfacts:hover .card-funfact {
     opacity: 1;
 }
-
+@media (max-width: 800px) {
+    .all-funfacts {
+      margin-left: 10px;
+    }
+}
 .final {
     color: var(--blanco);
     font-weight: bold;
