@@ -78,12 +78,7 @@ body {
     }
 }
 
-span {
-    color: var(--blanco);
-    font-weight: bold;
-    margin-left: 50px;
-    font-size: 1rem;
-}
+
 
 
 section {
@@ -129,7 +124,6 @@ section:nth-child(6) {
     width: 10px;
     height: 10px;
     background: #ccc;
-    border: 2px solid black;
     border-radius: 50%;
     margin-top: 15px;
     cursor: pointer;
@@ -157,12 +151,6 @@ video {
     video {
         width: auto;
         height: 100%;
-    }
-}
-
-@media (min-width: 768px) {
-    .grid {
-        grid-template-columns: repeat(3, 1fr);
     }
 }
 
@@ -266,18 +254,15 @@ button {
 }
 
 @media (max-width: 800px) {
-    .bosque input, .menu{
-      margin-left: 25%;
-    }
-
-    .bosque input{
-        position: absolute;
-        top: 23%;
-        width: 50%;
-    }
-
+    .bosque input, .menu,
     .bosque label{
-        margin-left: 25%;
+      margin-left: 25%;
+      width: 50%;
+    }
+
+    .container-bosque{
+        grid-template-rows: 25px;
+
     }
 }
 
@@ -295,14 +280,11 @@ span {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
     
 }
 
-@media (max-width: 800px) {
-    .container-orden {
-      flex-direction: column;
-    }
-}
+
 .circular-container{
     display: flex;
     width: 420px;
@@ -312,7 +294,8 @@ span {
     row-gap: 30px;
     flex-direction: column;
     align-items: center;
-    margin: 100px;
+    margin-left: 80px;
+    margin-top: 20px;
 }
 
 .circular-progress,
@@ -350,67 +333,36 @@ span {
     font-weight: 500;
     color: #606060;
 }
+@media (max-width: 800px) {
+    .circular-container {
+        width: 280px;
+        margin-top: 0%;
+        margin-bottom: 5%;
+        margin-left: 60px;
+    }
 
-/* ---------- ARROW LEFT AND RIGHT  --------------- */
-.acordeon {
-    width: 800px;
-    margin: 90px 20px;
-    color: var(--blanco);
-    background-image: url(../img/bg-bottom.webp);
-    padding: 45px 45px;
+    .circular-progress,
+.circular-progress02{
+    height: 120px;
+    width: 120px;
 }
 
-.acordeon .cont-acordeon {
-    position: relative;
-    margin: 10px 10px;
+.circular-progress::before,
+.circular-progress02::before{
+    height: 100px;
+    width: 100px;
 }
 
-.cont-acordeon .contenido {
-    color: var(--blanco);
-}
-
-.acordeon .etiqueta {
-    position: relative;
-    padding: 10px 0;
+.progress-value,
+.progress-value02{
     font-size: 30px;
-    color: var(--blanco);
-    cursor: pointer;
+    margin-right: 25%;
 }
 
-.acordeon .etiqueta::before {
-    content: '+';
-    color: black;
-    position: absolute;
-    top: 50%;
-    right: -5px;
-    font-size: 30px;
-    transform: translateY(-50%);
+.text{
+    font-size: 16px;
+    margin-right: 10%;
 }
-
-.acordeon .contenido {
-    position: relative;
-    background: white;
-    height: 0;
-    font-size: 20px;
-    text-align: justify;
-    width: 700px;
-    overflow: hidden;
-    transition: 0.5s;
-}
-
-.acordeon hr {
-    width: 100;
-    margin-left: 0;
-    border: 1px solid grey;
-}
-
-.acordeon .cont-acordeon.activa .contenido {
-    height: 150px;
-}
-
-.acordeon .cont-acordeon.activa .etiqueta::before {
-    content: '-';
-    font-size: 30px;
 }
 
 
@@ -582,7 +534,11 @@ p {
 .funfacts:hover .card-funfact {
     opacity: 1;
 }
-
+@media (max-width: 800px) {
+    .all-funfacts {
+      margin-left: 10px;
+    }
+}
 .final {
     color: var(--blanco);
     font-weight: bold;
