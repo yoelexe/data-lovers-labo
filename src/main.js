@@ -27,29 +27,16 @@ export const baseDatos = () => {
       const datosIniciales = spells
         .map((spell) => {
           let html = '<div class="spellitem">';
-          html += `<strong>Name:</strong> ${
-            spell.name !== null ? spell.name : "No existe información"
-          }<br>`;
-          html += `<strong>Spell type:</strong> ${
-            spell.spell_type !== null
-              ? spell.spell_type
-              : "No existe información"
-          }<br>`;
-          html += `<strong>Mention:</strong> ${
-            spell.mention !== null ? spell.mention : "No existe información"
-          }<br>`;
-          html += `<strong>Other Name:</strong> ${
-            spell.other_name !== null
-              ? spell.other_name
-              : "No existe información"
-          }`;
-          html += "</div>";
+          html += `<strong>Name:</strong> ${spell.name !== null ? spell.name : 'No existe información'}<br>`;
+          html += `<strong>Spell type:</strong> ${spell.spell_type !== null ? spell.spell_type : 'No existe información'}<br>`;
+          html += `<strong>Mention:</strong> ${spell.mention !== null ? spell.mention : 'No existe información'}<br>`;
+          html += `<strong>Other Name:</strong> ${spell.other_name !== null ? spell.other_name : 'No existe información'}`;
+          html += '</div>';
           return html;
         })
-        .join("");
-      const contenedorspells = document.getElementById("contenedorspells");
+        .join('');
+      const contenedorspells = document.getElementById('contenedorspells');
       contenedorspells.innerHTML = datosIniciales;
-
       //! traer la información de fun-facts
       const mostrarfunFacts = funfacts
         .map((funfact) => {
@@ -94,50 +81,31 @@ export const baseDatos = () => {
       const datosInicialesHouses = characters
         .map((character) => {
           let html = '<div class="characterItem">';
-          html += `<strong>Name:</strong> ${
-            character.name !== null ? character.name : "No existe información"
-          }<br>`;
-          html += `<strong>Birth:</strong> ${
-            character.birth !== null ? character.birth : "No existe información"
-          }<br>`;
-          html += `<strong>House:</strong> ${
-            character.house !== null ? character.house : "No existe información"
-          }<br>`;
-          html += `<strong>Associated Groups:</strong> ${
-            character.associated_groups !== null
-              ? character.associated_groups
-              : "No existe información"
-          }<br>`;
-          html += `<strong>Books featured in:</strong> ${
-            character.books_featured_in !== null
-              ? character.books_featured_in
-              : "No existe información"
-          }<br>`;
-          html += "</div>";
+          html += `<strong>Name:</strong> ${character.name !== null ? character.name : 'No existe información'}<br>`;
+          html += `<strong>Birth:</strong> ${character.birth !== null ? character.birth : 'No existe información'}<br>`;
+          html += `<strong>House:</strong> ${character.house !== null ? character.house : 'No existe información'}<br>`;
+          html += `<strong>Associated Groups:</strong> ${character.associated_groups !== null ? character.associated_groups : 'No existe información'}<br>`;
+          html += `<strong>Books featured in:</strong> ${character.books_featured_in !== null ? character.books_featured_in : 'No existe información'}<br>`;
+          html += '</div>';
           return html;
         })
-        .join("");
-      const contenedorhouse = document.getElementById("contenedorhouse");
+        .join('');
+      const contenedorhouse = document.getElementById('contenedorhouse');
       contenedorhouse.innerHTML = datosInicialesHouses;
-
       //! Presentacion de la informacion pociones
       const datosInicialesPotions = potions
         .map((potion) => {
           return `<div class="potionItem">
-          <strong>Name:</strong> ${
-            potion.name !== null ? potion.name : "no existe información"
-          }<br>
-          <strong>Description:</strong> ${
-            potion.description !== null
-              ? potion.description
-              : "no existe información"
-          }<br>
+          <strong>Name:</strong> ${potion.name !== null ? potion.name : 'no existe información'}<br>
+          <strong>Description:</strong> ${potion.description !== null ? potion.description : 'no existe información'}<br>
         </div>`;
         })
-        .join("");
+        .join('');
 
       const contenedorPotions = document.getElementById("contenedorpotions");
       contenedorPotions.innerHTML = datosInicialesPotions;
+      /*--------------------------------------------------------------------------------------------------------*/
+      /*Presentacion de datos */
 
       //? Separador para probar la función
 
@@ -193,18 +161,18 @@ export const baseDatos = () => {
       const busquedaHechizo = document.getElementById("busquedaSpell1");
       busquedaHechizo.addEventListener("input", () => {
         const busqueda = busquedaHechizo.value.toLowerCase();
-
         const hallazgo = filterByName(dataSpells, busqueda);
         const hallazgoFinal = hallazgo
           .map((spell) => {
-            return `<div class = "spellitem"> 
-            <strong>Name:</strong> ${spell.name} <br>
-            <strong>Spell type:</strong> ${spell.spell_type} <br>
-            <strong>Mention:</strong> ${spell.mention} <br>
-            <strong>Other Name:</strong> ${spell.other_name} </div>`;
+            let html = '<div class="spellitem">';
+            html += `<strong>Name:</strong> ${spell.name !== null ? spell.name : 'No existe información'}<br>`;
+            html += `<strong>Spell type:</strong> ${spell.spell_type !== null ? spell.spell_type : 'No existe información'}<br>`;
+            html += `<strong>Mention:</strong> ${spell.mention !== null ? spell.mention : 'No existe información'}<br>`;
+            html += `<strong>Other Name:</strong> ${spell.other_name !== null ? spell.other_name : 'No existe información'}`;
+            html += '</div>';
+            return html;
           })
-          .join("");
-
+          .join('');
         const finalSpell = document.getElementById("contenedorspells");
         if (hallazgoFinal === "") {
           finalSpell.innerHTML = `<div class="final">No se encontró información</div>`;
@@ -213,7 +181,6 @@ export const baseDatos = () => {
         }
         return hallazgo;
       });
-
       //* Filtrado por casas para personajes -> Section 04
       const casasH = document.getElementById("ordencasas");
       casasH.addEventListener("change", () => {
@@ -222,34 +189,35 @@ export const baseDatos = () => {
         const resultadoDatos = resultadosHogwarts
           .map((character) => {
             return `<div class = "characterItem">
-          <strong>Name:</strong> ${character.name} <br>
-          <strong>Birth:</strong> ${character.birth} <br>
-          <strong>House:</strong> ${character.house} <br>
-          <strong>Associated Groups:</strong> ${character.associated_groups} <br>
-          <strong>Books featured in:</strong> ${character.books_featured_in} <br>
-           </div>`;
+             <strong>Name:</strong> ${character.name} <br>
+             <strong>Birth:</strong> ${character.birth} <br>
+             <strong>House:</strong> ${character.house} <br>
+             <strong>Associated Groups:</strong> ${character.associated_groups} <br>
+             <strong>Books featured in:</strong> ${character.books_featured_in} <br>
+              </div>`;
           })
           .join("");
         const totalResultadosCasas = document.getElementById("contenedorhouse");
         totalResultadosCasas.innerHTML = resultadoDatos;
       });
 
-      //* Buscador de personajes -> Section 04
+      //* Buscador de personahes -> Section 04
       const busquedaCasasHogwarts = document.getElementById("busquedaHouse");
       busquedaCasasHogwarts.addEventListener("input", () => {
         const CasasHogwarts = busquedaCasasHogwarts.value;
         const hallazgoHogwarts = getHouse(dataCharacter, CasasHogwarts);
         const hallazgoFinalHogwarts = hallazgoHogwarts
           .map((character) => {
-            return `<div class = "characterItem">
-          <strong>Name:</strong> ${character.name} <br>
-          <strong>Birth:</strong> ${character.birth} <br>
-          <strong>House:</strong> ${character.house} <br>
-          <strong>Associated Groups:</strong> ${character.associated_groups} <br>
-          <strong>Books featured in:</strong> ${character.books_featured_in} <br>
-           </div>`;
+            let html = '<div class="characterItem">';
+            html += `<strong>Name:</strong> ${character.name !== null ? character.name : 'No existe información'}<br>`;
+            html += `<strong>Birth:</strong> ${character.birth !== null ? character.birth : 'No existe información'}<br>`;
+            html += `<strong>House:</strong> ${character.house !== null ? character.house : 'No existe información'}<br>`;
+            html += `<strong>Associated Groups:</strong> ${character.associated_groups !== null ? character.associated_groups : 'No existe información'}<br>`;
+            html += `<strong>Books featured in:</strong> ${character.books_featured_in !== null ? character.books_featured_in : 'No existe información'}<br>`;
+            html += '</div>';
+            return html;
           })
-          .join("");
+          .join('');
         const finalcharacter = document.getElementById("contenedorhouse");
         if (hallazgoFinalHogwarts === "") {
           finalcharacter.innerHTML = `<div class="final">No se encontró información</div>`;
@@ -257,7 +225,6 @@ export const baseDatos = () => {
           finalcharacter.innerHTML = hallazgoFinalHogwarts;
         }
       });
-
       //* Utilizando sort por Descendente y Ascendente
       const orden = document.getElementById("ordenselector");
       orden.addEventListener("change", () => {
@@ -298,7 +265,7 @@ export const baseDatos = () => {
         }
       });
 
-      //? termina todo
+      //Finalizacion de porcentajes
       let circularProgress = document.querySelector(".circular-progress"),
         progressValue = document.querySelector(".progress-value");
 
@@ -310,9 +277,8 @@ export const baseDatos = () => {
         progressStartValue++;
 
         progressValue.textContent = `${progressStartValue}%`;
-        circularProgress.style.background = `conic-gradient(#7d2ae8 ${
-          progressStartValue * 3.6
-        }deg, #ededed 0deg)`;
+        circularProgress.style.background = `conic-gradient(#7d2ae8 ${progressStartValue * 3.6
+          }deg, #ededed 0deg)`;
 
         if (progressStartValue == progressEndValue) {
           clearInterval(progress);
@@ -330,9 +296,8 @@ export const baseDatos = () => {
         progressStartValue02++;
 
         progressValue02.textContent = `${progressStartValue02}%`;
-        circularProgress02.style.background = `conic-gradient(#7d2ae8 ${
-          progressStartValue02 * 3.6
-        }deg, #ededed 0deg)`;
+        circularProgress02.style.background = `conic-gradient(#7d2ae8 ${progressStartValue02 * 3.6
+          }deg, #ededed 0deg)`;
 
         if (progressStartValue02 == progressEndValue02) {
           clearInterval(progress02);
@@ -340,40 +305,36 @@ export const baseDatos = () => {
       }, speed02);
     });
 };
+/*---------
 /*--------------------------------------------------------------------------------------------------------*/
 
-/* Siguiente sección*/
 
-let botones = document.querySelectorAll(".navigation button");
+/* Siguiente sección*/
+let botones = document.querySelectorAll(".navigation button")
 botones.forEach(function (elemento) {
-  elemento.addEventListener("click", (event) => {
+  elemento.addEventListener('click', (event) => {
     let seccion = event.currentTarget.dataset.section;
     let secciones = document.getElementsByTagName("section");
 
-    if (
-      seccion === "section2" ||
-      seccion === "section3" ||
-      seccion === "section4" ||
-      seccion === "section5" ||
-      seccion === "section6"
-    ) {
+    if (seccion === 'section2' || seccion === 'section3' || seccion === 'section4' || seccion === 'section5' || seccion === 'section6') {
       /* Llamor la funcion desde data js*/
-      baseDatos();
+      baseDatos()
     }
-    if (seccion != "section1") {
+    if (seccion != 'section1') {
       // Ocultar texto de los botones
       document.querySelectorAll("button span").forEach((span) => {
-        span.style.display = "none";
-      });
+        span.style.display = 'none'
+      })
     } else {
       document.querySelectorAll("button span").forEach((span) => {
-        span.style.display = "inline";
-      });
+        span.style.display = 'inline'
+      })
     }
     for (let i = 0; i < secciones.length; i++) {
       secciones[i].style.display = "none";
     }
     document.getElementById(seccion).style.display = "flex";
+
 
     /* Hechizos*/
     const totalResultados = document.getElementById("contenedorspells");

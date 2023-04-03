@@ -26,11 +26,14 @@ export const changeInfo = (valores, resultado) => {
 // TODO: filtro por tipo de casa
 export const changeHouse = (characters, valorcasas) => {
   const resultadosHogwart = characters.filter((character) => {
-    return character.house === valorcasas;
+    if (valorcasas === "") {
+      return true;
+    } else {
+      return character.house === valorcasas;
+    }
   });
   return resultadosHogwart;
 };
-
 // TODO: buscador de personajes
 export const getHouse = (houses, valorhouse) => {
   const hallazgoCasas = houses.filter((house) => {
