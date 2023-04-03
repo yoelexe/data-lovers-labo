@@ -33,7 +33,6 @@ export const changeHouse = (characters, valorcasas) => {
   });
   return resultadosHogwart;
 };
-
 // TODO: buscador de personajes
 export const getHouse = (houses, valorhouse) => {
   const hallazgoCasas = houses.filter((house) => {
