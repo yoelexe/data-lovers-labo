@@ -75,7 +75,8 @@ El proyecto tiene como objetivo _brindar a los fanáticos de Harry Potter una ex
 🧵 Realizado por:
 
 1.  Adriana Armijos 
-      -  [LinkedIn](https://www.youtube.com/watch?v=ky6wFiF5vMk&t=344s) 
+       🧰 [LinkedIn](https://www.linkedin.com/in/adriana-armijos-721385185/) 
+     👾 [Github] (https://github.com/adrieli2307)
 2.  Karen Huamán
    
      🧰 [LinkedIn](https://www.linkedin.com/in/martihuaman/)

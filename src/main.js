@@ -146,13 +146,15 @@ export const baseDatos = () => {
         const resultados = changeInfo(dataSpells, valorFiltro);
         const resultadoDatos = resultados
           .map((spell) => {
-            return `<div class = "spellitem"> 
-          <strong>Name:</strong> ${spell.name} <br>
-          <strong>Spell type:</strong> ${spell.spell_type} <br>
-          <strong>Mention:</strong> ${spell.mention} <br>
-          <strong>Other Name:</strong> ${spell.other_name} </div>`;
+            let html = '<div class="spellitem">';
+            html += `<strong>Name:</strong> ${spell.name !== null ? spell.name : 'No existe información'}<br>`;
+            html += `<strong>Spell type:</strong> ${spell.spell_type !== null ? spell.spell_type : 'No existe información'}<br>`;
+            html += `<strong>Mention:</strong> ${spell.mention !== null ? spell.mention : 'No existe información'}<br>`;
+            html += `<strong>Other Name:</strong> ${spell.other_name !== null ? spell.other_name : 'No existe información'}`;
+            html += '</div>';
+            return html;
           })
-          .join("");
+          .join('');
         const totalResultados = document.getElementById("contenedorspells");
         totalResultados.innerHTML = resultadoDatos;
       });
@@ -188,15 +190,16 @@ export const baseDatos = () => {
         const resultadosHogwarts = changeHouse(dataCharacter, valorcasasH);
         const resultadoDatos = resultadosHogwarts
           .map((character) => {
-            return `<div class = "characterItem">
-             <strong>Name:</strong> ${character.name} <br>
-             <strong>Birth:</strong> ${character.birth} <br>
-             <strong>House:</strong> ${character.house} <br>
-             <strong>Associated Groups:</strong> ${character.associated_groups} <br>
-             <strong>Books featured in:</strong> ${character.books_featured_in} <br>
-              </div>`;
+            let html = '<div class="characterItem">';
+            html += `<strong>Name:</strong> ${character.name !== null ? character.name : 'No existe información'}<br>`;
+            html += `<strong>Birth:</strong> ${character.birth !== null ? character.birth : 'No existe información'}<br>`;
+            html += `<strong>House:</strong> ${character.house !== null ? character.house : 'No existe información'}<br>`;
+            html += `<strong>Associated Groups:</strong> ${character.associated_groups !== null ? character.associated_groups : 'No existe información'}<br>`;
+            html += `<strong>Books featured in:</strong> ${character.books_featured_in !== null ? character.books_featured_in : 'No existe información'}<br>`;
+            html += '</div>';
+            return html;
           })
-          .join("");
+          .join('');
         const totalResultadosCasas = document.getElementById("contenedorhouse");
         totalResultadosCasas.innerHTML = resultadoDatos;
       });
