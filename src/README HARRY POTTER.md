@@ -67,7 +67,6 @@ El proyecto tiene como objetivo _brindar a los fanáticos de Harry Potter una ex
 |![Mockflow](/img/mockflow.png)     |
 
 |Prototipo de alta fidelidad -> [Figma](https://www.figma.com/file/iqNb4bIsn1cE9LKmeFoqJb/data-lover-harry?node-id=0-1&t=lylvbfcNodgK1Hua-0)  |
-|----------|
 |![Figma](/img/FIGMA.png)     |
 
 ### Pruebas unitarias
@@ -86,6 +85,4 @@ El proyecto tiene como objetivo _brindar a los fanáticos de Harry Potter una ex
 
 
   
-
-
 
